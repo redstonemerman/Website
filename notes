@@ -1,0 +1,33 @@
+/* css
+    <link rel="stylesheet" href="stylesheetname.css"/>
+
+
+SELECTORS
+    selector (element, class., ID#, everything*) {
+        property1: value;
+    }
+
+    element = h1, etc
+
+    <element class = "classname1 classname2"> -- can have multiple
+
+    .classname1, .classname2 {
+        property1: value;
+    }
+
+    <element id = "idname"> -- can only have 1
+
+    #idname {
+        property1: value;
+    }
+
+    inline > ID > class > element
+
+COLORS  
+    hsl(hue 0-360, saturation 0%-100%, lightness 0%-100%)
+
+POSITIONING
+    position: static, relative, absolute, fixed, sticky;
+    top, bottom, left, right, z-index
+    translate
+    */
