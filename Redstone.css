@@ -88,6 +88,18 @@ h3{
     height: 100%;
 }
 
+.state{
+    cursor: pointer;
+}
+
+.hv, .hvs:hover .og{
+    display: none;
+}
+
+.hvs:hover .hv{
+    display: inline;
+}
+
 .placeholder{
     height: 50px;
     width: fit-content;
