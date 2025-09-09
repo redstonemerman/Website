@@ -98,12 +98,29 @@ h3{
     cursor: pointer;
 }
 
+.hvs{
+    display: grid;
+}
+
+.hv{
+    transition: opacity 100ms;
+    opacity: 0;
+}
+
+.og{
+    grid-area: 1/1;
+    z-index: 1;
+}
+
 .hv, .hvs:hover .og{
-    display: none;
+    grid-area: 1/1;
+    z-index: 0;
 }
 
 .hvs:hover .hv{
-    display: inline;
+    grid-area: 1/1;
+    z-index: 1;
+    opacity: 1;
 }
 
 .placeholder{
@@ -113,8 +130,7 @@ h3{
 }
 
 .montages{
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding: 25px;
     display: flex;
     background-image: url("Banner.png");
     background-repeat: no-repeat;
@@ -132,7 +148,7 @@ h3{
     align-items: center;
     width: fit-content;
     max-width: 100%;
-    height: fit-content;
+    height: 100%;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
     grid-gap: 25px;
@@ -140,13 +156,29 @@ h3{
 }
 
 .montbox{
+    display: grid;
     border-style: solid;
     border-width: 5px;
     border-color: white;
+    max-width: 450px;
 }
 
-.montn{
+.ytvid{
+    opacity: 0;
+}
+
+.ytvid, .montbox:hover .montn{
+    z-index: 0;
+}
+
+.montn, .montbox:hover .ytvid{
+    z-index: 1;
+    opacity: 1;
+}
+
+.montn, .ytvid{
+    aspect-ratio: 16 / 9;
     width: 100%;
-    max-width: 450px;
-    height: auto;
+    grid-area: 1/1;
+    transition: opacity 250ms;
 }
