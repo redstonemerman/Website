@@ -25,15 +25,16 @@ h3{
     display: flex;
     position: relative;
     justify-content: center;
+    height: 900px;
 }
 
 .vidbox{
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: 8B0000;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     overflow: hidden;
     z-index: -1;
 }
@@ -54,14 +55,19 @@ h3{
     grid-template-columns: auto min-content auto;
     grid-template-rows: auto auto auto;
     grid-column-gap: 18px;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
 }
 
 .selfcentered, .toptitle{
+    display: flex;
     justify-self: center;
 }
 
 .rightcentered{
-    justify-self: right;
+    display: flex;
+    justify-self: flex-end;
 }
 
 .toptitle{
@@ -79,7 +85,7 @@ h3{
     grid-column: 1/-1;
     grid-row: 3;    
     max-width: 100vw;
-    max-height: 80vh;
+    max-height: 730px;
     justify-self: center;
 }
 
@@ -107,7 +113,40 @@ h3{
 }
 
 .montages{
-    height: 1000px;
-    background-color: blue;
-    z-index: 1;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    background-image: url("Banner.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.montagebox{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    grid-gap: 25px;
+    overflow: hidden;
+}
+
+.montbox{
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+}
+
+.montn{
+    width: 100%;
+    max-width: 450px;
+    height: auto;
 }
