@@ -196,12 +196,13 @@ h3{
 }
 
 .colorbox{
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     grid-area: 1/1;
     z-index: 0;
     border-radius: 25px;
-    border: 2px solid black;
+    border: 1.5px solid black;
+    box-shadow: inset 0px -5px 10px 0px rgba(0, 0, 0, 0.8);
 }
 
 .menubox{
@@ -216,10 +217,11 @@ h3{
     font-size: 15;
     white-space: nowrap;
     font-family: Verdana, Geneva, sans-serif;
-    border: 2px;
+    border: 1.5px;
 }
 
 .menutext{
+    position: relative;
     color: white;
     border-style: solid;
     border-color: rgba(255, 0, 0, 0);
@@ -229,7 +231,7 @@ h3{
 }
 
 .menutext:hover{
-    border: 2px solid red;
+    border: 1.5px solid red;
 }
 
 .menuon{
@@ -240,4 +242,59 @@ h3{
 .menuon, .menutext:hover{
     color: red;
     border-radius: 25px;
+}
+
+.home:hover, .hmenu:hover > .home, .cmenu:hover > .college, .tmenu:hover > .travel{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.home, .college, .travel{
+    position: absolute;
+    left: 50%;
+    height: 100px;
+    opacity: 0;
+    transition: opacity 200ms;
+    pointer-events: none;
+}
+
+.home, .travel{
+    transform: translate(-50%, -122px);
+}
+
+.college{
+    transform: translate(-50%, -169px);
+    height: 150px;    
+}
+
+.homegrid, .collegegrid, .travelgrid{
+    display: grid;
+    justify-items: center;
+    row-gap: 5px;
+}
+
+.homegrid{
+    grid-template-rows: auto auto;
+}
+
+.collegegrid{
+    grid-template-rows: auto auto auto;
+}
+
+.travelgrid{
+    grid-template-rows: auto auto auto;
+}
+
+.menuitem{
+    color: white;
+    padding: 10px;
+    border: solid 1.5px black;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 250ms;
+}
+
+.menuitem:hover{
+    color: red;
+    border: solid 1.5px red;
 }
