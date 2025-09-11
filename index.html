@@ -64,7 +64,7 @@
                         </g>
                         <g class="hvs">
                             <image style="transform: rotate(-18.3deg);" class="state og" href="MAP/CA.png" height="555px" x="-103" y="392"/>
-                            <image style="transform: rotate(-18.3deg);" class="state hv" href="MAP/CA - H.png" height="555px" x="-103" y="392"/>
+                            <image id="ca" style="transform: rotate(-18.3deg);" class="state hv" href="MAP/CA - H.png" height="555px" x="-103" y="392"/>
                         </g>                        
                     </svg>
                 </div>
@@ -76,59 +76,86 @@
             height="2160"
             viewBox="0 0 2255 2160">
                 <image href="MAP/TX blank5.png"/>
-                <image class="texas1" href="MAP/TX map.png"/>
                 <g class="city" transform="translate(1500,1055)">
                     <image href="Location.png" height="50px" x="77" y="8"/>
-                    <text font-size="42px">TEMPLE</text>
+                    <text class="citytext" font-size="42px">TEMPLE</text>
                     <rect width="185" height="95" y="-35" fill="transparent"/>
                 </g>
                 <g class="city" transform="translate(1561,952)">
                     <image href="Location.png" height="50px" x="54" y="8"/>
-                    <text font-size="42px">WACO</text>
+                    <text class="citytext" font-size="42px">WACO</text>
                     <rect width="140" height="95" y="-35" fill="transparent"/>
                 </g>
                 <g class="city" transform="translate(1561,1158)">
                     <image href="Location.png" height="50px" x="191" y="8"/>
-                    <text font-size="42px">COLLEGE STATION</text>
+                    <text class="citytext" font-size="42px">COLLEGE STATION</text>
                     <rect width="410" height="95" y="-35" fill="transparent"/>
                 </g>
                 <g class="city" transform="translate(1816,1275)">
                     <image href="Location.png" height="50px" x="92" y="8"/>
-                    <text font-size="42px">HOUSTON</text>
+                    <text class="citytext" font-size="42px">HOUSTON</text>
                     <rect width="215" height="95" y="-35" fill="transparent"/>
                 </g>
                 <g class="city" transform="translate(2025,1320)">
                     <image href="Location.png" height="50px" x="138" y="8"/>
-                    <text font-size="42px">SABINE PASS</text>
+                    <text class="citytext" font-size="42px">SABINE PASS</text>
                     <rect width="307" height="95" y="-35" fill="transparent"/>
                 </g>
                 <g class="city" transform="translate(1905,1370)">
                     <image href="Location.png" height="50px" x="75" y="8"/>
-                    <text font-size="42px">KEMAH</text>
+                    <text class="citytext" font-size="42px">KEMAH</text>
                     <rect width="172" height="95" y="-35" fill="transparent"/>
                 </g>
                 <g class="city" transform="translate(1590,715)">
                     <image href="Location.png" height="50px" x="35" y="8"/>
-                    <text font-size="42px">DFW</text>
+                    <text class="citytext" font-size="42px">DFW</text>
                     <rect width="100" height="95" y="-35" fill="transparent"/>
                 </g>
                 <g class="city" transform="translate(1402,825)">
                     <image href="Location.png" height="50px" x="110" y="8"/>
-                    <text font-size="42px">GLEN ROSE</text>
+                    <text class="citytext" font-size="42px">GLEN ROSE</text>
                     <rect width="255" height="95" y="-35" fill="transparent"/>
                 </g>
                 <g class="city" transform="translate(1250,1388)">
                     <image href="Location.png" height="50px" x="140" y="8"/>
-                    <text font-size="42px">SAN ANTONIO</text>
+                    <text class="citytext" font-size="42px">SAN ANTONIO</text>
                     <rect width="318" height="95" y="-35" fill="transparent"/>
                 </g>
                 <g class="city" transform="translate(1440,1225)">
                     <image href="Location.png" height="50px" x="70" y="8"/>
-                    <text font-size="42px">AUSTIN</text>
+                    <text class="citytext" font-size="42px">AUSTIN</text>
                     <rect width="172" height="95" y="-35" fill="transparent"/>
+                </g>
+                <g class="city" transform="translate(1357,1730)">
+                    <image href="Location.png" height="50px" x="245" y="8"/>
+                    <text class="citytext" font-size="42px">NORTH PADRE ISLAND</text>
+                    <rect width="519" height="95" y="-35" fill="transparent"/>
+                </g>
+                <g class="x">
+                    <path d="M 2240, 580 L 2180 520"/>
+                    <path d="M 2240, 520 L 2180 580"/>
+                    <rect width="60" height="60" x="2180" y="520" fill="transparent" stroke="transparent"/>
                 </g>
             </svg>
         </div>
+        <div id="calibox" class="statebox">
+            <svg class="cali"
+            width="2255"
+            height="2160"
+            viewBox="0 0 2255 2160">
+                <image href="MAP/TX blank5.png"/>
+                <g class="city" transform="translate(1500,1055)">
+                    <image href="Location.png" height="50px" x="77" y="8"/>
+                    <text class="citytext" font-size="42px">TEMPLE</text>
+                    <rect width="185" height="95" y="-35" fill="transparent"/>
+                </g>
+                <g class="x">
+                    <path d="M 2240, 580 L 2180 520"/>
+                    <path d="M 2240, 520 L 2180 580"/>
+                    <rect width="60" height="60" x="2180" y="520" fill="transparent" stroke="transparent"/>
+                </g>
+            </svg>
+        </div>        
         <div class="montages">
             <div class="bannerbox"><img class="banner" src="Banner.png" alt="banner"></div>
             <div class="montagebox">
@@ -163,6 +190,15 @@
                 <div class="colorbox"></div>
                 <div class="menubox">
                     <div class="menuon">Main Page</div>
+                    <div class="menutext tmenu">
+                        <div>Travel Vlogs</div>
+                        <div class="travel">
+                            <div class="travelgrid">
+                            <div class="menuitem">Work</div>
+                            <div class="menuitem">Personal</div>
+                        </div>
+                        </div>
+                    </div>                    
                     <div class="menutext hmenu">
                         <div>Home Vlogs</div>
                         <div class="home">
@@ -180,15 +216,6 @@
                                 <div class="menuitem">Football</div>
                                 <div class="menuitem">Basketball</div>
                             </div>                            
-                        </div>
-                    </div>
-                    <div class="menutext tmenu">
-                        <div>Travel Vlogs</div>
-                        <div class="travel">
-                            <div class="travelgrid">
-                            <div class="menuitem">Work</div>
-                            <div class="menuitem">Personal</div>
-                        </div>
                         </div>
                     </div>
                 </div>
