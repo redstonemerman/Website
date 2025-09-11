@@ -3,7 +3,8 @@ document.querySelector('.bgvid').playbackRate = 0.5;
 const texas = document.querySelector('#texasbox');
 const cali = document.querySelector('#calibox');
 const ca = document.querySelector('#ca');
-const x = document.querySelector('.x');
+const x = document.querySelectorAll('.x');
+
 const states = [texas, cali];
 
 const openTexas = () => {
@@ -15,8 +16,7 @@ const openCali = () => {
 };
 
 const closeState = () => {
-    texas.classList.remove('active');
-    cali.classList.remove('active');
+    states.forEach(states => states.classList.remove('active'));
 };
 
 document.addEventListener('keydown', (e) => {
@@ -31,4 +31,4 @@ tx.addEventListener('touchstart', openTexas);
 ca.addEventListener('click', openCali);
 ca.addEventListener('touchstart', openCali);
 
-x.addEventListener('click',closeState);
+x.forEach(x => x.addEventListener('click',closeState));
