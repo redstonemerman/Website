@@ -122,36 +122,72 @@ h3{
     opacity: 1;
 }
 
-.placeholder{
-    height: 50px;
-    width: fit-content;
-    background-color: yellow;
-}
-
-.montages{
-    padding: 25px;
+.statebox{
     display: flex;
-    background-image: url("Banner.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;    
+    background-color: rgba(0, 0, 0, .75);
+    z-index: 10;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transition: opacity 200ms;
+}
+
+.statebox.active{
+    opacity: 100;
+    pointer-events: all;
+}
+
+.texas{
+    display: flex;
+    transform: translate(-25px);
+    max-width: 90%;
+    max-height: 90%;
     height: auto;
 }
 
-.montagebox{
+.montages{
     display: grid;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
-    width: fit-content;
+    height: auto;
+    background-color: black;
+}
+
+.bannerbox{
+    display: flex;
+    height: 100%;
+    grid-area: 1/1;
+    z-index: 0;
+    opacity: 100%;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.banner{
+    height: 100%;
+}
+
+.montagebox{
+    box-sizing: border-box;
+    padding: 25px;
+    grid-area: 1/1;
+    z-index: 1;
+    display: grid;
+    align-items: center;
+    justify-self: center;
     max-width: 100%;
     height: 100%;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
     grid-gap: 25px;
-    overflow: hidden;
 }
 
 .montbox{
@@ -237,10 +273,12 @@ h3{
 .menuon{
     border: solid rgba(0, 0, 0, 0);
     cursor: pointer;
+    color: red;
+    border-radius: 25px;
 }
 
-.menuon, .menutext:hover{
-    color: red;
+.menutext:hover{
+    color: rgb(255, 255, 255);
     border-radius: 25px;
 }
 

@@ -2,6 +2,7 @@
     <head>
         <title>Redstone Merman</title>
         <link rel="stylesheet" href="Redstone.css">
+        <script src="redscript.js" async></script>
     </head>
 
     <body>
@@ -47,7 +48,7 @@
                         </g>
                         <g class="hvs">
                             <image class="state og" href="MAP/TX.png" height="490px" x="676px" y="785"/>
-                            <image class="state hv" href="MAP/TX - H.png" height="490px" x="676px" y="785"/>                            
+                            <image id="tx" class="state hv" href="MAP/TX - H.png" height="490px" x="676px" y="785"/>                            
                         </g>
                         <g class="hvs">
                             <image class="state og" href="MAP/DC.png" height="50px" x="1705" y="570"/>
@@ -69,7 +70,11 @@
                 </div>
             </div>
         </div>
+        <div id="texasbox" class="statebox">
+            <img class="texas" src="MAP/TX blank5.png" alt="Texas">
+        </div>
         <div class="montages">
+            <div class="bannerbox"><img class="banner" src="Banner.png" alt="banner"></div>
             <div class="montagebox">
                 <div class="montbox">
                     <img class="montn" src="TNS/Montage1.webp" alt="Montage1">
