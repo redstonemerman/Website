@@ -91,18 +91,41 @@ h3{
     font-size: clamp(0px, 6vw, 72px);
 }
 
-.rightcentered{
-    justify-self: end;
-}
-
 .toptitle{
     grid-column: 1/-1;
 }
 
-.logo{
+.logobox{
+    display: grid;
+    width: fit-content;
+}
+
+.logo, .hlogo{
     display: flex;
     height: clamp(0px, 8vw, 80px);
     width: auto;
+    grid-area: 1/1;
+    transition: opacity 200ms, transform 200ms;
+    cursor: pointer;
+}
+
+.hlogo{
+    opacity: 0%;
+}
+
+.logobox:hover .logo{
+    z-index: -1;
+    opacity: 0%;
+}
+
+.logobox:hover .hlogo{
+    z-index: 1;
+    opacity: 100%;
+    transform: scale(1.06);
+}
+
+.rightcentered{
+  margin-left: auto;
 }
 
 /* MAP */
