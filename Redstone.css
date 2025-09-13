@@ -14,6 +14,31 @@ body{
     src: url(Fonts/California\ by\ Dirt2.otf);
 }
 
+@font-face {
+    font-family: 'Merica';
+    src: url(Fonts/Merica.ttf);
+}
+
+@font-face {
+    font-family: 'Spanish';
+    src: url(Fonts/Spanish\ Round\ Bookhand\,\ 16th\ c.TTF);
+}
+
+@font-face {
+    font-family: 'Merica';
+    src: url(Fonts/Merica.ttf);
+}
+
+@font-face {
+    font-family: 'ArabN';
+    src: url(Fonts/ArabianNight-CommercialUsed.otf);
+}
+
+@font-face {
+    font-family: 'ArabM';
+    src: url(Fonts/Arabic\ Magic.ttf);
+}
+
 @keyframes bgscroll{
     from{
         transform: translateY(calc(-1 * var(--scroll) / 15));
@@ -22,8 +47,6 @@ body{
         transform: translateY(0);
     }
 }
-
-/* TEXT 968  60 var(--scroll)*/
 
 h1{
     margin: 0px; 
@@ -48,6 +71,7 @@ h3{
     position: relative;
     justify-content: center;
     height: min-content;
+    overflow: hidden;
 }
 
 .vidbox{
@@ -73,7 +97,7 @@ h3{
     grid-template-columns: auto min-content auto;
     grid-template-rows: min-content min-content min-content;
     grid-column-gap: 1vw;
-    overflow: hidden;
+    overflow: visible;
     max-width: 100%;
 }
 
@@ -131,25 +155,104 @@ h3{
 /* MAP */
 
 .svgbox{
+    display: grid;    
+    position: relative;
     align-self: top;
     grid-column: 1/-1;
-    grid-row: 3;    
+    grid-row: 3;
     max-width: 100vw;
-    max-height: 680px;
-    margin-bottom: 70px;
+    max-height: 670px;
+    margin: 0px 10px 70px;
 }
 
-.svgsmall{
-    max-width: 100%;
+#usa{
+    justify-self: center;
+    grid-area: 1/1;
+    opacity: 0%;
+    pointer-events: none;
+    transition: transform 500ms linear, opacity 500ms;
+    width: 100%;
     height: 100%;
 }
 
-.state{
+#world{
+    position: relative;    
+    justify-self: center;
+    grid-area: 1/1;
+    opacity: 0%;
+    pointer-events: none;
+    transition: transform 500ms linear, opacity 500ms;    
+    width: 100%;
+    height: 100%;
+}
+
+.globe{
+    position: absolute;
+}
+
+.ctry{
+    fill: black;
+    transition: 100ms;
+}
+.ctry:hover{
+    fill: white;
+}
+
+.ctry rect{
+    fill: white;
+    transition: 100ms;
+}
+
+.ctry:hover rect{
+    fill: black;
+}
+
+#globecut, #circle{
+    border-style: solid;
+}
+
+#world.active, #usa.active{
+    opacity: 100%;
+    pointer-events: all;
+    transform: scale(1);
+}
+
+#usab, #worldb, .state, .ctry{
     cursor: pointer;
 }
 
-.hvs{
-    display: grid;
+#usab{
+    font-family: 'Merica';
+}
+
+#spainb{
+    font-family: 'Spanish';
+}
+
+#saudib, #bahrainb{
+    font-family: 'ArabN';
+}
+
+#bahrainb{
+    letter-spacing: 3px;
+}
+
+#luciab{
+    font-family: 'Merica';
+}
+
+.chv{
+    transition: opacity 100ms;
+    opacity: 0;
+}
+
+.ctry:hover .cog{
+    transition: opacity 500ms;
+    opacity: 0;
+}
+
+.ctry:hover .chv, .cog{
+    opacity: 1;
 }
 
 .hv{
@@ -157,19 +260,12 @@ h3{
     opacity: 0;
 }
 
-.og{
-    grid-area: 1/1;
-    z-index: 1;
+.hvs:hover .og{
+    transition: opacity 500ms;
+    opacity: 0;
 }
 
-.hv, .hvs:hover .og{
-    grid-area: 1/1;
-    z-index: 0;
-}
-
-.hvs:hover .hv{
-    grid-area: 1/1;
-    z-index: 1;
+.hvs:hover .hv, .og{
     opacity: 1;
 }
 

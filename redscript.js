@@ -1,37 +1,50 @@
+// VIDEO 0.5
 document.querySelector('.bgvid').playbackRate = 0.5;
+
 // CONSTANTS
+const world = document.querySelector('#world');
+const usa = document.querySelector('#usa');
+const usab = document.querySelector('#usab');
+const worldb = document.querySelector('#worldb');
 const texas = document.querySelector('#texasbox');
 const cali = document.querySelector('#calibox');
 const ca = document.querySelector('#ca');
 const x = document.querySelectorAll('.x');
 const states = [texas, cali];
 
-// OPEN/CLOSE STATE LIGHTBOXES
-const openTexas = () => {
-    texas.classList.add('active')
-};
+// SWITCH BETWEEN WORLD/USA
+const openMap = (mapon, mapoff) => {
+  mapon.classList.add('active')
+  mapoff.classList.remove('active')
+}
 
-const openCali = () => {
-    cali.classList.add('active')
-};
+usab.addEventListener('click', () => openMap(usa, world));
+usab.addEventListener('touchstart', () => openMap(usa, world));
+worldb.addEventListener('click', () => openMap(world, usa));
+worldb.addEventListener('touchstart', () => openMap(world, usa));
 
+// OPEN STATE LIGHTBOXES
+const openState = (state) => {
+  state.classList.add('active')
+}
+
+tx.addEventListener('click', () => openState(texas));
+tx.addEventListener('touchstart', () => openState(texas));
+ca.addEventListener('click', () => openState(cali));
+ca.addEventListener('touchstart', () => openState(cali));
+
+// CLOSE STATE LIGHTBOXES
 const closeState = () => {
-    states.forEach(states => states.classList.remove('active'));
+  states.forEach(states => states.classList.remove('active'));
 };
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape'){
-    states.forEach(states => states.classList.remove('active'));
-    }
-});
-// CLICK LISTENERS TO OPEN STATE LIGHTBOXES
-tx.addEventListener('click', openTexas);
-tx.addEventListener('touchstart', openTexas);
-
-ca.addEventListener('click', openCali);
-ca.addEventListener('touchstart', openCali);
 
 x.forEach(x => x.addEventListener('click',closeState));
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape'){
+  states.forEach(states => states.classList.remove('active'));
+  }
+});
 
 // CALCULATE SCROLLING DISTANCE
 function updateScrollVariable() {
