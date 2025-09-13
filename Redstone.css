@@ -25,11 +25,6 @@ body{
 }
 
 @font-face {
-    font-family: 'Merica';
-    src: url(Fonts/Merica.ttf);
-}
-
-@font-face {
     font-family: 'ArabN';
     src: url(Fonts/ArabianNight-CommercialUsed.otf);
 }
@@ -37,6 +32,11 @@ body{
 @font-face {
     font-family: 'ArabM';
     src: url(Fonts/Arabic\ Magic.ttf);
+}
+
+@font-face {
+    font-family: 'Island';
+    src: url(Fonts/CARIB___.otf);
 }
 
 @keyframes bgscroll{
@@ -244,7 +244,7 @@ h3{
 }
 
 #luciab{
-    font-family: 'Merica';
+    font-family: 'Island';
 }
 
 .chv{
