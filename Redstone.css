@@ -48,6 +48,12 @@ body{
     }
 }
 
+@keyframes globespin{
+    to{
+        transform: translateX(152.245px);
+    }
+}
+
 h1{
     margin: 0px; 
     font-family: Consolas, monaco, monospace;
@@ -267,6 +273,26 @@ h3{
 
 .hvs:hover .hv, .og{
     opacity: 1;
+}
+
+#globestroke{
+    stroke: black;
+    stroke-width: 5px;
+    transition: stroke 500ms;
+}
+
+#worldb:hover #globestroke{
+    stroke: white;
+    stroke-width: 5px;
+}
+
+#worldb image{
+    pointer-events: none;
+}
+
+#worldb:hover image{
+    animation: globespin 1500ms linear;
+    animation-iteration-count: infinite;
 }
 
 /* STATE POPUPS */

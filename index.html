@@ -29,33 +29,33 @@
                 <!-- WORLD MAP -->
                     <svg id="world" class="active" width="3000" height="1440" viewBox="0 0 3000 1440">
                         <g class="globe">
-                            <image class="worldmap" href="MAP/WorldBlank.png" x="0" y="0" opacity="75%"/>
+                            <image class="worldmap" href="MAP/WorldBlank.png" x="0" y="50" opacity="75%"/>
                             <g id="usab" class="ctry">
-                                <image class="cog" href="MAP/Countries/USA-48.png" x="443" y="489"/>
-                                <image class="chv" href="MAP/Countries/USA-48-h.png" x="443" y="489"/>
-                                <image class="cog" href="MAP/Countries/USA-AK.png" x="12" y="217"/>
-                                <image class="chv" href="MAP/Countries/USA-AK-h.png" x="12" y="217"/>
-                                <image class="cog" href="MAP/Countries/USA-HI.png" x="157" y="740"/>
-                                <image class="chv" href="MAP/Countries/USA-HI-h.png" x="157" y="740"/>
-                                <g transform="translate(522,590)">
+                                <image class="cog" href="MAP/Countries/USA-48.png" x="443" y="539"/>
+                                <image class="chv" href="MAP/Countries/USA-48-h.png" x="443" y="539"/>
+                                <image class="cog" href="MAP/Countries/USA-AK.png" x="12" y="267"/>
+                                <image class="chv" href="MAP/Countries/USA-AK-h.png" x="12" y="267"/>
+                                <image class="cog" href="MAP/Countries/USA-HI.png" x="157" y="790"/>
+                                <image class="chv" href="MAP/Countries/USA-HI-h.png" x="157" y="790"/>
+                                <g transform="translate(522,640)">
                                     <rect width="287" height="34" x="-3" y="-31" rx="10" ry="10" opacity="70%"/>
                                     <image href="Location.png" height="50px" x="129" y="8"/>
                                     <text class="ctrytxt" font-size="30px">United States</text>
                                 </g>
                             </g>
                             <g id="spainb" class="ctry">
-                                <image class="cog" href="MAP/Countries/SPAIN.png" x="1377" y="544"/>
-                                <image class="chv" href="MAP/Countries/SPAIN-h.png" x="1377" y="544"/>
-                                <image class="cog" href="MAP/Countries/SPAIN-I.png" x="1304" y="678"/>
-                                <image class="chv" href="MAP/Countries/SPAIN-I-h.png" x="1304" y="678"/>
-                                <g transform="translate(1373,530)">
+                                <image class="cog" href="MAP/Countries/SPAIN.png" x="1377" y="594"/>
+                                <image class="chv" href="MAP/Countries/SPAIN-h.png" x="1377" y="594"/>
+                                <image class="cog" href="MAP/Countries/SPAIN-I.png" x="1304" y="728"/>
+                                <image class="chv" href="MAP/Countries/SPAIN-I-h.png" x="1304" y="728"/>
+                                <g transform="translate(1373,580)">
                                     <rect width="108" height="34" x="-1" y="-32" rx="10" ry="10" opacity="70%"/>
                                     <rect width="108" height="94" x="-1" y="-32" rx="10" ry="10" opacity="0%"/>
                                     <image href="Location.png" height="50px" x="40" y="8"/>
                                     <text class="ctrytxt" font-size="30px">SPAIN</text>
                                 </g>
                             </g>
-                            <g id="saudib" class="ctry" style="transform: translate(1717px, 686px);">
+                            <g id="saudib" class="ctry" style="transform: translate(1717px, 736px);">
                                 <image class="cog" href="MAP/Countries/SAUDI.png" x="0" y="0" style="transform: rotate(-36deg)"/>
                                 <image class="chv" href="MAP/Countries/SAUDI-h.png" x="0" y="0" style="transform: rotate(-36deg)"/>
                                 <g transform="translate(-34,-40)">
@@ -66,9 +66,9 @@
                                 </g>
                             </g>
                             <g id="bahrainb" class="ctry">
-                                <image class="cog" href="MAP/Countries/BAHRAIN.png" x="1858" y="703"/>
-                                <image class="chv" href="MAP/Countries/BAHRAIN-h.png" x="1858" y="703"/>
-                                <g transform="translate(1794,660)">
+                                <image class="cog" href="MAP/Countries/BAHRAIN.png" x="1858" y="753"/>
+                                <image class="chv" href="MAP/Countries/BAHRAIN-h.png" x="1858" y="73"/>
+                                <g transform="translate(1794,710)">
                                     <rect width="146" height="34" x="-4" y="60" rx="10" ry="10" opacity="70%"/>
                                     <rect width="93" height="88" x="50" y="5" rx="10" ry="10" opacity="0%"/>
                                     <image href="Location.png" height="50px" x="54" y="8"/>
@@ -120,11 +120,19 @@
                             <image style="transform: rotate(-18.3deg);" class="state og" href="MAP/States/CA.png" height="555px" x="-103" y="392"/>
                             <image id="ca" style="transform: rotate(-18.3deg);" class="state hv" href="MAP/States/CA - H.png" height="555px" x="-103" y="392"/>
                         </g>
-                        <g id="worldb" transform="translate(435,420)">
-                            <image href="Location.png" height="50px" x="77" y="8"/>
-                            <text font-size="42px">USA</text>
-                            <rect width="185" height="95" y="-35" fill="transparent"/>
-                        </g>                                              
+                        <defs>
+                            <mask id="globemask">
+                                <rect width="100%" height="100%" fill="black"/>
+                                <circle cx="2000" cy="1350" r="50" fill="white"/>
+                            </mask>
+                        </defs>
+                        <g id="worldb">
+                            <g mask="url(#globemask)">
+                                <image href="MAP/globemap.png" height="100px" x="1940" y="1300"/>
+                                <image href="MAP/globemap.png" height="100px" x="1787.755" y="1300"/>
+                                <circle id="globestroke" cx="2000" cy="1350" r="50" fill="none"/>
+                            </g>
+                        </g>
                     </svg>
                 </div>
             </div>
