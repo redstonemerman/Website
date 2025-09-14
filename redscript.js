@@ -19,9 +19,9 @@ const openMap = (mapon, mapoff) => {
 }
 
 usab.addEventListener('click', () => openMap(usa, world));
-usab.addEventListener('touchstart', () => openMap(usa, world));
+// usab.addEventListener('touchstart', () => openMap(usa, world));
 worldb.addEventListener('click', () => openMap(world, usa));
-worldb.addEventListener('touchstart', () => openMap(world, usa));
+// worldb.addEventListener('touchstart', () => openMap(world, usa));
 
 // OPEN STATE LIGHTBOXES
 const openState = (state) => {
@@ -29,9 +29,9 @@ const openState = (state) => {
 }
 
 tx.addEventListener('click', () => openState(texas));
-tx.addEventListener('touchstart', () => openState(texas));
+// tx.addEventListener('touchstart', () => openState(texas));
 ca.addEventListener('click', () => openState(cali));
-ca.addEventListener('touchstart', () => openState(cali));
+// ca.addEventListener('touchstart', () => openState(cali));
 
 // CLOSE STATE LIGHTBOXES
 const closeState = () => {
