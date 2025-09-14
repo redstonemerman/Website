@@ -299,6 +299,23 @@ h3{
     animation-iteration-count: infinite;
 }
 
+#globetxt{
+    font-family: Verdana, Geneva, sans-serif;
+    fill: white;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0%;
+    transform: translateY(2%);
+    transition: opacity 100ms, transform 500ms;
+    pointer-events: none;
+}
+
+#worldb:hover #globetxt{
+    opacity: 100%;
+    transform: translateY(0%);
+    transition: opacity 500ms, transform 500ms;
+}
+
 /* STATE POPUPS */
 
 .statebox{

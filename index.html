@@ -27,7 +27,7 @@
             <!-- MAPS -->
                 <div class="svgbox">
                 <!-- WORLD MAP -->
-                    <svg id="world" width="3000" height="1440" viewBox="0 0 3000 1440">
+                    <svg id="world" class="active" width="3000" height="1440" viewBox="0 0 3000 1440">
                         <g class="globe">
                             <image class="worldmap" href="MAP/WorldBlank.png" x="0" y="50" opacity="75%"/>
                             <g id="usab" class="ctry">
@@ -88,7 +88,7 @@
                         </g>
                     </svg>
                 <!-- USA MAP -->
-                    <svg id="usa" class="active" width="2160" height="1440" viewBox="0 0 2160 1440">
+                    <svg id="usa" width="2160" height="1440" viewBox="0 0 2160 1440">
                         <image href="MAP/Map.png" x="0" y="0"/>
                         <g class="hvs">
                             <image style="transform: rotate(10.4deg);" class="state og" href="MAP/States/WA.png"
@@ -281,6 +281,7 @@
                             </mask>
                         </defs>
                         <g id="worldb">
+                            <text id="globetxt" x="1945" y="1290">World Map</text>
                             <g mask="url(#globemask)">
                                 <image href="MAP/globemap.png" height="100px" x="1940" y="1300"/>
                                 <image href="MAP/globemap.png" height="100px" x="1787.755" y="1300"/>
