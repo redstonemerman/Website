@@ -617,7 +617,7 @@ h3{
     z-index: 1;
 }
 
-.menutext, .menutext:hover, .menuon{
+.menutext, .menutext:hover, .main{
     padding: 10px;
     font-size: 15;
     white-space: nowrap;
@@ -633,22 +633,18 @@ h3{
     border-radius: 10px;
     transition: 200ms;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .menutext:hover{
     border: 1.5px solid red;
-}
-
-.menuon{
-    border: solid rgba(0, 0, 0, 0);
-    cursor: pointer;
-    color: red;
-    border-radius: 25px;
-}
-
-.menutext:hover{
     color: rgb(255, 255, 255);
     border-radius: 25px;
+}
+
+.main, .menuon{
+    cursor: pointer;
+    color: red;
 }
 
 .home:hover, .hmenu:hover > .home, .cmenu:hover > .college, .tmenu:hover > .travel{
@@ -692,13 +688,21 @@ h3{
     grid-template-rows: auto auto auto;
 }
 
-.menuitem{
-    color: white;
+.menuitem, .menuitemon{
     padding: 10px;
     border: solid 1.5px black;
     border-radius: 25px;
     background-color: rgba(0, 0, 0, 0.5);
     transition: 250ms;
+    text-decoration: none;
+}
+
+.menuitem{
+    color: white;
+}
+
+.menuitemon{
+    color: red;
 }
 
 .menuitem:hover{
