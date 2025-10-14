@@ -4,6 +4,11 @@ body{
     margin: 0px;
 }
 
+.line{
+    stroke: rgb(0, 255, 0);
+    stroke-width: 1.5;
+}
+
 @font-face {
     font-family: 'Kelly';
     src: url(Fonts/KellySlab-Regular.ttf);
@@ -266,7 +271,7 @@ h3{
     opacity: 1;
 }
 
-.state{
+.state, .cog, .chv{
     pointer-events: none;
 }
 
@@ -394,6 +399,7 @@ h3{
     z-index: 1;
     overflow: hidden;
     justify-items: center;
+    cursor: pointer;
 }
 
 .cityvlog1{
@@ -645,6 +651,7 @@ h3{
 .main, .menuon{
     cursor: pointer;
     color: red;
+    text-decoration: none;
 }
 
 .home:hover, .hmenu:hover > .home, .cmenu:hover > .college, .tmenu:hover > .travel{
