@@ -731,28 +731,27 @@ h1, h2, h3{
 
 /* Vlog Pages */
 .vlogtitle{
-    display: grid;
-    justify-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .vtitle{
     z-index: 1;
 }
 
-.vlogbg{
-    position: fixed;
-    display: flex;
-    min-height: 100%;
-    min-width: 100%;
-    opacity: 60%;
-    z-index: -1;
+.ajbg{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('BGs/A&J.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .vloglist{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: calc(100vh - 225px);
+    margin-top: calc(100vh - 160px);
     margin-bottom: 70px;
     flex-direction: column;
 }
