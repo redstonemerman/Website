@@ -90,7 +90,6 @@ h2{
     margin-top: 25px;
     position: relative;
     color: white;
-    text-align: center;
 }
 
 h3{
@@ -729,87 +728,6 @@ h1, h2, h3{
 }
 
 /* Vlog Pages */
-.ajbg{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('BGs/A&J.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.vloglist{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: calc(100vh - 160px);
-    margin-bottom: 70px;
-    flex-direction: column;
-}
-
-.vlogborder{
-    width: 750px;
-    height: 225px;
-    border: 5px black solid;
-    margin: 25px;
-}
-
-.vlogitem{
-    display: grid;
-    width: 725px;
-    height: 225px;
-    backdrop-filter: blur(15px);
-    color: white;
-    transform: translateX(25px);
-}
-
-.vlogdate{
-    position: absolute;
-    transform: translate(calc(-100% - 35px), -5px);
-    text-align: right;
-    font-family: 'Digital';
-    font-size: 20px;
-}
-
-.vlogyear{
-    font-size: 50px;
-}
-
-.vlogplace{
-    position: absolute;
-    transform: translate(-25px, 225px) rotate(-90deg);
-    transform-origin: left top;
-    background-color: rgba(0, 255, 255, 0.3);
-    width: 225px;
-    height: 25px;
-    line-height: 25px;
-    text-align: center;
-    font-family: 'Place';
-}
-
-.vlogbox{
-    display: flex;
-    justify-content: space-between;
-    width: 685px;
-    height: 185px;
-    transform: translate(20px, 20px);
-    font-family: 'Kelly';
-    font-size: 29px;
-}
-
-
-
-.vboxtext{
-    grid-area: 1/1;
-    z-index: -1;
-    transition: transform 400ms;
-    font-size: 20px;
-}
-
-.vlogitem:hover .vboxtext{
-    transform: translateX(-360px);
-}
-
-/* NEW STUFF */
 
 .vbg{
     position: fixed;
@@ -821,6 +739,11 @@ h1, h2, h3{
     transform: translate(-50%, -50%);
     opacity: 60%;
     z-index: -1;
+}
+
+.vtitle{
+    display: flex;
+    justify-content: center;
 }
 
 .vlist{
