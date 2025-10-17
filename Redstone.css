@@ -648,7 +648,7 @@ h1, h2, h3{
 
 @media (max-width: 600px){
     .menutext, .main, .mmenutext{
-        font-size: 3vw;
+        font-size: 10vw;
     }
 }
 
