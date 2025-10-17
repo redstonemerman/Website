@@ -646,9 +646,9 @@ h1, h2, h3{
     text-decoration: none;
 }
 
-@media (max-width: 600px){
+@media screen and (orientation: portrait){
     .menutext, .main, .mmenutext{
-        font-size: 10vw;
+        font-size: 3vw;
     }
 }
 
