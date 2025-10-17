@@ -648,7 +648,7 @@ h1, h2, h3{
 
 @media screen and (orientation: portrait){
     .menutext, .main, .mmenutext{
-        font-size: 90%;
+        font-size: 3.3vw;
     }
 }
 
