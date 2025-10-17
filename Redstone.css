@@ -683,6 +683,12 @@ h1, h2, h3{
     pointer-events: none;
 }
 
+@media screen and (orientation: portrait){
+    .menu2, .menu3{
+        bottom: 2.5vw;
+    }
+}
+
 .itemgrid{
     display: grid;
     justify-items: center;
