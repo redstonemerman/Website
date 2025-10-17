@@ -666,8 +666,9 @@ h1, h2, h3{
     color: red;
     text-decoration: none;
 }
-/* .hmenu:hover > .menu2 */
-.menu2:hover, .cmenu:hover > .menu3, .tmenu:hover > .menu2, .hmenu.menuactive > .menu2{
+
+.menu2:hover, .cmenu:hover > .menu3, .tmenu:hover > .menu2, .hmenu:hover > .menu2,
+.tmenu.menuactive > .menu2, .hmenu.menuactive > .menu2, .cmenu.menuactive > .menu3{
     opacity: 1;
     pointer-events: all;
 }
