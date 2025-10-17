@@ -10,17 +10,12 @@ const texas = document.querySelector('#texasbox');
 const cali = document.querySelector('#calibox');
 const sx = document.querySelectorAll('.sx');
 const cx = document.querySelectorAll('.cx');
-const tvlogs = document.querySelectorAll('.tmenu');
-const hvlogs = document.querySelectorAll('.hmenu');
-const cvlogs = document.querySelectorAll('.cmenu');
-const vlogmenu = [... tvlogs, ... hvlogs, ... cvlogs];
 const hou = document.getElementById('houston');
 const tem = document.getElementById('temple');
 const states = [texas, cali];
 const txcities = [tem, hou];
 const cities = [... txcities];
 
-console.log(vlogmenu);
 
 // SWITCH BETWEEN WORLD/USA
 const openMap = (mapon, mapoff) => {
@@ -72,23 +67,6 @@ document.addEventListener('keydown', (e) => {
     }
     else closeCity();
   }
-});
-
-
-// REVEAL SUBMENUS
-const openSubmenu = (menu) => {
-  menu.classList.add('menuactive')
-}
-
-vlogmenu.forEach(menuitem =>
-  menuitem.addEventListener('click', () => openSubmenu(menuitem))
-);
-
-document.addEventListener('click', (e) => {
-  vlogmenu.forEach(menuitem => {
-    if (!menuitem.contains(e.target)) {
-      menuitem.classList.remove('menuactive');
-    }})
 });
 
 
