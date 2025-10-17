@@ -630,15 +630,12 @@ h1, h2, h3{
     z-index: 1;
 }
 
-.menutext, .menutext:hover, .main{
+.menutext, .main, .mmenutext{
     padding: 10px;
-    font-size: 15;
+    font-size: 15px;
     white-space: nowrap;
     font-family: Verdana, Geneva, sans-serif;
     border: 1.5px;
-}
-
-.menutext{
     position: relative;
     color: white;
     border-style: solid;
@@ -649,10 +646,19 @@ h1, h2, h3{
     text-decoration: none;
 }
 
-.menutext:hover{
+@media (max-width: 600px){
+    .menutext, .main, .mmenutext{
+        font-size: 3vw;
+    }
+}
+
+.menutext:hover, .mmenutext:hover{
     border: 1.5px solid red;
-    color: rgb(255, 255, 255);
     border-radius: 25px;
+}
+
+.mmenutext:hover{
+    color: red;
 }
 
 .main, .menuon{
@@ -661,65 +667,53 @@ h1, h2, h3{
     text-decoration: none;
 }
 
-.home:hover, .hmenu:hover > .home, .cmenu:hover > .college, .tmenu:hover > .travel{
+.menu2:hover, .hmenu:hover > .menu2, .cmenu:hover > .menu3, .tmenu:hover > .menu2{
     opacity: 1;
     pointer-events: all;
 }
 
-.home, .college, .travel{
+.menu2, .menu3{
     position: absolute;
     left: 50%;
-    height: 100px;
+    bottom: 0%;
+    transform: translateX(-50%);
+    height: fit-content;
     opacity: 0;
     transition: opacity 200ms;
     pointer-events: none;
 }
 
-.home, .travel{
-    transform: translate(-50%, -122px);
-}
-
-.college{
-    transform: translate(-50%, -169px);
-    height: 150px;    
-}
-
-.homegrid, .collegegrid, .travelgrid{
+.itemgrid{
     display: grid;
     justify-items: center;
     row-gap: 5px;
-}
-
-.homegrid{
-    grid-template-rows: auto auto;
-}
-
-.collegegrid{
     grid-template-rows: auto auto auto;
 }
 
-.travelgrid{
-    grid-template-rows: auto auto auto;
-}
-
-.menuitem, .menuitemon{
+.itemgrid a, .menuitemon{
     padding: 10px;
     border: solid 1.5px black;
     border-radius: 25px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     transition: 250ms;
     text-decoration: none;
 }
 
-.menuitem{
+.itemgrid div{
+    height: 40px;
+    width: 100px;
+}
+
+.itemgrid a{
     color: white;
 }
 
-.menuitemon{
+#menuitemon{
     color: red;
+    border: solid 1.5px black;
 }
 
-.menuitem:hover{
+.itemgrid a:hover{
     color: red;
     border: solid 1.5px red;
 }
@@ -792,7 +786,7 @@ h1, h2, h3{
 .vplace{
     display: flex;
     width: 3.5%;
-    background-color: rgba(0, 255, 255, 0.3);
+    background-color: rgba(0, 255, 255, 0.4);
     border: solid black min(0.7vw, 5px);
     border-right: 0px;
     align-items: center;
