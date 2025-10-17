@@ -60,6 +60,11 @@ body{
     src: url(Fonts/Chantal\ Medium\ Italic.ttf);
 }
 
+@font-face{
+    font-family: 'Kellysub';
+    src: url(Fonts/Caudex-Regular.ttf);
+}
+
 @keyframes bgscroll{
     from{
         transform: translateY(calc(-1 * var(--scroll) / 15));
@@ -82,14 +87,6 @@ h1{
     color: white;
     white-space: nowrap;
     font-size: clamp(0px, 6vw, 72px);
-}
-
-h2{
-    font-family: 'Kelly';
-    font-size: min(8vw, 75px);
-    margin-top: 25px;
-    position: relative;
-    color: white;
 }
 
 h3{
@@ -743,18 +740,34 @@ h1, h2, h3{
 
 .vtitle{
     display: flex;
+    margin-top: 30px;
     justify-content: center;
+    height: 75px;
+    vertical-align: top;
+    font-family: 'Kelly';
+    font-size: min(8vw, 75px);
+    color: white;
+}
+
+.vsubtitle{
+    margin-left: min(0.5vw, 5px);
+    font-size: min(1.9vw, 18px);
+    font-family: 'Kellysub';
 }
 
 .vlist{
+    margin-top: calc(86vh - min(6.3vw, 60px));
+    margin-bottom: 10vh;
     display: flex;
     width: 100%;
-    justify-content: center;
+    align-items: center;
     color: white;
+    flex-direction: column;
 }
 
 .vitem{
     display: flex;
+    margin-top: min(6.3vw, 60px);
     width: min(80%, 750px);
     height: 100%;
 }
@@ -772,6 +785,10 @@ h1, h2, h3{
     font-size: min(50px, 5.5vw);
 }
 
+.vmonth{
+    margin-top: min(0.5vw, 5px);
+}
+
 .vplace{
     display: flex;
     width: 3.5%;
@@ -782,8 +799,10 @@ h1, h2, h3{
 }
 
 .vplacetxt{
-    transform: rotate(-90deg) translateY(max(-3.7vw, -33px));
-    transform-origin: center;
+    display: flex;
+    justify-content: center;
+    transform: rotate(-90deg);
+    width: 100%;
     font-family: 'Place';
     font-size: min(2vw,18px);
     white-space: nowrap;
@@ -798,16 +817,16 @@ h1, h2, h3{
     width: 100%;
     aspect-ratio: 750/200;
     font-family: 'Kelly';
-    font-size: min(3vw, 30px);
+    font-size: min(3.2vw, 30px);
     justify-content: space-between;
 }
 
 .vvlogbox{
     display: grid;
-    height: 100%;
-    width: 47%;
-    align-items: center;
-    justify-items: right;
+    width: 46%;
+    aspect-ratio: 16/9;
+    align-items: top;
+    justify-items: left;
 }
 
 .vdesc, .vpic, .vvid{
@@ -819,12 +838,32 @@ h1, h2, h3{
     height: 100%;
     border: solid black min(0.7vw, 5px);
     box-sizing: border-box;
+    transition: opacity 250ms;
 }
 
-.vvlogbox:hover .vpic, .vvid{
+.vvid{
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: block;
+}
+
+.vdesc{
+    margin-top: min(8.5vw, 80px);
+    font-size: min(1.6vw, 15px);
+    font-family: Consolas, monaco, monospace;
+    transition: transform 300ms;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.vitem:hover .vdesc{
+    transform: translateX(max(-37.3vw, -360px));
+}
+
+.vvid{
     opacity: 0;
 }
 
-.vvlogbox:hover .vvid, .vpic{
+.vvlogbox:hover .vvid{
     opacity: 1;
 }
