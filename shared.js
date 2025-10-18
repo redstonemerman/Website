@@ -14,9 +14,11 @@ vlogmenu.forEach(menuitem =>
   menuitem.addEventListener('click', () => openSubmenu(menuitem))
 );
 
-document.addEventListener('click', (e) => {
-  vlogmenu.forEach(menuitem => {
-    if (!menuitem.contains(e.target)) {
-      menuitem.classList.remove('menuactive');
-    }})
-});
+['click', 'touchstart'].forEach(activator => {
+  document.addEventListener('click', (e) => {
+    vlogmenu.forEach(menuitem => {
+      if (!menuitem.contains(e.target)) {
+        menuitem.classList.remove('menuactive');
+      }})
+  });
+})

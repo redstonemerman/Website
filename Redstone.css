@@ -626,7 +626,7 @@ h1, h2, h3{
 .menubox{
     grid-area: 1/1;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     z-index: 1;
 }
 
@@ -648,32 +648,26 @@ h1, h2, h3{
 
 @media screen and (orientation: portrait){
     .menutext, .main, .mmenutext{
-        font-size: 3.3vw;
+        font-size: 3vw;
     }
 }
 
-.menutext:hover, .mmenutext:hover{
+.menutext:hover, .mmenutext:hover, .tmenu.menuactive, .hmenu.menuactive, .cmenu.menuactive{
     border: 1.5px solid red;
     border-radius: 25px;
 }
 
-.mmenutext:hover{
+.main, .menuon, .mmenutext:hover{
     color: red;
 }
 
-.main, .menuon{
-    cursor: pointer;
-    color: red;
-    text-decoration: none;
-}
-
-.menu2:hover, .cmenu:hover > .menu3, .tmenu:hover > .menu2, .hmenu:hover > .menu2,
-.tmenu.menuactive > .menu2, .hmenu.menuactive > .menu2, .cmenu.menuactive > .menu3{
+.submenu:hover, .cmenu:hover > .submenu, .tmenu:hover > .submenu, .hmenu:hover > .submenu,
+.tmenu.menuactive > .submenu, .hmenu.menuactive > .submenu, .cmenu.menuactive > .submenu{
     opacity: 1;
     pointer-events: all;
 }
 
-.menu2, .menu3{
+.submenu{
     position: absolute;
     left: 50%;
     bottom: 0%;
@@ -685,7 +679,7 @@ h1, h2, h3{
 }
 
 @media screen and (orientation: portrait){
-    .menu2, .menu3{
+    .submenu{
         bottom: 2.5vw;
     }
 }
@@ -703,7 +697,6 @@ h1, h2, h3{
     border-radius: 25px;
     background-color: rgba(0, 0, 0, 0.7);
     transition: 250ms;
-    text-decoration: none;
 }
 
 .itemgrid div{
@@ -713,6 +706,7 @@ h1, h2, h3{
 
 .itemgrid a{
     color: white;
+    text-decoration: none;
 }
 
 #menuitemon{
