@@ -646,6 +646,10 @@ h1, h2, h3{
     text-decoration: none;
 }
 
+.menukey{
+    text-decoration: underline;
+}
+
 @media screen and (orientation: portrait){
     .menutext, .main, .mmenutext{
         font-size: 3vw;

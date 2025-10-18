@@ -1,4 +1,8 @@
 // CONSTANTS
+let menuOn = false;
+let subOpen = false;
+const menuKey = document.querySelectorAll('#menukey');
+
 const mmenu = document.querySelector('#m')
 const shorts = document.querySelector('#s')
 const directsMap = {
@@ -37,13 +41,29 @@ const travelMap = {
   f: pvlogs
 }
 
+// ACTIVATE MENU
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Control' && menuOn === false) {
+    menuOn = true;
+    menuKey.forEach(key => key.classList.add('menukey'))
+  }
+  else if((e.key === 'Control' || (e.key === 'Escape' && subMenu === false)) && menuOn === true) {
+    menuOn = false;
+    menuKey.forEach(key => key.classList.remove('menukey'))
+  }
+})
+
 // OPEN/CLOSE SUBMENUS
 const openSubmenu = (menu) => {
-  menu.classList.add('menuactive')
+  if(menuOn === true) {
+    menu.classList.add('menuactive')
+    subMenu = true;
+  }
 }
 
 const closeSubmenu = (menu) => {
   menu.classList.remove('menuactive')
+  subMenu = false;
 }
 
 vlogmenu.forEach(menuitem =>
