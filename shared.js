@@ -30,28 +30,17 @@ const b1vlogs = document.querySelector('#b1')
 const fcvlogs = document.querySelector('#fc')
 const b2vlogs = document.querySelector('#b2')
 const collegeMap = {
-  a: b1vlogs,
-  k: fcvlogs,
-  f: b2vlogs
+  b: b1vlogs,
+  f: fcvlogs,
+  a: b2vlogs
 }
 const wvlogs = document.querySelector('#w')
 const pvlogs = document.querySelector('#p')
 const travelMap = {
-  a: wvlogs,
-  f: pvlogs
+  w: wvlogs,
+  p: pvlogs
 }
 
-// ACTIVATE MENU
-document.addEventListener('keydown', (e) => {
-  if(e.key === 'Control' && menuOn === false) {
-    menuOn = true;
-    menuKey.forEach(key => key.classList.add('menukey'))
-  }
-  else if((e.key === 'Control' || (e.key === 'Escape' && subMenu === false)) && menuOn === true) {
-    menuOn = false;
-    menuKey.forEach(key => key.classList.remove('menukey'))
-  }
-})
 
 // OPEN/CLOSE SUBMENUS
 const openSubmenu = (menu) => {
@@ -81,18 +70,35 @@ vlogmenu.forEach(menuitem =>
   });
 })
 
+// KEY SHORTCUTS
 document.addEventListener('keydown', (e) => {
-  if(e.key === 'm'){
-    mmenu.click();
+  if(e.key === 'Control' && menuOn === false) {
+    menuOn = true;
+    return menuKey.forEach(key => key.classList.add('menukey'))
   }
-  if(menuMap[e.key]){
-    Object.values(menuMap).forEach(closeSubmenu);
-    openSubmenu(menuMap[e.key]);
+  else if((e.key === 'Control' || (e.key === 'Escape' && subMenu === false)) && menuOn === true) {
+    menuOn = false;
+    return menuKey.forEach(key => key.classList.remove('menukey'))
   }
-  if(hvlogs.classList.contains('menuactive') && homeMap[e.key]){
-    homeMap[e.key].click();
+  else if(menuOn === true){
+    if(directsMap[e.key]){
+      return directsMap[e.key].click();
+    }
+    else if(menuMap[e.key]){
+      Object.values(menuMap).forEach(closeSubmenu);
+      return openSubmenu(menuMap[e.key]);
+    }
+    else if(hvlogs.classList.contains('menuactive') && homeMap[e.key]){
+      return homeMap[e.key].click();
+    }
+    else if(cvlogs.classList.contains('menuactive') && collegeMap[e.key]){
+      return collegeMap[e.key].click();
+    }
+    else if(tvlogs.classList.contains('menuactive') && travelMap[e.key]){
+      return travelMap[e.key].click();
+    }
+    else if(e.key === 'Escape'){
+      return vlogmenu.forEach(menuitem => closeSubmenu(menuitem))
+    }
   }
-  if(e.key === 'Escape'){
-    vlogmenu.forEach(menuitem => closeSubmenu(menuitem))
-  }
-})
+});

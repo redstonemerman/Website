@@ -58,15 +58,15 @@ const b1vlogs = document.querySelector('#b1')
 const fcvlogs = document.querySelector('#fc')
 const b2vlogs = document.querySelector('#b2')
 const collegeMap = {
-  a: b1vlogs,
-  k: fcvlogs,
-  f: b2vlogs
+  b: b1vlogs,
+  f: fcvlogs,
+  a: b2vlogs
 }
 const wvlogs = document.querySelector('#w')
 const pvlogs = document.querySelector('#p')
 const travelMap = {
-  a: wvlogs,
-  f: pvlogs
+  w: wvlogs,
+  p: pvlogs
 }
 
 
@@ -194,8 +194,8 @@ document.addEventListener('keydown', (e) => {
     return menuKey.forEach(key => key.classList.remove('menukey'))
   }
   else if(menuOn === true){
-    if(e.key === 'm'){
-      return mmenu.click();
+    if(directsMap[e.key]){
+      return directsMap[e.key].click();
     }
     else if(menuMap[e.key]){
       Object.values(menuMap).forEach(closeSubmenu);
@@ -203,6 +203,12 @@ document.addEventListener('keydown', (e) => {
     }
     else if(hvlogs.classList.contains('menuactive') && homeMap[e.key]){
       return homeMap[e.key].click();
+    }
+    else if(cvlogs.classList.contains('menuactive') && collegeMap[e.key]){
+      return collegeMap[e.key].click();
+    }
+    else if(tvlogs.classList.contains('menuactive') && travelMap[e.key]){
+      return travelMap[e.key].click();
     }
     else if(e.key === 'Escape'){
       return vlogmenu.forEach(menuitem => closeSubmenu(menuitem))
