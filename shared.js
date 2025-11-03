@@ -40,7 +40,27 @@ const travelMap = {
   w: wvlogs,
   p: pvlogs
 }
+const sel1 = document.querySelector('#sel1')
+const sel2 = document.querySelector('#sel2')
+const sel3 = document.querySelector('#sel3')
+const sel4 = document.querySelector('#sel4')
+const sel5 = document.querySelector('#sel5')
+const sel6 = document.querySelector('#sel6')
+const selects = [sel1, sel2, sel3, sel4, sel5, sel6]
+const selected = localStorage.getItem('selected')
 
+// HIGHLIGHT CLICKED ITEM
+const isSelected = (blink, vlog) => {
+  if(blink === vlog.id){
+    window.scrollBy(0, -50);
+    window.onload = () => {
+      vlog.classList.add('blink');
+      localStorage.removeItem('selected')
+    }
+  }
+}
+
+selects.forEach(sel => isSelected(selected, sel));
 
 // OPEN/CLOSE SUBMENUS
 const openSubmenu = (menu) => {

@@ -1,7 +1,7 @@
 // VIDEO 0.5
 document.querySelector('.bgvid').playbackRate = 0.5;
 
-// CONSTANTS
+// MAP CONSTANTS
 const world = document.querySelector('#world');
 const usa = document.querySelector('#usa');
 const usab = document.querySelector('#usab');
@@ -68,6 +68,7 @@ const travelMap = {
   w: wvlogs,
   p: pvlogs
 }
+
 
 
 // SWITCH BETWEEN WORLD/USA

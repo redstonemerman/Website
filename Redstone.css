@@ -80,6 +80,17 @@ body{
     }
 }
 
+@keyframes blinker{
+    0%, 66.66%{
+        background-color: rgb(0, 0, 0, 0);
+        color: rgba(0, 255, 255);
+    }
+    33.33%, 100%{
+        background-color: rgba(0, 255, 255, 0.2);
+        color: white;
+    }
+}
+
 h1{
     margin: 0px; 
     font-family: Consolas, monaco, monospace;
@@ -407,6 +418,8 @@ h1, h2, h3{
     overflow: hidden;
     justify-items: center;
     cursor: pointer;
+    text-decoration: none;
+    color: white;
 }
 
 .cityvlog1{
@@ -855,7 +868,7 @@ h1, h2, h3{
     pointer-events: none;
 }
 
-.vitem:hover .vdesc{
+.vitem:hover .vdesc, .blink .vdesc{
     transform: translateX(max(-37.3vw, -360px));
 }
 
@@ -865,4 +878,9 @@ h1, h2, h3{
 
 .vvlogbox:hover .vvid{
     opacity: 1;
+}
+
+.blink{
+    animation: blinker 1.5s;
+    background-color: rgba(0, 255, 255, 0.2);
 }
