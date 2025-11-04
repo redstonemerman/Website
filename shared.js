@@ -43,13 +43,24 @@ const travelMap = {
 const selects = Array.from(document.querySelectorAll('.vitem'))
 const selected = localStorage.getItem('selected')
 
+// LOADING SCREEN
+window.addEventListener('load', () => {
+  const loading = document.querySelector('.loading');
+  loading.classList.add('fadeaway');
+  setTimeout(() => {
+    loading.style.display = 'none';
+  }, 500);
+})
+
 // HIGHLIGHT CLICKED ITEM
 const isSelected = (blink, vlog) => {
   if(blink === vlog.id){
-    window.scrollBy(0, -50);
     window.onload = () => {
-      vlog.classList.add('blink');
-      localStorage.removeItem('selected')
+      window.scrollBy(0, -50);
+      setTimeout(() => {
+        vlog.classList.add('blink');
+        localStorage.removeItem('selected')
+      }, 250);
     }
   }
 }

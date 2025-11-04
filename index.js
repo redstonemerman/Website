@@ -69,8 +69,6 @@ const travelMap = {
   p: pvlogs
 }
 
-
-
 // SWITCH BETWEEN WORLD/USA
 const openMap = (mapon, mapoff) => {
   mapon.classList.add('active')

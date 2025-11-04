@@ -27,10 +27,10 @@
             <!-- MAPS -->
                 <div class="svgbox">
                 <!-- WORLD MAP -->
-                    <svg id="world" width="3000" height="1440" viewBox="0 0 3000 1440">
+                    <svg id="world" class="active" width="3000" height="1440" viewBox="0 0 3000 1440">
                         <g class="globe">
                             <image class="worldmap" href="MAP/WorldBlank.png" x="0" y="50" opacity="75%"/>
-                            <g id="usab" class="ctry">
+                            <a id="usab" class="ctry">
                                 <image class="cog" href="MAP/Countries/USA-48.png" x="443" y="539"/>
                                 <image class="chv" href="MAP/Countries/USA-48-h.png" x="443" y="539"/>
                                 <image class="cog" href="MAP/Countries/USA-AK.png" x="12" y="267"/>
@@ -107,8 +107,9 @@
                                 L780 570
                                 L700 540
                                 L440 540"/>
-                            </g>
-                            <g id="spainb" class="ctry">
+                            </a>
+                            <a href="Personal.html#sel1" id="spainb" class="ctry"
+                            onclick="localStorage.setItem('selected', 'sel1')">
                                 <image class="cog" href="MAP/Countries/SPAIN.png" x="1377" y="594"/>
                                 <image class="chv" href="MAP/Countries/SPAIN-h.png" x="1377" y="594"/>
                                 <image class="cog" href="MAP/Countries/SPAIN-I.png" x="1304" y="728"/>
@@ -139,32 +140,34 @@
                                 L1345 740
                                 L1345 734
                                 L1315 734"/>
-                            </g>
-                            <g id="saudib" class="ctry" style="transform: translate(1717px, 736px);">
-                                <image class="cog" href="MAP/Countries/SAUDI.png" x="0" y="0" style="transform: rotate(-36deg)"/>
-                                <image class="chv" href="MAP/Countries/SAUDI-h.png" x="0" y="0" style="transform: rotate(-36deg)"/>
-                                <g transform="translate(-34,-40)">
+                            </a>
+                            <a href="Personal.html#sel3" id="saudib" class="ctry"
+                            onclick="localStorage.setItem('selected', 'sel3')">
+                                <image class="cog" href="MAP/Countries/SAUDI.png" x="957" y="1605" style="transform: rotate(-36deg)"/>
+                                <image class="chv" href="MAP/Countries/SAUDI-h.png" x="957" y="1605" style="transform: rotate(-36deg)"/>
+                                <g transform="translate(1683, 696)">
                                     <rect width="212" height="34" x="-3" y="-30" rx="10" ry="10" opacity="70%"/>
                                     <image href="Misc Pics/Location.png" height="50px" x="94" y="8"/>
                                     <text class="ctrytxt" font-size="50px">SAUDI ARABIA</text>
                                 </g>
                                 <path fill="transparent"
-                                d="M-42 -32
-                                L15 -30
-                                L15 5
-                                L80 110
-                                L190 80
-                                L190 70
-                                L70 70
-                                L70 32
-                                L125 32
-                                L125 -32
-                                L178 -32
-                                L178 -73
-                                L-40 -73
-                                L-42 -32"/>
-                            </g>
-                            <g id="bahrainb" class="ctry">
+                                d="M1675 704
+                                L1732 706
+                                L1732 741
+                                L1797 846
+                                L1907 816
+                                L1907 806
+                                L1787 806
+                                L1787 768
+                                L1842 768
+                                L1842 704
+                                L1895 704
+                                L1895 663
+                                L1677 663
+                                L1675 704"/>
+                            </a>
+                            <a href="Personal.html#sel4" id="bahrainb" class="ctry"
+                            onclick="localStorage.setItem('selected', 'sel4')">
                                 <image class="cog" href="MAP/Countries/BAHRAIN.png" x="1858" y="753"/>
                                 <image class="chv" href="MAP/Countries/BAHRAIN-h.png" x="1858" y="753"/>
                                 <g transform="translate(1794,710)">
@@ -173,8 +176,9 @@
                                     <image href="Misc Pics/Location.png" height="50px" x="54" y="8"/>
                                     <text class="ctrytxt" font-size="50px" y="90">Bahrain</text>
                                 </g>
-                            </g>
-                            <g id="luciab" class="ctry">
+                            </a>
+                            <a href="aj.html#sel4" id="luciab" class="ctry"
+                            onclick="localStorage.setItem('selected', 'sel4')">
                                 <image class="cog" href="MAP/Countries/LUCIA.png" x="957" y="853"/>
                                 <image class="chv" href="MAP/Countries/LUCIA-h.png" x="957" y="853"/>
                                 <g transform="translate(886,805)">
@@ -183,14 +187,15 @@
                                     <image href="Misc Pics/Location.png" height="50px" x="61" y="8"/>
                                     <text class="ctrytxt" font-size="27px" y="-5">St. Lucia</text>
                                 </g>
-                            </g>
+                            </a>
                         </g>
                     </svg>
                 <!-- USA MAP -->
-                    <svg id="usa" width="2160" height="1440" viewBox="0 0 2160 1440" class="active" >
+                    <svg id="usa" width="2160" height="1440" viewBox="0 0 2160 1440">
                         <image href="MAP/Map.png" x="0" y="0"/>
                         <!-- AL -->
-                        <a class="hvs">
+                        <a href="Personal.html#sel5" class="hvs"
+                        onclick="localStorage.setItem('selected', 'sel5')">
                             <image class="state og" href="MAP/States/AL.png"
                                 height="235px" x="1388" y="820"/>
                             <image class="state hv" href="MAP/States/AL - H.png"
@@ -206,7 +211,8 @@
                                 L1390 830"/>
                         </a>
                         <!-- AK -->
-                        <a class="hvs">
+                        <a href="Personal.html#sel13" class="hvs"
+                        onclick="localStorage.setItem('selected', 'sel13')">
                             <image class="state og" href="MAP/States/AK.png"
                                 height="355px" x="46" y="1012"/>
                             <image class="state hv" href="MAP/States/AK - H.png"
@@ -289,7 +295,8 @@
                                 L110 380"/>
                         </a>
                         <!-- CO -->
-                        <a class="hvs">
+                        <a href="Personal.html#sel7" class="hvs"
+                        onclick="localStorage.setItem('selected', 'sel7')">
                             <image style="transform: rotate(4.1deg);" class="state og" href="MAP/States/CO.png"
                                 height="185px" x="647" y="491"/>
                             <image style="transform: rotate(4.1deg);" class="state hv" href="MAP/States/CO - H.png"
@@ -318,7 +325,8 @@
                                 1705 590L"/>
                         </a>
                         <!-- HI -->
-                        <a class="hvs">
+                        <a href="Work.html#sel7" class="hvs"
+                        onclick="localStorage.setItem('selected', 'sel7')">
                             <image style="transform: rotate(32.5deg);" class="state og" href="MAP/States/HI.png"
                                 height="125px" x="1178" y="595"/>
                             <image style="transform: rotate(32.5deg);" class="state hv" href="MAP/States/HI - H.png"
@@ -335,7 +343,8 @@
                                 L685 1170"/>
                         </a>
                         <!-- NV -->
-                        <a class="hvs">
+                        <a href="Work.html#sel8" class="hvs"
+                        onclick="localStorage.setItem('selected', 'sel8')">
                             <image style="transform: rotate(11.2deg);" class="state og" href="MAP/States/NV.png"
                                 height="315px" x="325" y="355"/>
                             <image style="transform: rotate(11.2deg);" class="state hv" href="MAP/States/NV - H.png"
@@ -377,7 +386,8 @@
                                 L835 795"/>
                         </a>
                         <!-- UT -->
-                        <a class="hvs">
+                        <a href="Football.html#sel6" class="hvs"
+                        onclick="localStorage.setItem('selected', 'sel6')">
                             <image style="transform: rotate(9.2deg);" class="state og" href="MAP/States/UT.png"
                                 height="235px" x="519" y="378"/>
                             <image style="transform: rotate(9.2deg);" class="state hv" href="MAP/States/UT - H.png" 
@@ -392,7 +402,8 @@
                                 L465 465"/>
                         </a>
                         <!-- WA -->
-                        <a class="hvs">
+                        <a href="Work.html#sel6" class="hvs"
+                        onclick="localStorage.setItem('selected', 'sel6')">
                             <image style="transform: rotate(10.4deg);" class="state og" href="MAP/States/WA.png"
                                 height="160px" x="202" y="21"/>
                             <image style="transform: rotate(10.4deg);" class="state hv" href="MAP/States/WA - H.png"

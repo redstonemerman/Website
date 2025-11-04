@@ -618,7 +618,7 @@ h1, h2, h3{
     bottom: 0;
     left: 50%;
     transform: translate(-50%);
-    z-index: 5;
+    z-index: 10;
     margin-bottom: 25px;
 }
 
@@ -736,6 +736,78 @@ h1, h2, h3{
     border: solid 1.5px red;
 }
 
+/* LOADING SCREEN */
+
+@keyframes backload{
+    0%{
+        background-color: rgb(100, 0, 0);
+    }
+    50%{
+        background-color: rgb(0, 0, 0);
+    }
+    100%{
+        background-color: rgb(100, 0, 0);
+    }
+}
+
+.loading{
+    margin: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+}
+
+.loadingbg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: backload 5000ms linear infinite;
+}
+
+@keyframes fadeaway{
+    0%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 0;
+    }
+}
+
+.fadeaway{
+    animation: fadeaway 600ms;
+}
+
+@keyframes fadein{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes picload {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.loadpicbox, .loadtitle{
+    animation: fadein 500ms;
+}
+
+.loadpic{
+    height: 20%;
+    animation: picload 900ms linear infinite;
+}
+
 /* Vlog Pages */
 
 .vbg{
@@ -750,8 +822,9 @@ h1, h2, h3{
     z-index: -1;
 }
 
-.vtitle{
+.vtitle, .loadtitle{
     display: flex;
+    position: relative;
     margin-top: 30px;
     justify-content: center;
     height: 75px;
@@ -761,6 +834,11 @@ h1, h2, h3{
     color: white;
 }
 
+.loadtitle{
+    position: absolute;
+    top: 0;
+}
+
 .vsubtitle{
     margin-left: min(0.5vw, 5px);
     font-size: min(1.9vw, 18px);
@@ -768,7 +846,7 @@ h1, h2, h3{
 }
 
 .vlist{
-    margin-top: calc(86vh - min(6.3vw, 60px));
+    margin-top: calc(53.5vh - min(6.3vw, 60px));
     margin-bottom: 10vh;
     display: flex;
     width: 100%;
