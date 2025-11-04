@@ -27,7 +27,7 @@
             <!-- MAPS -->
                 <div class="svgbox">
                 <!-- WORLD MAP -->
-                    <svg id="world" class="active" width="3000" height="1440" viewBox="0 0 3000 1440">
+                    <svg id="world" width="3000" height="1440" viewBox="0 0 3000 1440">
                         <g class="globe">
                             <image class="worldmap" href="MAP/WorldBlank.png" x="0" y="50" opacity="75%"/>
                             <g id="usab" class="ctry">
@@ -187,66 +187,10 @@
                         </g>
                     </svg>
                 <!-- USA MAP -->
-                    <svg id="usa" width="2160" height="1440" viewBox="0 0 2160 1440">
+                    <svg id="usa" width="2160" height="1440" viewBox="0 0 2160 1440" class="active" >
                         <image href="MAP/Map.png" x="0" y="0"/>
-                        <g class="hvs">
-                            <image style="transform: rotate(10.4deg);" class="state og" href="MAP/States/WA.png"
-                                height="160px" x="202" y="21"/>
-                            <image style="transform: rotate(10.4deg);" class="state hv" href="MAP/States/WA - H.png"
-                                height="160px" x="202" y="21"/>
-                            <path fill="transparent"
-                                d="M195 85
-                                L190 170
-                                L220 190
-                                L230 220
-                                L390 240
-                                L430 115
-                                L350 90
-                                L270 80
-                                L255 105
-                                195 85"/>
-                        </g>
-                        <g class="hvs">
-                            <image style="transform: rotate(11.2deg);" class="state og" href="MAP/States/NV.png"
-                                height="315px" x="325" y="355"/>
-                            <image style="transform: rotate(11.2deg);" class="state hv" href="MAP/States/NV - H.png"
-                                height="315px" x="325" y="355"/>
-                            <path fill="transparent"
-                                d="M260 415
-                                L230 550
-                                L370 750
-                                L380 715
-                                L400 720
-                                L445 460
-                                L260 415"/>
-                        </g>
-                        <g class="hvs">
-                            <image style="transform: rotate(9.2deg);" class="state og" href="MAP/States/UT.png"
-                                height="235px" x="519" y="378"/>
-                            <image style="transform: rotate(9.2deg);" class="state hv" href="MAP/States/UT - H.png" 
-                                height="235px" x="519" y="378"/>
-                            <path fill="transparent"
-                                d="M465 465
-                                L425 680
-                                L590 705
-                                L610 540
-                                L540 535
-                                L550 485
-                                L465 465"/>
-                        </g>
-                        <g class="hvs">
-                            <image style="transform: rotate(4.1deg);" class="state og" href="MAP/States/CO.png"
-                                height="185px" x="647" y="491"/>
-                            <image style="transform: rotate(4.1deg);" class="state hv" href="MAP/States/CO - H.png"
-                                height="185px" x="647" y="491"/>
-                            <path fill="transparent"
-                                d="M625 545
-                                L605 710
-                                L850 730
-                                L855 565
-                                L625 545"/>
-                        </g>
-                        <g class="hvs">
+                        <!-- AL -->
+                        <a class="hvs">
                             <image class="state og" href="MAP/States/AL.png"
                                 height="235px" x="1388" y="820"/>
                             <image class="state hv" href="MAP/States/AL - H.png"
@@ -260,49 +204,9 @@
                                 L1515 940
                                 L1485 825
                                 L1390 830"/>
-                        </g>
-                        <g class="hvs" id="tx">
-                            <image class="state og" href="MAP/States/TX.png"
-                                height="490px" x="676px" y="785"/>
-                            <image class="state hv" href="MAP/States/TX - H.png"
-                                height="490px" x="676px" y="785"/>                            
-                            <path fill="transparent"
-                                d="M835 795
-                                L815 975
-                                L680 975
-                                L755 1090
-                                L795 1120
-                                L820 1080
-                                L875 1085
-                                L975 1255
-                                L1035 1270
-                                L1040 1180
-                                L1165 1090
-                                L1170 1040
-                                L1145 975
-                                L1150 915
-                                L1110 900
-                                L1010 905
-                                L915 860
-                                L915 795
-                                L835 795"/>
-                        </g>
-                        <g class="hvs">
-                            <image class="state og" href="MAP/States/DC.png"
-                                height="50px" x="1705" y="570"/>
-                            <image class="state hv" href="MAP/States/DC - H.png"
-                                height="50px" x="1705" y="570"/>
-                            <path fill="transparent"
-                                d="M1705 590
-                                L1720 620
-                                
-                                L1765 590
-                                L1760 570
-                                L1740 580
-                                L1725 580
-                                1705 590L"/>
-                        </g>
-                        <g class="hvs">
+                        </a>
+                        <!-- AK -->
+                        <a class="hvs">
                             <image class="state og" href="MAP/States/AK.png"
                                 height="355px" x="46" y="1012"/>
                             <image class="state hv" href="MAP/States/AK - H.png"
@@ -329,24 +233,35 @@
                                 L550 1055
                                 L440 1005
                                 L365 1035"/>
-                        </g>
-                        <g class="hvs">
-                            <image style="transform: rotate(32.5deg);" class="state og" href="MAP/States/HI.png"
-                                height="125px" x="1178" y="595"/>
-                            <image style="transform: rotate(32.5deg);" class="state hv" href="MAP/States/HI - H.png"
-                                height="125px" x="1178" y="595"/>
+                        </a>
+                        <!-- AR -->
+                        <a href="Work.html#sel5" class="hvs"
+                        onclick="localStorage.setItem('selected', 'sel5')">
+                            <image class="state og" href="MAP/States/AR.png"
+                                height="180px" x="1138" y="755"/>
+                            <image class="state hv" href="MAP/States/AR - H.png"
+                                height="180px" x="1138" y="755"/>
                             <path fill="transparent"
-                                d="M685 1170
-                                L630 1190
-                                L665 1290
-                                L810 1380
-                                L880 1370
-                                L935 1325
-                                L840 1230
-                                L760 1200
-                                L685 1170"/>
-                        </g>
-                        <g class="hvs" id="ca">
+                                d="M1140 770
+                                L1150 860
+                                L1148 905
+                                L1158 912
+                                L1160 932
+                                L1245 932
+                                L1280 928
+                                L1286 910
+                                L1280 885
+                                L1298 850
+                                L1300 840
+                                L1312 828
+                                L1327 790
+                                L1325 775
+                                L1300 775
+                                L1292 758
+                                L1140 770"/>
+                        </a>
+                        <!-- CA -->
+                        <a class="hvs" id="ca">
                             <image style="transform: rotate(-18.3deg);" class="state og" href="MAP/States/CA.png"
                                 height="555px" x="-103" y="392"/>
                             <image style="transform: rotate(-18.3deg);" class="state hv" href="MAP/States/CA - H.png"
@@ -372,7 +287,128 @@
                                 L220 525
                                 L250 415
                                 L110 380"/>
-                        </g>
+                        </a>
+                        <!-- CO -->
+                        <a class="hvs">
+                            <image style="transform: rotate(4.1deg);" class="state og" href="MAP/States/CO.png"
+                                height="185px" x="647" y="491"/>
+                            <image style="transform: rotate(4.1deg);" class="state hv" href="MAP/States/CO - H.png"
+                                height="185px" x="647" y="491"/>
+                            <path fill="transparent"
+                                d="M625 545
+                                L605 710
+                                L850 730
+                                L855 565
+                                L625 545"/>
+                        </a>
+                        <!-- DC -->
+                        <a class="hvs">
+                            <image class="state og" href="MAP/States/DC.png"
+                                height="50px" x="1705" y="570"/>
+                            <image class="state hv" href="MAP/States/DC - H.png"
+                                height="50px" x="1705" y="570"/>
+                            <path fill="transparent"
+                                d="M1705 590
+                                L1720 620
+                                
+                                L1765 590
+                                L1760 570
+                                L1740 580
+                                L1725 580
+                                1705 590L"/>
+                        </a>
+                        <!-- HI -->
+                        <a class="hvs">
+                            <image style="transform: rotate(32.5deg);" class="state og" href="MAP/States/HI.png"
+                                height="125px" x="1178" y="595"/>
+                            <image style="transform: rotate(32.5deg);" class="state hv" href="MAP/States/HI - H.png"
+                                height="125px" x="1178" y="595"/>
+                            <path fill="transparent"
+                                d="M685 1170
+                                L630 1190
+                                L665 1290
+                                L810 1380
+                                L880 1370
+                                L935 1325
+                                L840 1230
+                                L760 1200
+                                L685 1170"/>
+                        </a>
+                        <!-- NV -->
+                        <a class="hvs">
+                            <image style="transform: rotate(11.2deg);" class="state og" href="MAP/States/NV.png"
+                                height="315px" x="325" y="355"/>
+                            <image style="transform: rotate(11.2deg);" class="state hv" href="MAP/States/NV - H.png"
+                                height="315px" x="325" y="355"/>
+                            <path fill="transparent"
+                                d="M260 415
+                                L230 550
+                                L370 750
+                                L380 715
+                                L400 720
+                                L445 460
+                                L260 415"/>
+                        </a>
+                        <!-- TX -->
+                        <a class="hvs" id="tx">
+                            <image class="state og" href="MAP/States/TX.png"
+                                height="490px" x="676px" y="785"/>
+                            <image class="state hv" href="MAP/States/TX - H.png"
+                                height="490px" x="676px" y="785"/>                            
+                            <path fill="transparent"
+                                d="M835 795
+                                L815 975
+                                L680 975
+                                L755 1090
+                                L795 1120
+                                L820 1080
+                                L875 1085
+                                L975 1255
+                                L1035 1270
+                                L1040 1180
+                                L1165 1090
+                                L1170 1040
+                                L1145 975
+                                L1150 915
+                                L1110 900
+                                L1010 905
+                                L915 860
+                                L915 795
+                                L835 795"/>
+                        </a>
+                        <!-- UT -->
+                        <a class="hvs">
+                            <image style="transform: rotate(9.2deg);" class="state og" href="MAP/States/UT.png"
+                                height="235px" x="519" y="378"/>
+                            <image style="transform: rotate(9.2deg);" class="state hv" href="MAP/States/UT - H.png" 
+                                height="235px" x="519" y="378"/>
+                            <path fill="transparent"
+                                d="M465 465
+                                L425 680
+                                L590 705
+                                L610 540
+                                L540 535
+                                L550 485
+                                L465 465"/>
+                        </a>
+                        <!-- WA -->
+                        <a class="hvs">
+                            <image style="transform: rotate(10.4deg);" class="state og" href="MAP/States/WA.png"
+                                height="160px" x="202" y="21"/>
+                            <image style="transform: rotate(10.4deg);" class="state hv" href="MAP/States/WA - H.png"
+                                height="160px" x="202" y="21"/>
+                            <path fill="transparent"
+                                d="M195 85
+                                L190 170
+                                L220 190
+                                L230 220
+                                L390 240
+                                L430 115
+                                L350 90
+                                L270 80
+                                L255 105
+                                195 85"/>
+                        </a>
                         <defs>
                             <mask id="globemask">
                                 <rect width="100%" height="100%" fill="black"/>
@@ -398,66 +434,70 @@
             height="2160"
             viewBox="0 0 2255 2160">
                 <image href="MAP/States/TX blank5.png"/>
-                <g id="tp" transform="translate(1500,1055)">
+                <a id="tp" transform="translate(1500,1055)">
                     <image href="Misc Pics/Location.png" height="50px" x="77" y="8"/>
                     <text font-size="42px">TEMPLE</text>
                     <rect width="185" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(1561,952)">
+                </a>
+                <a transform="translate(1561,952)">
                     <image href="Misc Pics/Location.png" height="50px" x="54" y="8"/>
                     <text font-size="42px">WACO</text>
                     <rect width="140" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(1561,1158)">
+                </a>
+                <a transform="translate(1561,1158)">
                     <image href="Misc Pics/Location.png" height="50px" x="191" y="8"/>
                     <text font-size="42px">COLLEGE STATION</text>
                     <rect width="410" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g id="ho" transform="translate(1816,1275)">
+                </a>
+                <a id="ho" transform="translate(1816,1275)">
                     <image href="Misc Pics/Location.png" height="50px" x="92" y="8"/>
                     <text font-size="42px">HOUSTON</text>
                     <rect width="215" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(2025,1320)">
+                </a>
+                <a transform="translate(2025,1320)">
                     <image href="Misc Pics/Location.png" height="50px" x="138" y="8"/>
                     <text font-size="42px">SABINE PASS</text>
                     <rect width="307" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(1905,1370)">
+                </a>
+                <a href="Personal.html#sel11" transform="translate(1905,1370)"
+                onclick="localStorage.setItem('selected', 'sel11')">
                     <image href="Misc Pics/Location.png" height="50px" x="75" y="8"/>
                     <text font-size="42px">KEMAH</text>
                     <rect width="172" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(1590,715)">
+                </a>
+                <a transform="translate(1590,715)">
                     <image href="Misc Pics/Location.png" height="50px" x="35" y="8"/>
                     <text font-size="42px">DFW</text>
                     <rect width="100" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(1402,825)">
+                </a>
+                <a href="Personal.html#sel9" transform="translate(1402,825)"
+                onclick="localStorage.setItem('selected', 'sel9')">
                     <image href="Misc Pics/Location.png" height="50px" x="110" y="8"/>
                     <text font-size="42px">GLEN ROSE</text>
                     <rect width="255" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(1250,1388)">
+                </a>
+                <a href="Personal.html#sel2" transform="translate(1250,1388)"
+                onclick="localStorage.setItem('selected', 'sel2')">
                     <image href="Misc Pics/Location.png" height="50px" x="140" y="8"/>
                     <text font-size="42px">SAN ANTONIO</text>
                     <rect width="318" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(1440,1225)">
+                </a>
+                <a transform="translate(1440,1225)">
                     <image href="Misc Pics/Location.png" height="50px" x="70" y="8"/>
                     <text font-size="42px">AUSTIN</text>
                     <rect width="172" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(1357,1730)">
+                </a>
+                <a href="Personal.html#sel6" transform="translate(1357,1730)"
+                onclick="localStorage.setItem('selected', 'sel6')">
                     <image href="Misc Pics/Location.png" height="50px" x="245" y="8"/>
                     <text font-size="42px">NORTH PADRE ISLAND</text>
                     <rect width="519" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g class="sx">
+                </a>
+                <a class="sx">
                     <path d="M 2240, 580 L 2180 520"/>
                     <path d="M 2240, 520 L 2180 580"/>
                     <rect width="60" height="60" x="2180" y="520" fill="transparent" stroke="transparent"/>
-                </g>
+                </a>
             </svg>
             <div id="temple" class="citybox">
                 <div class="cityvlogs">
@@ -514,24 +554,24 @@
                             <img class="citn" src="TNS/A&J/4 - Our Wedding.jpg" alt="Our Wedding Thumbnail">
                         </div>
                     </a>
-                    <div class="cityvlog2">
+                    <a href="FEUE.html" class="cityvlog2">
                         <span class="cvlogt">Fix 'em Up 'em</span>
                         <div class="citnbox">
                             <img class="citn citn" src="TNS/FEUE/FEUE" alt="FEUE Thumbnail">
                         </div>
-                    </div>
-                    <div class="cityvlog2">
+                    </a>
+                    <a href="kellys.html" class="cityvlog2">
                         <span class="cvlogt">Kelly's</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Kellys/Kellys.webp" alt="Kellys Thumbnail">
                         </div>
-                    </div>
-                    <div class="cityvlog2">
+                    </a>
+                    <a href="Football.html#sel1" class="cityvlog2" onclick="localStorage.setItem('selected', 'sel1')">
                         <span class="cvlogt">Bears @ Owls Football</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Football/1 - Bears @ Owls.jpg" alt="Bears @ Owls Thumbnail">
                         </div>
-                    </div>
+                    </a>
                 <svg class="cityx"
                 width="100"
                 height="100"
@@ -552,31 +592,32 @@
             height="2160"
             viewBox="0 0 1850 2160">
                 <image href="MAP/States/CA blank5.png" y="25"/>
-                <g transform="translate(950,1810)">
+                <a transform="translate(950,1810)">
                     <image href="Misc Pics/Location.png" height="50px" x="111" y="8"/>
                     <text class="citytext" font-size="50px">los angeles</text>
                     <rect width="252" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(1115,1855)">
+                </a>
+                <a transform="translate(1115,1855)">
                     <image href="Misc Pics/Location.png" height="50px" x="70" y="8"/>
                     <text class="citytext" font-size="50px">anaheim</text>
                     <rect width="170" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(730,1210)">
+                </a>
+                <a href="Work.html#sel3" transform="translate(730,1210)"
+                onclick="localStorage.setItem('selected', 'sel3')">
                     <image href="Misc Pics/Location.png" height="50px" x="56" y="8"/>
                     <text class="citytext" font-size="50px">fresno</text>
                     <rect width="142" height="95" y="-35" fill="transparent"/>
-                </g>
-                <g transform="translate(188,975)">
+                </a>
+                <a transform="translate(188,975)">
                     <image href="Misc Pics/Location.png" height="50px" x="143" y="8"/>
                     <text class="citytext" font-size="50px">san francisco</text>
                     <rect width="316" height="95" y="-35" fill="transparent"/>
-                </g>                
-                <g class="sx">
+                </a>                
+                <a class="sx">
                     <path d="M 830, 75 L 770 15"/>
                     <path d="M 830, 15 L 770 75"/>
                     <rect width="60" height="60" x="780" y="10" fill="transparent" stroke="transparent"/>
-                </g>
+                </a>
             </svg>
         </div>
 <!-- MONTAGES -->

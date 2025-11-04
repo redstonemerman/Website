@@ -40,13 +40,7 @@ const travelMap = {
   w: wvlogs,
   p: pvlogs
 }
-const sel1 = document.querySelector('#sel1')
-const sel2 = document.querySelector('#sel2')
-const sel3 = document.querySelector('#sel3')
-const sel4 = document.querySelector('#sel4')
-const sel5 = document.querySelector('#sel5')
-const sel6 = document.querySelector('#sel6')
-const selects = [sel1, sel2, sel3, sel4, sel5, sel6]
+const selects = Array.from(document.querySelectorAll('.vitem'))
 const selected = localStorage.getItem('selected')
 
 // HIGHLIGHT CLICKED ITEM

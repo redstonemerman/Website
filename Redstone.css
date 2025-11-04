@@ -497,26 +497,26 @@ h1, h2, h3{
     transform: translate(-25px);
 }
 
-.texas g, .cali g{
+.texas a, .cali a{
     fill: white;
     cursor: pointer;
     transition: 200ms;
 }
 
-.texas g{
+.texas a{
     font-family: 'Texas Tango', serif;
 }
 
-.texas g:hover{
+.texas a:hover{
     fill: red;
 }
 
-.cali g{
+.cali a{
     font-family: 'California', serif;
     letter-spacing: 2px;
 }
 
-.cali g:hover{
+.cali a:hover{
     fill: red;
 }
 
