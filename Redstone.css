@@ -764,7 +764,6 @@ h1, h2, h3{
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     animation: backload 5000ms linear infinite;
 }
 
@@ -804,9 +803,21 @@ h1, h2, h3{
     animation: fadein 500ms;
 }
 
+.loadpicbox{
+    display: grid;
+    height: 100%;
+    align-items: center;
+}
+
 .loadpic{
     height: 20%;
-    animation: picload 900ms linear infinite;
+    animation: picload 1100ms linear infinite;
+    position: relative;
+}
+
+.loadring{
+    height: 20%;
+    position: absolute;
 }
 
 /* Vlog Pages */

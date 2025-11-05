@@ -60,7 +60,7 @@ const isSelected = (blink, vlog) => {
       setTimeout(() => {
         vlog.classList.add('blink');
         localStorage.removeItem('selected')
-      }, 250);
+      }, 300);
     }
   }
 }

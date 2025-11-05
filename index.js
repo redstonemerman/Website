@@ -69,6 +69,17 @@ const travelMap = {
   p: pvlogs
 }
 
+// LOADING SCREEN
+window.addEventListener('load', () => {
+  const loading = document.querySelector('.loading');
+  const video = document.querySelector('.bgvid');
+  loading.classList.add('fadeaway');
+  video.play();
+  setTimeout(() => {
+    loading.style.display = 'none';
+  }, 500);
+})
+
 // SWITCH BETWEEN WORLD/USA
 const openMap = (mapon, mapoff) => {
   mapon.classList.add('active')
