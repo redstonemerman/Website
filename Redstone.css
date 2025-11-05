@@ -813,11 +813,12 @@ h1, h2, h3{
     height: 20%;
     animation: picload 1100ms linear infinite;
     position: relative;
+    grid-area: 1/1;
 }
 
 .loadring{
     height: 20%;
-    position: absolute;
+    grid-area: 1/1;
 }
 
 /* Vlog Pages */
