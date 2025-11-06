@@ -1,73 +1,20 @@
 // VIDEO 0.5
 document.querySelector('.bgvid').playbackRate = 0.5;
 
-// MAP CONSTANTS
-const world = document.querySelector('#world');
-const usa = document.querySelector('#usa');
-const usab = document.querySelector('#usab');
-const worldb = document.querySelector('#worldb');
 
-const texas = document.querySelector('#texasbox');
-const cali = document.querySelector('#calibox');
-const stateKey = {
-  t: texas,
-  c: cali
+// CALCULATE SCROLLING DISTANCE
+function updateScrollVariable() {
+  const scroll = document.documentElement.scrollHeight - window.innerHeight;
+  document.documentElement.style.setProperty('--scroll', `${scroll}%`);
 }
-const sx = document.querySelectorAll('.sx');
-const cx = document.querySelectorAll('.cx');
-const hou = document.getElementById('houston');
-const tem = document.getElementById('temple');
-let openTXcity = false;
-const texasKey = {
-  h: hou,
-  t: tem
-}
-const states = [texas, cali];
-const txcities = [tem, hou];
-const cities = [... txcities];
+window.addEventListener('load', updateScrollVariable);
 
-// MENU CONSTANTS
-let menuOn = false;
-let subOpen = false;
-const menuKey = document.querySelectorAll('#menukey');
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(updateScrollVariable, 100);
+});
 
-const mmenu = document.querySelector('#m')
-const shorts = document.querySelector('#s')
-const directsMap = {
-  m: mmenu,
-  s: shorts
-}
-const hvlogs = document.querySelector('.hmenu');
-const cvlogs = document.querySelector('.cmenu');
-const tvlogs = document.querySelector('.tmenu');
-const vlogmenu = [tvlogs, hvlogs, cvlogs];
-const menuMap = {
-  h: hvlogs,
-  c: cvlogs,
-  t: tvlogs
-};
-const avlogs = document.querySelector('#a')
-const kvlogs = document.querySelector('#k')
-const fhvlogs = document.querySelector('#fh')
-const homeMap = {
-  a: avlogs,
-  k: kvlogs,
-  f: fhvlogs
-}
-const b1vlogs = document.querySelector('#b1')
-const fcvlogs = document.querySelector('#fc')
-const b2vlogs = document.querySelector('#b2')
-const collegeMap = {
-  b: b1vlogs,
-  f: fcvlogs,
-  a: b2vlogs
-}
-const wvlogs = document.querySelector('#w')
-const pvlogs = document.querySelector('#p')
-const travelMap = {
-  w: wvlogs,
-  p: pvlogs
-}
 
 // LOADING SCREEN
 window.addEventListener('load', () => {
@@ -80,27 +27,145 @@ window.addEventListener('load', () => {
   }, 500);
 })
 
-// SWITCH BETWEEN WORLD/USA
+
+// MENU
+let menuOn = false;
+let subOpen = false;
+const menuKey = document.querySelectorAll('#menukey');
+const mmenu = document.querySelector('#m')
+const shorts = document.querySelector('#s')
+const directsMap = {
+  m: mmenu,
+  s: shorts
+}
+// menu items
+const hvlogs = document.querySelector('.hmenu');
+const cvlogs = document.querySelector('.cmenu');
+const tvlogs = document.querySelector('.tmenu');
+const vlogmenu = [tvlogs, hvlogs, cvlogs];
+const menuMap = {
+  h: hvlogs,
+  c: cvlogs,
+  t: tvlogs
+};
+// home items
+const avlogs = document.querySelector('#a')
+const kvlogs = document.querySelector('#k')
+const fhvlogs = document.querySelector('#fh')
+const homeMap = {
+  a: avlogs,
+  k: kvlogs,
+  f: fhvlogs
+}
+// college items
+const b1vlogs = document.querySelector('#b1')
+const fcvlogs = document.querySelector('#fc')
+const b2vlogs = document.querySelector('#b2')
+const collegeMap = {
+  b: b1vlogs,
+  f: fcvlogs,
+  a: b2vlogs
+}
+// travel items
+const wvlogs = document.querySelector('#w')
+const pvlogs = document.querySelector('#p')
+const travelMap = {
+  w: wvlogs,
+  p: pvlogs
+}
+// open submenus
+const openSubmenu = (menu) => {
+  if(menuOn === true) {
+    menu.classList.add('menuactive')
+    subMenu = true;
+  }
+}
+// close submenus
+const closeSubmenu = (menu) => {
+  menu.classList.remove('menuactive')
+  subMenu = false;
+}
+
+
+// WORLD/USA
+const world = document.querySelector('#world');
+const usa = document.querySelector('#usa');
+const usab = document.querySelector('#usab');
+const worldb = document.querySelector('#worldb');
+
+const texas = document.querySelector('#texasbox');
+const cali = document.querySelector('#calibox');
+const stateKey = {
+  t: texas,
+  c: cali
+}
+// toggle World/USA
 const openMap = (mapon, mapoff) => {
   mapon.classList.add('active')
   mapoff.classList.remove('active')
 }
-
 usab.addEventListener('click', () => openMap(usa, world));
 worldb.addEventListener('click', () => openMap(world, usa));
 
 
-// OPEN STATE LIGHTBOXES
+// STATES
+const states = [texas, cali];
+const sx = document.querySelectorAll('.sx');
+
+// open states
 const openState = (state) => {
   state.classList.add('active')
   sx.forEach(x => x.classList.add('active'));
 }
-
 tx.addEventListener('click', () => openState(texas));
 ca.addEventListener('click', () => openState(cali));
 
+// close states
+const closeState = () => {
+  states.forEach(state => state.classList.remove('active'));
+};
+sx.forEach(ex => ex.addEventListener('click',closeState));
 
-// OPEN CITY LIGHTBOXES
+
+// CITIES
+const cx = document.querySelectorAll('.cx');
+// city buttons
+const au = document.getElementById('au');
+const cs = document.getElementById('cs');
+const df = document.getElementById('df');
+const ho = document.getElementById('ho');
+const tp = document.getElementById('tp');
+const wa = document.getElementById('wa');
+// city lightboxes
+const aus = document.getElementById('austin');
+const cst = document.getElementById('college');
+const dfw = document.getElementById('dfw');
+const hou = document.getElementById('houston');
+const tem = document.getElementById('temple');
+const wac = document.getElementById('waco');
+// city key maps
+const TXcityMap = [
+  {button: au, city: aus},
+  {button: cs, city: cst},
+  {button: df, city: dfw},
+  {button: ho, city: hou},
+  {button: tp, city: tem},
+  {button: wa, city: wac}
+]
+// key shortcuts
+let openTXcity = false;
+const texasKey = {
+  a: aus,
+  c: cst,
+  d: dfw,
+  h: hou,
+  t: tem,
+  w: wac
+}
+const txCities = TXcityMap.map(({city}) => city);
+const cities = [... txCities];
+
+// open cities
 const openCity = (city, state) => {
   city.classList.add('active')
   sx.forEach(x => x.classList.remove('active'));
@@ -108,77 +173,28 @@ const openCity = (city, state) => {
     openTXcity = true;
   }
 }
+TXcityMap.forEach(({button, city}) => {
+  button.addEventListener('click', () => openCity(city, texas));
+})
 
-ho.addEventListener('click', () => openCity(houston, texas));
-tp.addEventListener('click', () => openCity(temple, texas));
-
-
-// CLOSE LIGHTBOXES
-const closeState = () => {
-  states.forEach(state => state.classList.remove('active'));
-};
-
+// close cities
 const closeCity = () => {
   cities.forEach(city => city.classList.remove('active'));
   sx.forEach(x => x.classList.add('active'));
   openTXcity = false;
 };
-
-sx.forEach(ex => ex.addEventListener('click',closeState));
 cx.forEach(ex => ex.addEventListener('click',closeCity));
-
-
-// CALCULATE SCROLLING DISTANCE
-function updateScrollVariable() {
-  const scroll = document.documentElement.scrollHeight - window.innerHeight;
-  document.documentElement.style.setProperty('--scroll', `${scroll}%`);
-}
-
-window.addEventListener('load', updateScrollVariable);
-
-let resizeTimeout;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(updateScrollVariable, 100);
-});
-
-
-// OPEN/CLOSE SUBMENUS
-const openSubmenu = (menu) => {
-  if(menuOn === true) {
-    menu.classList.add('menuactive')
-    subMenu = true;
-  }
-}
-
-const closeSubmenu = (menu) => {
-  menu.classList.remove('menuactive')
-  subMenu = false;
-}
-
-vlogmenu.forEach(menuitem =>
-  menuitem.addEventListener('click', () => openSubmenu(menuitem))
-);
-
-
-// VIA KEYS
-['click', 'touchstart'].forEach(activator => {
-  document.addEventListener(activator, (e) => {
-    vlogmenu.forEach(menuitem => {
-      if (!menuitem.contains(e.target)) {
-        closeSubmenu(menuitem);
-      }})
-  });
-})
 
 
 // KEY SHORTCUTS
 document.addEventListener('keydown', (e) => {
+  // TX city open
   if(openTXcity === true) {
     if(e.key === 'Escape') {
       return closeCity();
     }
   }
+  // TX open
   else if(texas.classList.contains('active')){
     if(e.key === 'Escape') {
       return closeState();
@@ -187,6 +203,7 @@ document.addEventListener('keydown', (e) => {
       return openCity(texasKey[e.key], texas);
     }
   }
+  // CA open
   else if(cali.classList.contains('active')){
     if(e.key === 'Escape') {
       return closeState();
@@ -195,6 +212,7 @@ document.addEventListener('keydown', (e) => {
       return openCity(texasKey[e.key], texas);
     }
   }
+  // menu shortcuts
   else if(e.key === 'Control' && menuOn === false) {
     menuOn = true;
     return menuKey.forEach(key => key.classList.add('menukey'))
@@ -203,14 +221,17 @@ document.addEventListener('keydown', (e) => {
     menuOn = false;
     return menuKey.forEach(key => key.classList.remove('menukey'))
   }
+  // open menu items
   else if(menuOn === true){
     if(directsMap[e.key]){
       return directsMap[e.key].click();
     }
+  // open submenus
     else if(menuMap[e.key]){
       Object.values(menuMap).forEach(closeSubmenu);
       return openSubmenu(menuMap[e.key]);
     }
+  // open submenu items
     else if(hvlogs.classList.contains('menuactive') && homeMap[e.key]){
       return homeMap[e.key].click();
     }
@@ -224,6 +245,7 @@ document.addEventListener('keydown', (e) => {
       return vlogmenu.forEach(menuitem => closeSubmenu(menuitem))
     }
   }
+  // toggle world/USA
   else if(usa.classList.contains('active')) {
     if(stateKey[e.key]) {
       return openState(stateKey[e.key]);
