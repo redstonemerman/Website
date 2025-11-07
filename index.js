@@ -48,6 +48,7 @@ const menuMap = {
   c: cvlogs,
   t: tvlogs
 };
+const menuItems = Object.values(menuMap);
 // home items
 const avlogs = document.querySelector('#a')
 const kvlogs = document.querySelector('#k')
@@ -73,18 +74,33 @@ const travelMap = {
   w: wvlogs,
   p: pvlogs
 }
-// open submenus
-const openSubmenu = (menu) => {
-  if(menuOn === true) {
-    menu.classList.add('menuactive')
-    subMenu = true;
-  }
-}
 // close submenus
 const closeSubmenu = (menu) => {
   menu.classList.remove('menuactive')
   subMenu = false;
 }
+document.addEventListener('click', (e) =>{
+  if(e.target.classList.contains('menubutton')) {
+    return
+  }
+  else menuItems.forEach(item => closeSubmenu(item))
+})
+// open submenu
+const openSubmenu = (menu) => {
+  if(menuOn === true) {
+    menuItems.forEach(item => {
+      closeSubmenu(item);
+    })
+    menu.classList.add('menuactive')
+    subMenu = true;
+  }
+}
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    menuOn = true;
+    openSubmenu(item);
+  })
+})
 
 
 // WORLD/USA
@@ -252,12 +268,12 @@ document.addEventListener('keydown', (e) => {
     if(directsMap[e.key]){
       return directsMap[e.key].click();
     }
-  // open submenus
+    // open submenus
     else if(menuMap[e.key]){
       Object.values(menuMap).forEach(closeSubmenu);
       return openSubmenu(menuMap[e.key]);
     }
-  // open submenu items
+    // open submenu items
     else if(hvlogs.classList.contains('menuactive') && homeMap[e.key]){
       return homeMap[e.key].click();
     }
@@ -268,7 +284,7 @@ document.addEventListener('keydown', (e) => {
       return travelMap[e.key].click();
     }
     else if(e.key === 'Escape'){
-      return vlogmenu.forEach(menuitem => closeSubmenu(menuitem))
+      return menuItems.forEach(item => closeSubmenu(item))
     }
   }
   // toggle world/USA

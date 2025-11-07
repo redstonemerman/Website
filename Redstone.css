@@ -442,9 +442,9 @@ h1, h2, h3{
 .cvlogt{
     grid-area: 1/1;
     display: flex;
-    font-size: clamp(10px, 2.5vw, 30px);
+    font-size: clamp(10px, 2.5vw, 26px);
     transform: translateY(-5%);
-    opacity: 0%;
+    opacity: 0;
     transition: opacity 250ms;
 }
 
@@ -462,22 +462,12 @@ h1, h2, h3{
     width: 100%;
 }
 
-.citn2a1.down, .citn2a2.down, .citn5a1.down, .citn5a2.down, .citn5a3.down, .citn5a4.down, .citn5a5.down{
-    transform: translateY(110%);
-    transition: 1s;
-}
-
-.citna1.up, .citna2.up, .citn5a1.up, .citn5a2.up, .citn5a3.up, .citn5a4.up, .citn5a5.up{
-    transform: translateY(0%);
-    transition: 0s;
-}
-
 .cityvlog1:hover .citnbox, .cityvlog2:hover .citnbox{
     transform: scale(0.8) translateY(11%);
 }
 
 .cityvlog1:hover .cvlogt, .cityvlog2:hover .cvlogt{
-    opacity: 100%;
+    opacity: 1;
 }
 
 .cityx, .cityxeven{

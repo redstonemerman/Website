@@ -1,48 +1,3 @@
-// CONSTANTS
-let menuOn = false;
-let subOpen = false;
-const menuKey = document.querySelectorAll('#menukey');
-
-const mmenu = document.querySelector('#m')
-const shorts = document.querySelector('#s')
-const directsMap = {
-  m: mmenu,
-  s: shorts
-}
-const hvlogs = document.querySelector('.hmenu');
-const cvlogs = document.querySelector('.cmenu');
-const tvlogs = document.querySelector('.tmenu');
-const vlogmenu = [tvlogs, hvlogs, cvlogs];
-const menuMap = {
-  h: hvlogs,
-  c: cvlogs,
-  t: tvlogs
-};
-const avlogs = document.querySelector('#a')
-const kvlogs = document.querySelector('#k')
-const fhvlogs = document.querySelector('#fh')
-const homeMap = {
-  a: avlogs,
-  k: kvlogs,
-  f: fhvlogs
-}
-const b1vlogs = document.querySelector('#b1')
-const fcvlogs = document.querySelector('#fc')
-const b2vlogs = document.querySelector('#b2')
-const collegeMap = {
-  b: b1vlogs,
-  f: fcvlogs,
-  a: b2vlogs
-}
-const wvlogs = document.querySelector('#w')
-const pvlogs = document.querySelector('#p')
-const travelMap = {
-  w: wvlogs,
-  p: pvlogs
-}
-const selects = Array.from(document.querySelectorAll('.vitem'))
-const selected = localStorage.getItem('selected')
-
 // LOADING SCREEN
 window.addEventListener('load', () => {
   const loading = document.querySelector('.loading');
@@ -52,7 +7,10 @@ window.addEventListener('load', () => {
   }, 500);
 })
 
-// HIGHLIGHT CLICKED ITEM
+
+// CLICKED VLOG
+const selects = Array.from(document.querySelectorAll('.vitem'))
+const selected = localStorage.getItem('selected')
 const isSelected = (blink, vlog) => {
   if(blink === vlog.id){
     window.onload = () => {
@@ -64,36 +22,80 @@ const isSelected = (blink, vlog) => {
     }
   }
 }
-
 selects.forEach(sel => isSelected(selected, sel));
 
-// OPEN/CLOSE SUBMENUS
-const openSubmenu = (menu) => {
-  if(menuOn === true) {
-    menu.classList.add('menuactive')
-    subMenu = true;
-  }
-}
 
+// MENU
+let menuOn = false;
+let subOpen = false;
+const menuKey = document.querySelectorAll('#menukey');
+const mmenu = document.querySelector('#m')
+const shorts = document.querySelector('#s')
+const directsMap = {
+  m: mmenu,
+  s: shorts
+}
+// menu items
+const hvlogs = document.querySelector('.hmenu');
+const cvlogs = document.querySelector('.cmenu');
+const tvlogs = document.querySelector('.tmenu');
+const menuMap = {
+  h: hvlogs,
+  c: cvlogs,
+  t: tvlogs
+};
+const menuItems = Object.values(menuMap);
+// home vlogs
+const avlogs = document.querySelector('#a')
+const kvlogs = document.querySelector('#k')
+const fhvlogs = document.querySelector('#fh')
+const homeMap = {
+  a: avlogs,
+  k: kvlogs,
+  f: fhvlogs
+}
+// college items
+const b1vlogs = document.querySelector('#b1')
+const fcvlogs = document.querySelector('#fc')
+const b2vlogs = document.querySelector('#b2')
+const collegeMap = {
+  b: b1vlogs,
+  f: fcvlogs,
+  a: b2vlogs
+}
+// travel items
+const wvlogs = document.querySelector('#w')
+const pvlogs = document.querySelector('#p')
+const travelMap = {
+  w: wvlogs,
+  p: pvlogs
+}
+// close submenus
 const closeSubmenu = (menu) => {
   menu.classList.remove('menuactive')
   subMenu = false;
 }
-
-vlogmenu.forEach(menuitem =>
-  menuitem.addEventListener('click', () => openSubmenu(menuitem))
-);
-
-
-// VIA KEYS
-['click', 'touchstart'].forEach(activator => {
-  document.addEventListener(activator, (e) => {
-    vlogmenu.forEach(menuitem => {
-      if (!menuitem.contains(e.target)) {
-        closeSubmenu(menuitem);
-      }})
-  });
+document.addEventListener('click', (e) =>{
+  if(e.target.classList.contains('menubutton')) {
+    return
+  }
+  else menuItems.forEach(item => closeSubmenu(item))
 })
+// open submenu
+const openSubmenu = (menu) => {
+  if(menuOn === true) {
+    menuItems.forEach(item =>closeSubmenu(item))
+    menu.classList.add('menuactive')
+    subMenu = true;
+  }
+}
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    menuOn = true;
+    openSubmenu(item);
+  })
+})
+
 
 // KEY SHORTCUTS
 document.addEventListener('keydown', (e) => {
@@ -123,7 +125,7 @@ document.addEventListener('keydown', (e) => {
       return travelMap[e.key].click();
     }
     else if(e.key === 'Escape'){
-      return vlogmenu.forEach(menuitem => closeSubmenu(menuitem))
+      return menuItems.forEach(item => closeSubmenu(item))
     }
   }
 });
