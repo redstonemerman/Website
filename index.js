@@ -130,19 +130,29 @@ sx.forEach(ex => ex.addEventListener('click',closeState));
 // CITIES
 const cx = document.querySelectorAll('.cx');
 // city buttons
+// TX
 const au = document.getElementById('au');
 const cs = document.getElementById('cs');
 const df = document.getElementById('df');
 const ho = document.getElementById('ho');
 const tp = document.getElementById('tp');
 const wa = document.getElementById('wa');
+// CA
+const an = document.getElementById('an');
+const la = document.getElementById('la');
+const sf = document.getElementById('sf');
 // city lightboxes
+// TX
 const aus = document.getElementById('austin');
 const cst = document.getElementById('college');
 const dfw = document.getElementById('dfw');
 const hou = document.getElementById('houston');
 const tem = document.getElementById('temple');
 const wac = document.getElementById('waco');
+// CA
+const ana = document.getElementById('anaheim');
+const los = document.getElementById('losangeles');
+const saf = document.getElementById('sanfran');
 // city key maps
 const TXcityMap = [
   {button: au, city: aus},
@@ -152,8 +162,21 @@ const TXcityMap = [
   {button: tp, city: tem},
   {button: wa, city: wac}
 ]
+const CAcityMap = [
+  {button: an, city: ana},
+  {button: la, city: los},
+  {button: sf, city: saf}
+  
+]
+const cityMaps = [
+  {map: TXcityMap, state: texas},
+  {map: CAcityMap, state: cali}
+]
+const txCities = TXcityMap.map(({city}) => city);
+const caCities = CAcityMap.map(({city}) => city);
+const cities = [... txCities, ... caCities];
 // key shortcuts
-let openTXcity = false;
+let cityOpen = false;
 const texasKey = {
   a: aus,
   c: cst,
@@ -162,34 +185,37 @@ const texasKey = {
   t: tem,
   w: wac
 }
-const txCities = TXcityMap.map(({city}) => city);
-const cities = [... txCities];
+const caliKey = {
+  a: ana,
+  l: los,
+  s: saf
+}
 
 // open cities
 const openCity = (city, state) => {
   city.classList.add('active')
   sx.forEach(x => x.classList.remove('active'));
-  if(state === texas){
-    openTXcity = true;
-  }
+  cityOpen = true;
 }
-TXcityMap.forEach(({button, city}) => {
-  button.addEventListener('click', () => openCity(city, texas));
+cityMaps.forEach(({map, state}) => {
+  map.forEach(({button, city}) => {
+    button.addEventListener('click', () => openCity(city, state));
+  })
 })
 
 // close cities
 const closeCity = () => {
   cities.forEach(city => city.classList.remove('active'));
   sx.forEach(x => x.classList.add('active'));
-  openTXcity = false;
+  cityOpen = false;
 };
 cx.forEach(ex => ex.addEventListener('click',closeCity));
 
 
 // KEY SHORTCUTS
 document.addEventListener('keydown', (e) => {
-  // TX city open
-  if(openTXcity === true) {
+  // city open
+  if(cityOpen === true) {
     if(e.key === 'Escape') {
       return closeCity();
     }
@@ -208,8 +234,8 @@ document.addEventListener('keydown', (e) => {
     if(e.key === 'Escape') {
       return closeState();
     }
-    else if(texasKey[e.key]) {
-      return openCity(texasKey[e.key], texas);
+    else if(caliKey[e.key]) {
+      return openCity(caliKey[e.key], cali);
     }
   }
   // menu shortcuts
@@ -250,7 +276,7 @@ document.addEventListener('keydown', (e) => {
     if(stateKey[e.key]) {
       return openState(stateKey[e.key]);
     }
-    if(e.key === 'w' || e.key === 'Escape') {
+    if(e.key === 'w') {
       return openMap(world, usa)
     }
   }
