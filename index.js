@@ -208,24 +208,88 @@ const caliKey = {
 }
 
 // open cities
-const openCity = (city, state) => {
+function openCity (city, state) {
+  const title = city.querySelector('.citytitle')
+  title.classList.add('titleflip')
   city.classList.add('active')
+  console.log(title);
   sx.forEach(x => x.classList.remove('active'));
   cityOpen = true;
+  loopOn = true;
+  slideShow(city);
 }
 cityMaps.forEach(({map, state}) => {
   map.forEach(({button, city}) => {
     button.addEventListener('click', () => openCity(city, state));
   })
 })
-
 // close cities
-const closeCity = () => {
-  cities.forEach(city => city.classList.remove('active'));
+function closeCity() {
+  cities.forEach(city => {
+    const title = city.querySelector('.citytitle')
+    title.classList.remove('titleflip')
+    city.classList.remove('active');
+    loopOn = false;
+    slideOff(city);
+  });
   sx.forEach(x => x.classList.add('active'));
   cityOpen = false;
 };
 cx.forEach(ex => ex.addEventListener('click',closeCity));
+
+
+// TN ANIMATION
+// animation on
+let loopOn = false;
+const animateTime = 4000;
+function slideShow(city) {
+  // loop animation
+  function slideLoop(tns, count) {
+    let endedAt = performance.now();
+    const duration = animateTime * count;
+    function loop(timestamp){
+      if (!loopOn) return;
+      if (timestamp - endedAt >= duration){
+        endedAt = timestamp;
+        slides(tns);
+      }
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  }
+  // add cycle animation to each tn
+  function slides(tns){
+    tns.slice().reverse().forEach((tn, index) => {
+      tn.classList.remove('tncycle');
+      void tn.offsetWidth;
+      tn.classList.add('tncycle');
+      tn.style.animationDelay = `${index * animateTime}ms`;
+      console.log(tn.classList);
+    });
+  }
+  // apply animation to each slideshow
+  const tnBoxes = city.querySelectorAll('.slideshow');
+  tnBoxes.forEach(box => {
+    const tns = Array.from(box.querySelectorAll('img'));
+    const tnCount = tns.length;
+    setTimeout(() => {
+      slides(tns);
+      slideLoop(tns, tnCount);
+    }, animateTime);
+  });
+}
+// animation off
+function slideOff(city) {
+  const tnBoxes = city.querySelectorAll('.slideshow');
+  tnBoxes.forEach(box => {
+    const tns = Array.from(box.querySelectorAll('img'));
+    const tnCount = tns.length;
+    tns.slice().reverse().forEach((tn, index) => {
+      void tn.offsetWidth;
+      tn.classList.remove('tncycle');
+    });
+  });
+}
 
 
 // KEY SHORTCUTS
