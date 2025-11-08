@@ -412,7 +412,8 @@ h1, h2, h3{
 }
 
 .titleflip{
-    animation: titleflip 1500ms;
+    opacity: 0;
+    animation: titleflip 1500ms 100ms forwards;
 }
 
 @keyframes titleflip{
