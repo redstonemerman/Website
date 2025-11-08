@@ -354,26 +354,27 @@ h1, h2, h3{
     margin: 0;
     opacity: 0;
     pointer-events: none;
-    transition: 300ms;
+    transition: opacity 300ms;
 }
 
 .statebox{
     background-color: rgba(0, 0, 0, .5);
 }
 
-.statebox svg{
+.statesvg{
     transition: 250ms ease-out;
     transform: scale(0.3);
+    will-change: transform;
 }
 
-.statebox.active svg{
-    transition: 250ms ease-out;
+.statebox.active .statesvg{
     transform: scale(1);
 }
 
 .disappear{
     opacity: 0;
     scale: 2.5;
+    transition: transform opacity 250ms ease-out;
 }
 
 .statebox.active{
@@ -399,7 +400,7 @@ h1, h2, h3{
     background-color: rgba(0, 0, 0, 0.25);
     box-shadow: 0 15px 10px rgb(0, 0, 0, .75);
     padding: min(1.5vw, 15px) min(3vw, 25px) min(3vw, 25px) min(3vw, 25px);
-    font-size: clamp(16px, 5vw, 50px);
+    font-size: min(4.4vw, 50px);
     font-family: "Kelly", sans-serif;
 }
 
@@ -421,7 +422,6 @@ h1, h2, h3{
     grid-area: title;
     margin: 0;
     justify-self: center;
-    font-weight: 100;
     color: white;
     white-space: nowrap;
     height: fit-content;
@@ -455,10 +455,10 @@ h1, h2, h3{
     padding: min(1vw, 10px);
     z-index: 1;
     overflow: hidden;
-    justify-items: center;
     cursor: pointer;
     text-decoration: none;
     color: white;
+    justify-items: center;
 }
 
 .cityvlog1{
@@ -477,7 +477,7 @@ h1, h2, h3{
 .cvlogt{
     grid-area: 1/1;
     display: flex;
-    font-size: clamp(10px, 2.5vw, 26px);
+    font-size: min(2.6vw, 30px);
     transform: translateY(-5%);
     opacity: 0;
     transition: opacity 250ms;
@@ -495,6 +495,17 @@ h1, h2, h3{
 
 .cityvlog1:hover .citnbox, .cityvlog2:hover .citnbox{
     border: 3px rgb(255, 255, 255) solid;
+}
+
+.citnbox>svg{
+    stroke: rgb(255, 255, 255);
+    stroke-width: 5px;
+    z-index: 1;
+    grid-area: 1/1;
+    width: 20%;
+    height: auto;
+    align-self: end;
+    justify-self: right;
 }
 
 .citnbox>img{
@@ -525,7 +536,6 @@ h1, h2, h3{
 }
 
 .cityx, .cityxeven{
-    
     grid-row-start: 1;
     margin-left: auto;
     transform: translateX(min(1vw,10px));
@@ -541,7 +551,7 @@ h1, h2, h3{
     grid-column-start: 2;
 }
 
-.texas, .cali{
+.statesvg{
     position: absolute;
     max-width: 90%;
     max-height: 90%;
@@ -549,11 +559,7 @@ h1, h2, h3{
     overflow: visible;
 }
 
-.texas{
-    transform: translate(-25px);
-}
-
-.texas a, .cali a{
+.statesvg a{
     fill: white;
     cursor: pointer;
     transition: 200ms;

@@ -75,7 +75,7 @@ const travelMap = {
   p: pvlogs
 }
 // close submenus
-const closeSubmenu = (menu) => {
+function closeSubmenu(menu) {
   menu.classList.remove('menuactive')
   subMenu = false;
 }
@@ -86,7 +86,7 @@ document.addEventListener('click', (e) =>{
   else menuItems.forEach(item => closeSubmenu(item))
 })
 // open submenu
-const openSubmenu = (menu) => {
+function openSubmenu(menu) {
   if(menuOn === true) {
     menuItems.forEach(item => {
       closeSubmenu(item);
@@ -129,7 +129,7 @@ const states = [texas, cali];
 const sx = document.querySelectorAll('.sx');
 
 // open states
-const openState = (state) => {
+function openState(state) {
   state.classList.add('active')
   sx.forEach(x => x.classList.add('active'));
 }
@@ -137,7 +137,7 @@ tx.addEventListener('click', () => openState(texas));
 ca.addEventListener('click', () => openState(cali));
 
 // close states
-const closeState = () => {
+function closeState() {
   states.forEach(state => state.classList.remove('active'));
 };
 sx.forEach(ex => ex.addEventListener('click',closeState));
@@ -245,7 +245,7 @@ function closeCity() {
   sx.forEach(x => x.classList.add('active'));
   cityOpen = false;
 };
-cx.forEach(ex => ex.addEventListener('click',closeCity));
+cx.forEach(ex => ex.addEventListener('click', closeCity));
 
 
 // TN ANIMATION
@@ -285,7 +285,7 @@ function slideShow(city) {
     setTimeout(() => {
       slides(tns);
       slideLoop(tns, tnCount);
-    }, animateTime);
+    }, 2000);
   });
 }
 // animation off
