@@ -352,25 +352,41 @@ h1, h2, h3{
     justify-content: center;
     align-items: center;
     margin: 0;
-    opacity: 0%;
+    opacity: 0;
     pointer-events: none;
-    transition: opacity 300ms;
+    transition: 300ms;
 }
 
 .statebox{
     background-color: rgba(0, 0, 0, .5);
 }
 
+.statebox svg{
+    transition: 250ms ease-out;
+    transform: scale(0.3);
+}
+
+.statebox.active svg{
+    transition: 250ms ease-out;
+    transform: scale(1);
+}
+
+.disappear{
+    opacity: 0;
+    scale: 2.5;
+}
+
 .statebox.active{
-    opacity: 100%;
+    opacity: 1;
     pointer-events: all;
     backdrop-filter: blur(5px);
 }
 
 .citybox.active{
-    opacity: 100%;
+    opacity: 1;
     pointer-events: all;
     backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, .4);
 }
 
 .cityvlogs, .cityvlogseven{
@@ -380,7 +396,7 @@ h1, h2, h3{
     border-radius: min(5vw, 50px);
     color: white;
     backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.25);
     box-shadow: 0 15px 10px rgb(0, 0, 0, .75);
     padding: min(1.5vw, 15px) min(3vw, 25px) min(3vw, 25px) min(3vw, 25px);
     font-size: clamp(16px, 5vw, 50px);

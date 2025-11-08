@@ -209,6 +209,9 @@ const caliKey = {
 
 // open cities
 function openCity (city, state) {
+  state.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+  const stateImgage = state.querySelector('svg')
+  stateImgage.classList.add('disappear')
   const title = city.querySelector('.citytitle')
   title.classList.add('titleflip')
   city.classList.add('active')
@@ -225,6 +228,13 @@ cityMaps.forEach(({map, state}) => {
 })
 // close cities
 function closeCity() {
+  states.forEach(state => {
+    if(state.classList.contains('active')){
+      state.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+      const stateImgage = state.querySelector('svg')
+      stateImgage.classList.remove('disappear')
+    }
+  })
   cities.forEach(city => {
     const title = city.querySelector('.citytitle')
     title.classList.remove('titleflip')
