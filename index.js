@@ -254,47 +254,55 @@ let loopOn = false;
 const animateTime = 4000;
 function slideShow(city) {
   // loop animation
-  function slideLoop(tns, count) {
+  function slideLoop(tns, tnCount, circle) {
     let endedAt = performance.now();
-    const duration = animateTime * count;
+    const duration = animateTime * tnCount;
     function loop(timestamp){
       if (!loopOn) return;
       if (timestamp - endedAt >= duration){
         endedAt = timestamp;
-        slides(tns);
+        slides(tns, tnCount, circle);
       }
       requestAnimationFrame(loop);
     }
     requestAnimationFrame(loop);
   }
   // add cycle animation to each tn
-  function slides(tns){
+  function slides(tns, tnCount, circle){
+    circle.forEach(circle => circle.classList.remove('circleon'));
     tns.slice().reverse().forEach((tn, index) => {
+      // slideshow animation
       tn.classList.remove('tncycle');
       void tn.offsetWidth;
       tn.classList.add('tncycle');
       tn.style.animationDelay = `${index * animateTime}ms`;
-      console.log(tn.classList);
+      // circle animation
+      circle[index].classList.add('circleon');
+      circle[index].style.animationDelay = `${index * animateTime}ms`;      
     });
   }
   // apply animation to each slideshow
   const tnBoxes = city.querySelectorAll('.slideshow');
   tnBoxes.forEach(box => {
+    const circle = Array.from(box.querySelectorAll('.circles>svg'));
+    circle[0].classList.add('fcircleon');
     const tns = Array.from(box.querySelectorAll('img'));
     const tnCount = tns.length;
-    setTimeout(() => {
-      slides(tns);
-      slideLoop(tns, tnCount);
-    }, 2000);
+      circle[0].classList.remove('fcircleon');
+      slides(tns, tnCount, circle);
+      slideLoop(tns, tnCount, circle);
   });
 }
 // animation off
 function slideOff(city) {
   const tnBoxes = city.querySelectorAll('.slideshow');
   tnBoxes.forEach(box => {
+    const circle = Array.from(box.querySelectorAll('.circles>svg'));
+    circle.forEach(circle => circle.classList.remove('circleon'));
+    circle[0].classList.remove('fcircleon');
+    circle[0].style.animationDelay = `0ms`;
     const tns = Array.from(box.querySelectorAll('img'));
-    const tnCount = tns.length;
-    tns.slice().reverse().forEach((tn, index) => {
+    tns.slice().reverse().forEach((tn) => {
       void tn.offsetWidth;
       tn.classList.remove('tncycle');
     });

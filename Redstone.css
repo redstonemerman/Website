@@ -449,9 +449,7 @@ h1, h2, h3{
 .cityvlog1, .cityvlog2{
     display: grid;
     grid-template-rows: auto auto;
-    border-style: solid;
-    border-width: min(0.45vw, 5px);
-    border-color: black;
+    border: solid black min(0.45vw, 5px);
     padding: min(1vw, 10px);
     z-index: 1;
     overflow: hidden;
@@ -481,31 +479,102 @@ h1, h2, h3{
     transform: translateY(-5%);
     opacity: 0;
     transition: opacity 250ms;
+    will-change: opacity;
 }
 
 .citnbox{
     grid-area: 1/1;
     display: grid;
-    transition: transform 200ms;
+    transition: 200ms;
+    will-change: transform, box-shadow;
     transform: scale(1);
     z-index: 1;
     overflow: hidden;
-    border: min(0.3vw, 3px) black solid;
+    box-shadow: 0 0 0 min(0.3vw, 3px) black;
 }
 
 .cityvlog1:hover .citnbox, .cityvlog2:hover .citnbox{
-    border: 3px rgb(255, 255, 255) solid;
+    box-shadow: 0 0 0 min(0.3vw, 3px) white;
+    transform: scale(0.8) translateY(11%);
 }
 
-.citnbox>svg{
+.cityvlog1:hover .cvlogt, .cityvlog2:hover .cvlogt{
+    opacity: 1;
+}
+
+.playlist{
     stroke: rgb(255, 255, 255);
     stroke-width: 5px;
     z-index: 1;
     grid-area: 1/1;
-    width: 20%;
+    width: 15%;
     height: auto;
     align-self: end;
     justify-self: right;
+    backdrop-filter: blur(2px);
+    margin: 5px;
+    transition: 200ms;
+}
+
+.cityvlog1:hover .playlist, .cityvlog2:hover .playlist{
+    stroke: black;
+}
+
+.svgoutline, .playlistbox{
+    stroke: rgb(0, 0, 0);
+    stroke-width: 7px;
+    transition: 200ms;
+}
+
+.svgoutline{
+    fill: white;
+}
+
+.cityvlog1:hover .citnbox .svgoutline, .cityvlog2:hover .citnbox .svgoutline{
+    fill: black;
+    stroke: white;
+}
+
+.circles{
+    z-index: 1;
+    grid-area: 1/1;
+    width: 5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.circles>svg{
+    width: 100%;
+    height: auto;
+}
+
+.circle{
+    stroke: rgb(0, 0, 0);
+    stroke-width: 7px;
+    fill: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes circleon{
+    0%, 100%{
+        stroke: rgb(0, 0, 0);
+        stroke-width: 7px;
+        fill: rgba(255, 255, 255, 0.2);
+    }
+    10%, 90%{
+        stroke: rgb(255, 255, 255);
+        stroke-width: 7px;
+        fill: rgba(0, 0, 0, 0.7);
+    }
+}
+
+.fcircleon{
+    animation: circleon 2000ms;
+}
+
+.circleon{
+    animation: circleon 4300ms;
 }
 
 .citnbox>img{
@@ -525,14 +594,6 @@ h1, h2, h3{
 
 .tncycle{
     animation: tncycle 500ms ease-in;
-}
-
-.cityvlog1:hover .citnbox, .cityvlog2:hover .citnbox{
-    transform: scale(0.8) translateY(11%);
-}
-
-.cityvlog1:hover .cvlogt, .cityvlog2:hover .cvlogt{
-    opacity: 1;
 }
 
 .cityx, .cityxeven{
