@@ -258,11 +258,11 @@ h1, h2, h3{
 }
 
 #usa48{
-    /* transform: translate(-47%, -165%) scaleX(4.25) scaleY(5); */
-    transform: translate(115%, 37%) scaleX(4.25) scaleY(5);
+    transform: translate(167%, 37%) scaleX(4.25) scaleY(5);
     transition: transform 300ms;
     will-change: transform;
     transform-origin: center center;
+    transform-box: fill-box;
 }
 
 #world.active #usa48{
