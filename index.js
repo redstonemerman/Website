@@ -6,16 +6,22 @@ window.addEventListener('load',() =>{
 })
 
 
-
 // CALCULATE SCROLLING DISTANCE
-function updateScrollVariable() {
-  const scroll = document.documentElement.scrollHeight - window.innerHeight;
-  document.documentElement.style.setProperty('--scroll', `${scroll}%`);
-}
-window.addEventListener('load', updateScrollVariable);
 
+function updateScroll() {
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = (window.scrollY - 0.5*scrollHeight)*0.06;
+  // const scrolledPercent = 
+  document.documentElement.style.setProperty('--scrollHeight', `${scrolled}%`);
+  console.log(scrollHeight);
+}
+window.addEventListener('load', updateScroll);
 window.addEventListener('resize', () => {
-  updateScrollVariable();
+  requestAnimationFrame(updateScroll());
+});
+window.addEventListener('scroll', () => {
+  updateScroll();
+  requestAnimationFrame(updateScroll());
 });
 
 
