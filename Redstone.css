@@ -204,7 +204,7 @@ h1, h2, h3{
     opacity: 0;
     pointer-events: none;
     transition: transform 300ms, opacity 300ms;
-    transform: translate(-25%, max(-5%, -1.5vw)) scale(0.2);
+    transform: translate(-28%, max(-5%, -1.5vw)) scale(0.2);
     z-index: 0;
     width: 100%;
     height: 100%;
@@ -258,13 +258,15 @@ h1, h2, h3{
 }
 
 #usa48{
-    transform: translate(-75%, -190%) scale(5.5);
-    transition: transform 300ms, opacity 0ms;
+    /* transform: translate(-47%, -165%) scaleX(4.25) scaleY(5); */
+    transform: translate(115%, 37%) scaleX(4.25) scaleY(5);
+    transition: transform 300ms;
+    will-change: transform;
+    transform-origin: center center;
 }
 
 #world.active #usa48{
     transform: scale(1);
-    transition: transform 300ms, opacity 0ms;
 }
 
 #spainb{
