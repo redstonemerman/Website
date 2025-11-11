@@ -259,7 +259,7 @@ h1, h2, h3{
 
 #usa48{
     transform: translate(167%, 37%) scaleX(4.25) scaleY(5);
-    transition: transform 3000ms;
+    transition: transform 300ms;
     will-change: transform;
     transform-origin: center center;
     transform-box: fill-box;
@@ -453,8 +453,8 @@ h1, h2, h3{
 }
 
 .titleflip{
-    opacity: 0;
-    animation: titleflip 1500ms 100ms forwards;
+    animation: titleflip 1500ms 100ms;
+    will-change: transform;
 }
 
 @keyframes titleflip{
