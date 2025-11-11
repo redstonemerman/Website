@@ -453,21 +453,22 @@ h1, h2, h3{
 }
 
 .titleflip{
-    animation: titleflip 1500ms 100ms;
+    opacity: 0;
+    animation: titleflip 1500ms 100ms forwards;
     will-change: transform;
 }
 
 @keyframes titleflip{
     0%{
         opacity: 0;
-        transform:rotate3d(1, 0, 0, 0deg);
+        transform:rotateX(0deg);
     }
     40%{
-        transform:rotate3d(1, 0, 0, 400deg);
+        transform:rotateX(400deg);
     }
     100%{
         opacity: 1;
-        transform:rotate3d(1, 0, 0, 360deg);
+        transform:rotateX(360deg);
     }
 }
 
