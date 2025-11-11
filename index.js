@@ -1,5 +1,10 @@
 // VIDEO 0.5
-document.querySelector('.bgvid').playbackRate = 0.5;
+window.addEventListener('load',() =>{
+  const video = document.querySelector('.bgvid');
+  video.play();
+  video.playbackRate = 0.5;
+})
+
 
 
 // CALCULATE SCROLLING DISTANCE
@@ -9,19 +14,15 @@ function updateScrollVariable() {
 }
 window.addEventListener('load', updateScrollVariable);
 
-let resizeTimeout;
 window.addEventListener('resize', () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(updateScrollVariable, 100);
+  updateScrollVariable();
 });
 
 
 // LOADING SCREEN
 window.addEventListener('load', () => {
   const loading = document.querySelector('.loading');
-  const video = document.querySelector('.bgvid');
   loading.classList.add('fadeaway');
-  video.play();
   setTimeout(() => {
     loading.style.display = 'none';
   }, 500);
