@@ -259,7 +259,7 @@ h1, h2, h3{
 
 #usa48{
     transform: translate(167%, 37%) scaleX(4.25) scaleY(5);
-    transition: transform 300ms;
+    transition: transform 3000ms;
     will-change: transform;
     transform-origin: center center;
     transform-box: fill-box;
