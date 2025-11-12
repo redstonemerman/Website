@@ -7,11 +7,9 @@ window.addEventListener('load',() =>{
 
 
 // CALCULATE SCROLLING DISTANCE
-
 function updateScroll() {
   const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = (window.scrollY - 0.5*scrollHeight)*0.06;
-  // const scrolledPercent = 
+  const scrolled = window.scrollY*0.1 - 75;
   document.documentElement.style.setProperty('--scrollHeight', `${scrolled}%`);
   console.log(scrollHeight);
 }
@@ -230,13 +228,17 @@ function openCity (city, state) {
 }
 cityMaps.forEach(({map, state}) => {
   map.forEach(({button, city}) => {
-    button.addEventListener('click', () => openCity(city, state));
+    button.addEventListener('click', () => {
+      openCity(city, state);
+      state.style.backdropFilter = 'none';
+    });
   })
 })
 // close cities
 function closeCity() {
   states.forEach(state => {
     if(state.classList.contains('active')){
+      state.style.backdropFilter = 'blur(5px)';
       state.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
       const stateImgage = state.querySelector('svg')
       stateImgage.classList.remove('disappear')
