@@ -710,7 +710,7 @@ h1{
     grid-gap: min(2vw, 25px);
 }
 
-.montitle{
+.montitle, .filmtitle{
     grid-area: title;
     text-align: center;
     z-index: 1;
@@ -753,7 +753,7 @@ h1{
 
 .films{
     position: relative;
-    height: 60vw;
+    height: fit-content;
     display: flex;
     justify-content: center;
 }
@@ -770,7 +770,6 @@ h1{
 
 .bgfvid{
     height: 100%;
-    min-height: 100%;
     width: 100%;
     bottom: 100%;
     object-fit: cover;
@@ -779,11 +778,25 @@ h1{
 }
 
 .filmbox{
-    display: flex;
+    padding: min(2vw, 25px);
+    margin: 0 0 100px 0;
+    display: grid;
+    grid-template-areas:
+    "title title"
+    ". .";
     align-items: center;
-    justify-content: space-evenly;
+    justify-items: center;
     justify-self: center;
-    width: 100%;
+    width: min(100%,1250px);
+}
+
+{
+    grid-area: title;
+    text-align: center;
+    z-index: 1;
+    font-family: 'Kelly';
+    font-size: min(4vw, 60px);
+    color: white;
 }
 
 .filmtn{
@@ -791,7 +804,7 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 75%;
     height: fit-content;
     border: 5px black solid;
     background-color: black;
