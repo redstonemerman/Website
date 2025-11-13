@@ -1,9 +1,27 @@
 // VIDEO 0.5
 window.addEventListener('load',() =>{
-  const video = document.querySelector('.bgvid');
-  video.play();
-  video.playbackRate = 0.5;
+  const video = [document.querySelector('.bgvid'),document.querySelector('.bgfvid')];
+  video.forEach(video => {
+    video.play();
+    video.playbackRate = 0.5;
+  })
 })
+
+
+// BACKGROUND CHANGE
+const divider = document.querySelector('.montages');
+const bg = document.querySelector('.vidbox');
+function bgChange() {
+  const dividerHeight = divider.offsetHeight;
+  const crop1 = bg.offsetHeight;
+  const crop2 = divider.getBoundingClientRect().top;
+  const crop = crop1 - crop2 - (dividerHeight/2);
+  bg.style.clipPath = `inset(0 0 ${crop}px 0)`;
+}
+bgChange();
+document.addEventListener('scroll', () => {
+  window.requestAnimationFrame(bgChange());
+});
 
 
 // CALCULATE SCROLLING DISTANCE
@@ -11,7 +29,6 @@ function updateScroll() {
   const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
   const scrolled = window.scrollY*0.1 - 75;
   document.documentElement.style.setProperty('--scrollHeight', `${scrolled}%`);
-  console.log(scrollHeight);
 }
 window.addEventListener('load', updateScroll);
 window.addEventListener('resize', () => {
