@@ -751,7 +751,7 @@ h1{
 
 /* FILMS */
 
-.filmbox{
+.films{
     position: relative;
     height: 60vw;
     display: flex;
@@ -776,6 +776,59 @@ h1{
     object-fit: cover;
     opacity: 50%;
     bottom: 100%;
+}
+
+.filmbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    justify-self: center;
+    width: 100%;
+}
+
+.filmtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: fit-content;
+    border: 5px black solid;
+    background-color: black;
+}
+
+.filmtn>span{
+    position: absolute;
+    text-align: center;
+    font-family: 'Kelly';
+    color: white;
+    z-index: 2;
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 300ms, transform 300ms;
+}
+
+.filmtn:hover>span{
+    grid-area: 1/1;
+    text-align: center;
+    font-family: 'Kelly';
+    color: white;
+    z-index: 2;
+    transform: scale(3);
+    opacity: 1;
+}
+
+.filmtn>img{
+    grid-area: 1/1;
+    width: 100%;
+    aspect-ratio: 16/9;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.filmtn:hover>img{
+    opacity: 0.5;
 }
 
 /* MENU */

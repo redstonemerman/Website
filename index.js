@@ -20,7 +20,7 @@ function bgChange() {
 }
 bgChange();
 document.addEventListener('scroll', () => {
-  // window.requestAnimationFrame(bgChange());
+  window.requestAnimationFrame(bgChange());
   bgChange();
 });
 
