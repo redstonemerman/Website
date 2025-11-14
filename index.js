@@ -8,6 +8,23 @@ window.addEventListener('load',() =>{
 })
 
 
+// YT VIDEO
+ytVids = Array.from(document.querySelectorAll('.montbox'));
+function ytPlay(vid) {
+  vid.forEach(vid => {
+    const iframe = vid.querySelector('.ytvid');
+    const img = vid.querySelector('.montn');
+    iframe.addEventListener('click',() => {
+      iframe.style.opacity = 1;
+      iframe.style.zIndex = 1;
+      img.style.opacity = 0;
+      img.style.zIndex = 0;
+    })
+  })
+}
+ytPlay(ytVids);
+
+
 // BACKGROUND CHANGE
 const divider = document.querySelector('.montages');
 const bg = document.querySelector('.vidbox');
