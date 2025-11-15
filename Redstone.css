@@ -990,7 +990,6 @@ h1{
 .tlon{
     transform: translate(-25%,-45%);
     animation: ytontl 300ms forwards;
-    transform-origin: center center;
 }
 
 .tloff{
