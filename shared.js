@@ -54,7 +54,7 @@ const selected = localStorage.getItem('selected')
 const isSelected = (blink, vlog) => {
   if(blink === vlog.id){
     window.onload = () => {
-      window.scrollBy(0, -50);
+      window.scrollBy(0, -575);
       setTimeout(() => {
         vlog.classList.add('blink');
         localStorage.removeItem('selected')
@@ -167,5 +167,8 @@ document.addEventListener('keydown', (e) => {
     else if(e.key === 'Escape'){
       return menuItems.forEach(item => closeSubmenu(item))
     }
+  }
+  else if(e.key === 'Escape'){
+      return videos.forEach(video => videoOff(video))
   }
 });

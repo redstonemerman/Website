@@ -730,7 +730,7 @@ h1{
     align-items: center;
     justify-items: center;
     justify-self: center;
-    row-gap: min(2.5vw, 20px);
+    row-gap: min(1.5vw, 20px);
     column-gap: calc(min(1.5vw, 20px) + min(0.35vw, 5px));
     grid-template-columns: repeat(1fr,5);
     grid-template-rows: auto auto;
@@ -833,6 +833,10 @@ h1{
     opacity: 1;
 }
 
+.ytvid{
+    position: absolute;
+}
+
 .ytvid, .vvid{
     opacity: 0;
     pointer-events: none;
@@ -844,16 +848,179 @@ h1{
     grid-area: 1/1;
 }
 
-.ytvidon{
-    width: 200%;
-    aspect-ratio: 16/9.05;
-    transform: translate(0%,0%);
-    pointer-events: all;
-    opacity: 1;
+@keyframes ytontl {
+    0%{
+        opacity: 0;
+        clip-path: inset(0 51.5% 53.5% 1.6%);
+        border: solid black min(0.35vw, 5px);
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
 }
 
-.ytvidoff{
-    animation: montoff 300ms forwards;
+@keyframes ytofftl {
+    0%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        clip-path: inset(0 51.5% 53.5% 1.6%);
+        border: solid black min(0.35vw, 5px);
+    }
+}
+
+@keyframes ytontr {
+    0%{
+        opacity: 0;
+        clip-path: inset(0 1.6% 53.5% 51.5%);
+        border: solid black min(0.35vw, 5px);
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+}
+
+@keyframes ytofftr {
+    0%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        clip-path: inset(0 1.6% 53.5% 51.5%);
+        border: solid black min(0.35vw, 5px);
+    }
+}
+
+@keyframes ytonbl {
+    0%{
+        opacity: 0;
+        clip-path: inset(53.5% 51.5% 0 1.6%);
+        border: solid black min(0.35vw, 5px);
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+}
+
+@keyframes ytoffbl {
+    0%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        clip-path: inset(53.5% 51.5% 0 1.6%);
+        border: solid black min(0.35vw, 5px);
+    }
+}
+
+@keyframes ytonbr {
+    0%{
+        opacity: 0;
+        clip-path: inset(53.5% 1.6% 0 51.5%);
+        border: solid black min(0.35vw, 5px);
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+}
+
+@keyframes ytoffbr {
+    0%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        clip-path: inset(53.5% 1.6% 0 51.5%);
+        border: solid black min(0.35vw, 5px);
+    }
+}
+
+.ytvidon{
+    width: min(38%,500px);
+    aspect-ratio: 16/9.05;
+    pointer-events: all;
+    z-index: 2;
+}
+
+.tlon{
+    transform: translate(25%,27%);
+    animation: ytontl 300ms forwards;
+}
+
+.tron{
+    transform: translate(-25%,27%);
+    animation: ytontr 300ms forwards;
+}
+
+.blon{
+    transform: translate(25%,-27%);
+    animation: ytonbl 300ms forwards;
+}
+
+.bron{
+    transform: translate(-25%,-27%);
+    animation: ytonbr 300ms forwards;
+}
+
+.tloff{
+    transform: translate(25%,27%);
+    animation: ytofftl 300ms forwards;
+}
+
+.troff{
+    transform: translate(-25%,27%);
+    animation: ytofftr 300ms forwards;
+}
+
+.bloff{
+    transform: translate(25%,-27%);
+    animation: ytoffbl 300ms forwards;
+}
+
+.broff{
+    transform: translate(-25%,-27%);
+    animation: ytoffbr 300ms forwards;
 }
 
 .filmtn>span{

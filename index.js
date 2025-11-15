@@ -15,9 +15,14 @@ function videoOn(video) {
   const ytVid = video.querySelector('.ytvid');
   if (!playBtn || !ytVid) return;
   player.addEventListener('click', () => {
+    video.style.zIndex = 2;
     ytVid.classList.add('ytvidon');
     playBtn.style.opacity = 0;
     playBtn.style.pointerEvents = 'none';
+    if(ytVid.classList.contains('tl'))ytVid.classList.add('tlon')
+    if(ytVid.classList.contains('tr'))ytVid.classList.add('tron')
+    if(ytVid.classList.contains('bl'))ytVid.classList.add('blon')
+    if(ytVid.classList.contains('br'))ytVid.classList.add('bron')
   })
 }
 function videoOff(video) {
@@ -26,63 +31,34 @@ function videoOff(video) {
   if (!playBtn || !ytVid) return;
   if(ytVid.classList.contains('ytvidon')){
     ytVid.classList.add('ytvidoff');
+    if(ytVid.classList.contains('tl'))ytVid.classList.add('tloff')
+    if(ytVid.classList.contains('tr'))ytVid.classList.add('troff')
+    if(ytVid.classList.contains('bl'))ytVid.classList.add('bloff')
+    if(ytVid.classList.contains('br'))ytVid.classList.add('broff')
     setTimeout(() => {
+      video.style.zIndex = 1;
       ytVid.classList.remove('ytvidon');
       ytVid.classList.remove('ytvidoff');
       playBtn.style.opacity = 1;
       playBtn.style.pointerEvents = 'all';
+      if(ytVid.classList.contains('tl'))ytVid.classList.remove('tlon')
+      if(ytVid.classList.contains('tr'))ytVid.classList.remove('tron')
+      if(ytVid.classList.contains('bl'))ytVid.classList.remove('blon')
+      if(ytVid.classList.contains('br'))ytVid.classList.remove('bron')
+      if(ytVid.classList.contains('tl'))ytVid.classList.remove('tloff')
+      if(ytVid.classList.contains('tr'))ytVid.classList.remove('troff')
+      if(ytVid.classList.contains('bl'))ytVid.classList.remove('bloff')
+      if(ytVid.classList.contains('br'))ytVid.classList.remove('broff')
     }, 300);
   }
 }
 const videos = Array.from(document.querySelectorAll('.montbox'));
-videos.forEach(video => {
-  videoOn(video);
-})
+videos.forEach(video => videoOn(video))
+
 document.addEventListener('click', (e) =>{
-  if(e.target.classList.contains('btncircle')) {
-    return
-  }
-  else videos.forEach(video => {
-    videoOff(video);
-  })
+  if(e.target.classList.contains('btncircle')) return;
+  else videos.forEach(video => videoOff(video));
 })
-
-
-
-
-// function videoOn(video) {
-//   const player = video.querySelector('.btncircle');
-//   const playBtn = video.querySelector('.playbtn');
-//   const ytVid = video.querySelector('.ytvid');
-//   if (!playBtn || !ytVid) return;
-//   player.addEventListener('click', () => {
-//     ytVid.style.opacity = 1;
-//     ytVid.style.pointerEvents = 'all';
-//     playBtn.style.opacity = 0;
-//     playBtn.style.pointerEvents = 'none';
-//   })
-// }
-// function videoOff(video) {
-//   const playBtn = video.querySelector('.playbtn');
-//   const ytVid = video.querySelector('.ytvid');
-//   if (!playBtn || !ytVid) return;
-//   ytVid.style.opacity = 0;
-//   ytVid.style.pointerEvents = 'none';
-//   playBtn.style.opacity = 1;
-//   playBtn.style.pointerEvents = 'all';
-// }
-// const videos = Array.from(document.querySelectorAll('.montbox'));
-// videos.forEach(video => {
-//  videoOn(video);
-// })
-// document.addEventListener('click', (e) =>{
-//   if(e.target.classList.contains('btncircle')) {
-//     return
-//   }
-//   else videos.forEach(video => {
-//     videoOff(video);
-//   })
-// })
 
 
 // BACKGROUND CHANGE
@@ -316,7 +292,6 @@ function openCity (city, state) {
   title.classList.add('titleflip')
   city.classList.add('active')
   console.log(title);
-  sx.forEach(x => x.classList.remove('active'));
   cityOpen = true;
   loopOn = true;
   slideShow(city);
@@ -418,27 +393,17 @@ function slideOff(city) {
 document.addEventListener('keydown', (e) => {
   // city open
   if(cityOpen === true) {
-    if(e.key === 'Escape') {
-      return closeCity();
-    }
+    if(e.key === 'Escape') return closeCity();
   }
   // TX open
   else if(texas.classList.contains('active')){
-    if(e.key === 'Escape') {
-      return closeState();
-    }
-    else if(texasKey[e.key]) {
-      return openCity(texasKey[e.key], texas);
-    }
+    if(e.key === 'Escape') return closeState();
+    else if(texasKey[e.key]) return openCity(texasKey[e.key], texas);
   }
   // CA open
   else if(cali.classList.contains('active')){
-    if(e.key === 'Escape') {
-      return closeState();
-    }
-    else if(caliKey[e.key]) {
-      return openCity(caliKey[e.key], cali);
-    }
+    if(e.key === 'Escape') return closeState();
+    else if(caliKey[e.key]) return openCity(caliKey[e.key], cali);
   }
   // menu shortcuts
   else if(e.key === 'Control' && menuOn === false) {
@@ -451,40 +416,25 @@ document.addEventListener('keydown', (e) => {
   }
   // open menu items
   else if(menuOn === true){
-    if(directsMap[e.key]){
-      return directsMap[e.key].click();
-    }
+    if(directsMap[e.key]) return directsMap[e.key].click();
     // open submenus
     else if(menuMap[e.key]){
       Object.values(menuMap).forEach(closeSubmenu);
       return openSubmenu(menuMap[e.key]);
     }
     // open submenu items
-    else if(hvlogs.classList.contains('menuactive') && homeMap[e.key]){
-      return homeMap[e.key].click();
-    }
-    else if(cvlogs.classList.contains('menuactive') && collegeMap[e.key]){
-      return collegeMap[e.key].click();
-    }
-    else if(tvlogs.classList.contains('menuactive') && travelMap[e.key]){
-      return travelMap[e.key].click();
-    }
-    else if(e.key === 'Escape'){
-      return menuItems.forEach(item => closeSubmenu(item))
-    }
+    else if(hvlogs.classList.contains('menuactive') && homeMap[e.key]) return homeMap[e.key].click();
+    else if(cvlogs.classList.contains('menuactive') && collegeMap[e.key]) return collegeMap[e.key].click();
+    else if(tvlogs.classList.contains('menuactive') && travelMap[e.key]) return travelMap[e.key].click();
+    else if(e.key === 'Escape') return menuItems.forEach(item => closeSubmenu(item))
   }
   // toggle world/USA
   else if(usa.classList.contains('active')) {
-    if(stateKey[e.key]) {
-      return openState(stateKey[e.key]);
-    }
-    if(e.key === 'w') {
-      return openMap(world, usa)
-    }
+    if(stateKey[e.key]) return openState(stateKey[e.key]);
+    if(e.key === 'w') return openMap(world, usa);
   }
   else if(world.classList.contains('active')) {
-    if(e.key === 'u') {
-      return openMap(usa, world)
-    }
+    if(e.key === 'u') return openMap(usa, world);
   }
+  else if(e.key === 'Escape') return videos.forEach(video => videoOff(video));
 });
