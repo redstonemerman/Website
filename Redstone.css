@@ -984,9 +984,9 @@ h1{
 }
 
 .tlon{
-    /* transform: translate(25%,27%); */
+    transform: translate(25%,27%);
     animation: ytontl 300ms forwards;
-    /* transform-origin: center center; */
+    transform-origin: center center;
 }
 
 .tron{
@@ -1022,6 +1022,11 @@ h1{
 .broff{
     transform: translate(-25%,-27%);
     animation: ytoffbr 300ms forwards;
+}
+
+.ytvid>iframe{
+    width: 100%;
+    height: 100%;
 }
 
 .filmtn>span{
