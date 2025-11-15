@@ -833,10 +833,6 @@ h1{
     opacity: 1;
 }
 
-.ytvidbox{
-    position: relative;
-}
-
 .ytvid{
     position: absolute;
 }
@@ -998,12 +994,12 @@ h1{
 }
 
 .tron{
-    transform: translate(-25%,27%);
+    transform: translate(-75%,-45%);
     animation: ytontr 300ms forwards;
 }
 
 .troff{
-    transform: translate(-25%,27%);
+    transform: translate(-75%,-45%);
     animation: ytofftr 300ms forwards;
 }
 
