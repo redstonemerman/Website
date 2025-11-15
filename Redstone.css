@@ -833,6 +833,10 @@ h1{
     opacity: 1;
 }
 
+.ytvidbox{
+    position: relative;
+}
+
 .ytvid{
     position: absolute;
 }
@@ -1022,11 +1026,6 @@ h1{
 .broff{
     transform: translate(-25%,-27%);
     animation: ytoffbr 300ms forwards;
-}
-
-.ytvid>iframe{
-    width: 100%;
-    height: 100%;
 }
 
 .filmtn>span{
