@@ -833,6 +833,10 @@ h1{
     opacity: 1;
 }
 
+.ytvidbox{
+    position: relative;
+}
+
 .ytvid{
     position: absolute;
 }
