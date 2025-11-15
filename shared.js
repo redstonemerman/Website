@@ -8,6 +8,46 @@ window.addEventListener('load', () => {
 })
 
 
+// YT VIDEO
+function videoOn(video) {
+  const player = video.querySelector('.btncircle');
+  const playBtn = video.querySelector('.playbtn');
+  const ytVid = video.querySelector('.vvid');
+  if (!playBtn || !ytVid) return;
+  player.addEventListener('click', () => {
+    ytVid.classList.add('vvidon');
+    playBtn.style.opacity = 0;
+    playBtn.style.pointerEvents = 'none';
+  })
+}
+function videoOff(video) {
+  const playBtn = video.querySelector('.playbtn');
+  const ytVid = video.querySelector('.vvid');
+  if (!playBtn || !ytVid) return;
+  if(ytVid.classList.contains('vvidon')){
+    ytVid.classList.add('vvidoff');
+    setTimeout(() => {
+      ytVid.classList.remove('vvidon');
+      ytVid.classList.remove('vvidoff');
+      playBtn.style.opacity = 1;
+      playBtn.style.pointerEvents = 'all';
+    }, 300);
+  }
+}
+const videos = Array.from(document.querySelectorAll('.vvlogbox'));
+videos.forEach(video => {
+  videoOn(video);
+})
+document.addEventListener('click', (e) =>{
+  if(e.target.classList.contains('btncircle')) {
+    return
+  }
+  else videos.forEach(video => {
+    videoOff(video);
+  })
+})
+
+
 // CLICKED VLOG
 const selects = Array.from(document.querySelectorAll('.vitem'))
 const selected = localStorage.getItem('selected')

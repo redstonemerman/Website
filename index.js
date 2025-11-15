@@ -9,20 +9,80 @@ window.addEventListener('load',() =>{
 
 
 // YT VIDEO
-ytVids = Array.from(document.querySelectorAll('.montbox'));
-function ytPlay(vid) {
-  vid.forEach(vid => {
-    const iframe = vid.querySelector('.ytvid');
-    const img = vid.querySelector('.montn');
-    iframe.addEventListener('click',() => {
-      iframe.style.opacity = 1;
-      iframe.style.zIndex = 1;
-      img.style.opacity = 0;
-      img.style.zIndex = 0;
-    })
+function videoOn(video) {
+  const player = video.querySelector('.btncircle');
+  const playBtn = video.querySelector('.playbtn');
+  const ytVid = video.querySelector('.ytvid');
+  if (!playBtn || !ytVid) return;
+  player.addEventListener('click', () => {
+    ytVid.classList.add('ytvidon');
+    playBtn.style.opacity = 0;
+    playBtn.style.pointerEvents = 'none';
   })
 }
-ytPlay(ytVids);
+function videoOff(video) {
+  const playBtn = video.querySelector('.playbtn');
+  const ytVid = video.querySelector('.ytvid');
+  if (!playBtn || !ytVid) return;
+  if(ytVid.classList.contains('ytvidon')){
+    ytVid.classList.add('ytvidoff');
+    setTimeout(() => {
+      ytVid.classList.remove('ytvidon');
+      ytVid.classList.remove('ytvidoff');
+      playBtn.style.opacity = 1;
+      playBtn.style.pointerEvents = 'all';
+    }, 300);
+  }
+}
+const videos = Array.from(document.querySelectorAll('.montbox'));
+videos.forEach(video => {
+  videoOn(video);
+})
+document.addEventListener('click', (e) =>{
+  if(e.target.classList.contains('btncircle')) {
+    return
+  }
+  else videos.forEach(video => {
+    videoOff(video);
+  })
+})
+
+
+
+
+// function videoOn(video) {
+//   const player = video.querySelector('.btncircle');
+//   const playBtn = video.querySelector('.playbtn');
+//   const ytVid = video.querySelector('.ytvid');
+//   if (!playBtn || !ytVid) return;
+//   player.addEventListener('click', () => {
+//     ytVid.style.opacity = 1;
+//     ytVid.style.pointerEvents = 'all';
+//     playBtn.style.opacity = 0;
+//     playBtn.style.pointerEvents = 'none';
+//   })
+// }
+// function videoOff(video) {
+//   const playBtn = video.querySelector('.playbtn');
+//   const ytVid = video.querySelector('.ytvid');
+//   if (!playBtn || !ytVid) return;
+//   ytVid.style.opacity = 0;
+//   ytVid.style.pointerEvents = 'none';
+//   playBtn.style.opacity = 1;
+//   playBtn.style.pointerEvents = 'all';
+// }
+// const videos = Array.from(document.querySelectorAll('.montbox'));
+// videos.forEach(video => {
+//  videoOn(video);
+// })
+// document.addEventListener('click', (e) =>{
+//   if(e.target.classList.contains('btncircle')) {
+//     return
+//   }
+//   else videos.forEach(video => {
+//     videoOff(video);
+//   })
+// })
 
 
 // BACKGROUND CHANGE

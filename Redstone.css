@@ -779,46 +779,81 @@ h1{
     font-size: min(1.5vw, 20px);
 }
 
-/* Hover FX */
+/* Play Button */
 .playbtn{
     grid-area: 1/1;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
     z-index: 2;
-    width: 50%;
+    width: 30%;
+    aspect-ratio: 1/1;
 }
 
 .playbtn>svg{
+    grid-area: 1/1;
     width: 100%;
     height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: 300ms;
+}
+
+.btncircleblur{
+    grid-area: 1/1;
+    width: 80%;
+    height: 80%;
+    backdrop-filter: blur(0px);
+    border-radius: 50%;
+    z-index: 0;
+    transition: 300ms;
+    pointer-events: none;
 }
 
 .btncircle{
     fill: transparent;
-    stroke: white;
-    stroke-width: 2px;
+    stroke: black;
+    stroke-width: 5px;
+    cursor: pointer;
 }
 
 .btnplay{
-    stroke: rgb(255, 0, 0);
-    stroke-width: 0px;
     grid-area: 1/1;
-    fill: white;
+    fill: rgb(255, 0, 0);
+    pointer-events: none;
 }
 
-.montn, .montbox:hover .ytvid{
+.montbox:hover .btncircleblur, .vvlogbox:hover .btncircleblur{
+    backdrop-filter: blur(5px);
+}
+
+.montbox:hover .playbtn>svg, .vvlogbox:hover .playbtn>svg{
     opacity: 1;
-    z-index: 1;
 }
 
-.ytvid, .montbox:hover .montn{
+.ytvid, .vvid{
     opacity: 0;
-    z-index: 0;
+    pointer-events: none;
 }
 
-.montn, .ytvid{
+.montn, .ytvid, .vvid{
     aspect-ratio: 16 / 9;
     width: 100%;
     grid-area: 1/1;
-    transition: opacity 250ms;
+}
+
+.ytvidon{
+    width: 200%;
+    aspect-ratio: 16/9.05;
+    transform: translate(0%,0%);
+    pointer-events: all;
+    opacity: 1;
+}
+
+.ytvidoff{
+    animation: montoff 300ms forwards;
 }
 
 .filmtn>span{
@@ -1177,22 +1212,60 @@ h2{
     justify-items: left;
 }
 
-.vdesc, .vpic, .vvid{
+.vdesc, .vpic{
     grid-area: 1/1;
 }
 
-.vpic, .vvid{
-    width: 100%;
-    height: 100%;
-    border: solid black min(0.7vw, 5px);
-    box-sizing: border-box;
-    transition: opacity 250ms;
-}
-
-.vvid{
+.vpic{
     width: 100%;
     aspect-ratio: 16/9;
-    display: block;
+    border: solid black min(0.7vw, 5px);
+    box-sizing: border-box;
+}
+
+@keyframes vidon {
+    0%{
+        opacity: 0;
+        clip-path: inset(60.4% 8.8% 5.6% 57%);
+        border: solid black min(0.7vw, 5px);
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.7vw, 5px);
+    }
+}
+
+@keyframes vidoff {
+    0%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.7vw, 5px);
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        clip-path: inset(60.4% 8.8% 5.6% 57%);
+        border: solid black min(0.7vw, 5px);
+    }
+}
+
+.vvidon{
+    width: 292%;
+    aspect-ratio: 16/9.05;
+    transform: translate(-57%,-60.4%);
+    pointer-events: all;
+    opacity: 1;
+    animation: vidon 300ms forwards;
+}
+
+.vvidoff{
+    animation: vidoff 300ms forwards;
 }
 
 .vdesc{
@@ -1206,14 +1279,6 @@ h2{
 
 .vitem:hover .vdesc, .blink .vdesc{
     transform: translateX(max(-37.3vw, -360px));
-}
-
-.vvid{
-    opacity: 0;
-}
-
-.vvlogbox:hover .vvid{
-    opacity: 1;
 }
 
 .blink{
