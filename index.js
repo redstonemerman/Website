@@ -15,7 +15,8 @@ function videoOn(video) {
   const ytVid = video.querySelector('.ytvid');
   if (!playBtn || !ytVid) return;
   player.addEventListener('click', () => {
-    video.style.zIndex = 2;
+    videos.forEach(video => videoOff(video));
+    video.style.zIndex = 3;
     ytVid.classList.add('ytvidon');
     playBtn.style.opacity = 0;
     playBtn.style.pointerEvents = 'none';
@@ -35,6 +36,7 @@ function videoOff(video) {
     if(ytVid.classList.contains('tr'))ytVid.classList.add('troff')
     if(ytVid.classList.contains('bl'))ytVid.classList.add('bloff')
     if(ytVid.classList.contains('br'))ytVid.classList.add('broff')
+    video.style.zIndex = 2;
     setTimeout(() => {
       video.style.zIndex = 1;
       ytVid.classList.remove('ytvidon');
@@ -53,7 +55,7 @@ function videoOff(video) {
   }
 }
 const videos = Array.from(document.querySelectorAll('.montbox'));
-videos.forEach(video => videoOn(video))
+videos.forEach(video => videoOn(video));
 
 document.addEventListener('click', (e) =>{
   if(e.target.classList.contains('btncircle')) return;
@@ -391,6 +393,7 @@ function slideOff(city) {
 
 // KEY SHORTCUTS
 document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape') videos.forEach(video => videoOff(video));
   // city open
   if(cityOpen === true) {
     if(e.key === 'Escape') return closeCity();
@@ -436,5 +439,4 @@ document.addEventListener('keydown', (e) => {
   else if(world.classList.contains('active')) {
     if(e.key === 'u') return openMap(usa, world);
   }
-  else if(e.key === 'Escape') return videos.forEach(video => videoOff(video));
 });

@@ -15,6 +15,7 @@ function videoOn(video) {
   const ytVid = video.querySelector('.vvid');
   if (!playBtn || !ytVid) return;
   player.addEventListener('click', () => {
+    videos.forEach(video => videoOff(video));
     ytVid.classList.add('vvidon');
     playBtn.style.opacity = 0;
     playBtn.style.pointerEvents = 'none';
@@ -42,9 +43,7 @@ document.addEventListener('click', (e) =>{
   if(e.target.classList.contains('btncircle')) {
     return
   }
-  else videos.forEach(video => {
-    videoOff(video);
-  })
+  else videos.forEach(video => videoOff(video));
 })
 
 
