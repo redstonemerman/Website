@@ -83,7 +83,7 @@ document.addEventListener('scroll', () => {
 // CALCULATE SCROLLING DISTANCE
 function updateScroll() {
   const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = window.scrollY*0.1 - 75;
+  const scrolled = window.scrollY*0.1 - scrollHeight*0.05;
   document.documentElement.style.setProperty('--scrollHeight', `${scrolled}%`);
 }
 window.addEventListener('load', updateScroll);
