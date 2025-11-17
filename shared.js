@@ -69,10 +69,10 @@ let menuOn = false;
 let subOpen = false;
 const menuKey = document.querySelectorAll('#menukey');
 const mmenu = document.querySelector('#m')
-const shorts = document.querySelector('#s')
+const story = document.querySelector('#s')
 const directsMap = {
   m: mmenu,
-  s: shorts
+  o: story
 }
 // menu items
 const hvlogs = document.querySelector('.hmenu');
@@ -86,12 +86,12 @@ const menuMap = {
 const menuItems = Object.values(menuMap);
 // home vlogs
 const avlogs = document.querySelector('#a')
-const kvlogs = document.querySelector('#k')
+const fvlogs = document.querySelector('#ff')
 const fhvlogs = document.querySelector('#fh')
 const homeMap = {
   a: avlogs,
-  k: kvlogs,
-  f: fhvlogs
+  f: fvlogs,
+  s: fhvlogs
 }
 // college items
 const b1vlogs = document.querySelector('#b1')

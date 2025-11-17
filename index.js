@@ -81,10 +81,13 @@ document.addEventListener('scroll', () => {
 
 
 // CALCULATE SCROLLING DISTANCE
+const bannerBox = document.querySelector('.bannerbox');
+const banner = document.querySelector('.banner');
 function updateScroll() {
   const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = window.scrollY*0.1 - scrollHeight*0.05;
-  document.documentElement.style.setProperty('--scrollHeight', `${scrolled}%`);
+  const scrolled = window.scrollY*0.1 - scrollHeight*0.055;
+  const bannerHeight = bannerBox.offsetHeight;
+  banner.style.transform = 'translateY(' + scrolled * 5 + 'px)';
 }
 window.addEventListener('load', updateScroll);
 window.addEventListener('resize', () => {
@@ -111,16 +114,15 @@ let menuOn = false;
 let subOpen = false;
 const menuKey = document.querySelectorAll('#menukey');
 const mmenu = document.querySelector('#m')
-const shorts = document.querySelector('#s')
+const story = document.querySelector('#s')
 const directsMap = {
   m: mmenu,
-  s: shorts
+  o: story
 }
 // menu items
 const hvlogs = document.querySelector('.hmenu');
 const cvlogs = document.querySelector('.cmenu');
 const tvlogs = document.querySelector('.tmenu');
-const vlogmenu = [tvlogs, hvlogs, cvlogs];
 const menuMap = {
   h: hvlogs,
   c: cvlogs,
@@ -129,12 +131,12 @@ const menuMap = {
 const menuItems = Object.values(menuMap);
 // home items
 const avlogs = document.querySelector('#a')
-const kvlogs = document.querySelector('#k')
+const fvlogs = document.querySelector('#ff')
 const fhvlogs = document.querySelector('#fh')
 const homeMap = {
   a: avlogs,
-  k: kvlogs,
-  f: fhvlogs
+  f: fvlogs,
+  s: fhvlogs
 }
 // college items
 const b1vlogs = document.querySelector('#b1')
@@ -287,6 +289,7 @@ const caliKey = {
 
 // open cities
 function openCity (city, state) {
+  state.style.backdropFilter = 'none';
   state.style.backgroundColor = 'rgba(0, 0, 0, 0)';
   const stateImgage = state.querySelector('svg')
   stateImgage.classList.add('disappear')
@@ -302,7 +305,6 @@ cityMaps.forEach(({map, state}) => {
   map.forEach(({button, city}) => {
     button.addEventListener('click', () => {
       openCity(city, state);
-      state.style.backdropFilter = 'none';
     });
   })
 })

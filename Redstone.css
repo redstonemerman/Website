@@ -673,6 +673,7 @@ h1{
 }
 
 .montages{
+    display: grid;
     background-color: black;
     overflow: hidden;
     border-top: black 10px solid;
@@ -686,20 +687,18 @@ h1{
 }
 
 /* Backgrounds */
-.bannerbox{  
+.bannerbox{
+    grid-area: 1/1;
     display: flex; 
-    position: absolute;
     top: 0;
-    height: 100%;
-    width: 100%;
     opacity: 40%;
     align-items: center;
     justify-content: center;
 }
 
 .banner{
-    height: 160%;
-    transform: translateY(calc(var(--scrollHeight)));
+    position: absolute;
+    height: 100%;
 }
 
 .fvidbox{
@@ -720,6 +719,7 @@ h1{
 
 /* Grids */
 .marginer{
+    grid-area: 1/1;
     padding: min(2.5vw, 35px);
 }
 
@@ -998,49 +998,49 @@ h1{
 }
 
 .ytvidon{
-    width: min(38%,500px);
+    width: min(38%,600px);
     aspect-ratio: 16/9.05;
     pointer-events: all;
     z-index: 2;
 }
 
 .tlon{
-    transform: translate(-25%,-45.2%);
+    transform: translate(-25%,-45.5%);
     animation: ytontl 300ms forwards;
 }
 
 .tloff{
-    transform: translate(-25%,-45.2%);
+    transform: translate(-25%,-45.5%);
     animation: ytofftl 300ms forwards;
 }
 
 .tron{
-    transform: translate(-75%,-45.2%);
+    transform: translate(-75%,-45.5%);
     animation: ytontr 300ms forwards;
 }
 
 .troff{
-    transform: translate(-75%,-45.2%);
+    transform: translate(-75%,-45.5%);
     animation: ytofftr 300ms forwards;
 }
 
 .blon{
-    transform: translate(-25%,-99.2%);
+    transform: translate(-25%,-99.5%);
     animation: ytonbl 300ms forwards;
 }
 
 .bloff{
-    transform: translate(-25%,-99.2%);
+    transform: translate(-25%,-99.5%);
     animation: ytoffbl 300ms forwards;
 }
 
 .bron{
-    transform: translate(-75%,-99.2%);
+    transform: translate(-75%,-99.5%);
     animation: ytonbr 300ms forwards;
 }
 
 .broff{
-    transform: translate(-75%,-99.2%);
+    transform: translate(-75%,-99.5%);
     animation: ytoffbr 300ms forwards;
 }
 
