@@ -52,13 +52,17 @@ const selects = Array.from(document.querySelectorAll('.vitem'))
 const selected = localStorage.getItem('selected')
 const isSelected = (blink, vlog) => {
   if(blink === vlog.id){
-    window.onload = () => {
-      window.scrollBy(0, -575);
+    window.addEventListener('load', () => {
+      const vlogBottom = vlog.getBoundingClientRect().bottom + window.scrollY;
+      const pageBottom = document.documentElement.scrollHeight;
+      const vlogB2pageB = pageBottom - vlogBottom
+      if(vlogB2pageB < 575) window.scrollBy(0, -vlogB2pageB + 75);
+        else window.scrollBy(0, -575);
       setTimeout(() => {
         vlog.classList.add('blink');
         localStorage.removeItem('selected')
       }, 300);
-    }
+    });
   }
 }
 selects.forEach(sel => isSelected(selected, sel));

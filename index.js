@@ -81,21 +81,25 @@ document.addEventListener('scroll', () => {
 
 
 // CALCULATE SCROLLING DISTANCE
-const bannerBox = document.querySelector('.bannerbox');
 const banner = document.querySelector('.banner');
+const bannerBox = document.querySelector('.bannerbox');
 function updateScroll() {
-  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = window.scrollY*0.1 - scrollHeight*0.055;
-  const bannerHeight = bannerBox.offsetHeight;
-  banner.style.transform = 'translateY(' + scrolled * 5 + 'px)';
+  const mapHeight = bannerBox.getBoundingClientRect().top + window.scrollY;
+  const bannerHeight = bannerBox.getBoundingClientRect().height;
+  const X1 = mapHeight + bannerHeight - window.innerHeight;
+  const X2 = mapHeight - 10;
+  const M = 30 / (X2 - X1);
+  const B = -(M*X1);
+  const X = window.scrollY;
+  const translator = M*X + B - 15;
+  banner.style.transform = `translateY(calc(${translator}%))`;
 }
 window.addEventListener('load', updateScroll);
 window.addEventListener('resize', () => {
-  requestAnimationFrame(updateScroll());
+  requestAnimationFrame(updateScroll);
 });
 window.addEventListener('scroll', () => {
-  updateScroll();
-  requestAnimationFrame(updateScroll());
+  requestAnimationFrame(updateScroll);
 });
 
 
