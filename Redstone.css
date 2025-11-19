@@ -65,6 +65,11 @@ body{
     src: url(Fonts/Caudex-Regular.ttf);
 }
 
+@font-face{
+    font-family: 'Africa';
+    src: url(Fonts/Africa.ttf);
+}
+
 @keyframes globespin{
     to{
         transform: translateX(152.245px);
@@ -271,6 +276,10 @@ h1{
     font-family: 'Island';
 }
 
+#safricab{
+    font-family: 'Africa';
+}
+
 .chv{
     transition: opacity 100ms;
     opacity: 0;
@@ -453,7 +462,7 @@ h1{
     will-change: transform;
 }
 
-.cityvlog1, .cityvlog2{
+.cityvlog1, .cityvlog2, .cityvlog3{
     display: grid;
     grid-template-rows: auto auto;
     border: solid black min(0.45vw, 5px);
@@ -475,8 +484,17 @@ h1{
     grid-row: 3;
 }
 
+.cityvlog3{
+    margin-top: min(0.5vw, 5px);
+    grid-row: 4;
+}
+
 .cvlogeven{
     transform: translateX(calc(50% + min(1vw, 10px)));
+}
+
+.cityvlogmid{
+    grid-column: 2;
 }
 
 .cvlogt{
@@ -500,12 +518,12 @@ h1{
     box-shadow: 0 0 0 min(0.3vw, 3px) black;
 }
 
-.cityvlog1:hover .citnbox, .cityvlog2:hover .citnbox{
+.cityvlog1:hover .citnbox, .cityvlog2:hover .citnbox, .cityvlog3:hover .citnbox{
     box-shadow: 0 0 0 min(0.3vw, 3px) white;
     transform: scale(0.8) translateY(11%);
 }
 
-.cityvlog1:hover .cvlogt, .cityvlog2:hover .cvlogt{
+.cityvlog1:hover .cvlogt, .cityvlog2:hover .cvlogt, .cityvlog3:hover .cvlogt{
     opacity: 1;
 }
 

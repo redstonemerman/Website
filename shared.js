@@ -48,16 +48,18 @@ document.addEventListener('click', (e) =>{
 
 
 // CLICKED VLOG
-const selects = Array.from(document.querySelectorAll('.vitem'))
-const selected = localStorage.getItem('selected')
-const isSelected = (blink, vlog) => {
+const selects = Array.from(document.querySelectorAll('.vitem'));
+const selected = JSON.parse(localStorage.getItem('selected') || '[]');
+const isSelected = (blink, vlog, index) => {
   if(blink === vlog.id){
     window.addEventListener('load', () => {
-      const vlogBottom = vlog.getBoundingClientRect().bottom + window.scrollY;
-      const pageBottom = document.documentElement.scrollHeight;
-      const vlogB2pageB = pageBottom - vlogBottom
-      if(vlogB2pageB < 575) window.scrollBy(0, -vlogB2pageB + 75);
-        else window.scrollBy(0, -575);
+      if(index === 0){
+        const vlogBottom = vlog.getBoundingClientRect().bottom + window.scrollY;
+        const pageBottom = document.documentElement.scrollHeight;
+        const vlogB2pageB = pageBottom - vlogBottom
+        if(vlogB2pageB < 572) window.scrollBy(0, -vlogB2pageB + 77);
+        else window.scrollBy(0, -572);
+      }
       setTimeout(() => {
         vlog.classList.add('blink');
         localStorage.removeItem('selected')
@@ -65,7 +67,9 @@ const isSelected = (blink, vlog) => {
     });
   }
 }
-selects.forEach(sel => isSelected(selected, sel));
+selects.forEach(sel => {
+  selected.forEach((seltd, index) => isSelected(seltd, sel, index));
+});
 
 
 // MENU

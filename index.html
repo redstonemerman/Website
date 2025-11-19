@@ -40,6 +40,112 @@
                 <!-- WORLD MAP -->
                     <svg id="world" class="active" width="3000" height="1440" viewBox="0 0 3000 1440">
                         <image href="MAP/WorldBlank1.png" x="0" y="0" opacity="75%"/>
+                        <a href="Personal.html#sel3" id="saudib" class="ctry"
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel3']))">
+                            <image class="cog" href="MAP/Countries/SAUDI.png" x="986" y="1564"
+                            style="transform: rotate(-36deg)"/>
+                            <image class="chv" href="MAP/Countries/SAUDI-h.png" x="986" y="1564"
+                            style="transform: rotate(-36deg)"/>
+                            <g>
+                                <rect width="212" height="34" x="1680" y="616" rx="10" ry="10" opacity="70%"/>
+                                <image href="Misc Pics/Location.png" height="50px" x="1777" y="654"/>
+                                <text class="ctrytxt" font-size="50px" x="1683" y="646">SAUDI ARABIA</text>
+                            </g>
+                            <path fill="transparent"
+                            d="M1675 654
+                            L1732 656
+                            L1732 691
+                            L1797 796
+                            L1907 766
+                            L1907 756
+                            L1787 756
+                            L1787 718
+                            L1842 718
+                            L1842 654
+                            L1895 654
+                            L1895 613
+                            L1677 613
+                            L1675 654"/>
+                        </a>
+                        <a href="Personal.html#sel4" id="bahrainb" class="ctry"
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel4']))">
+                            <image class="cog" href="MAP/Countries/BAHRAIN.png" x="1858" y="703"/>
+                            <image class="chv" href="MAP/Countries/BAHRAIN-h.png" x="1858" y="703"/>
+                            <g>
+                                <rect width="146" height="34" x="1790" y="720" rx="10" ry="10" opacity="70%"/>
+                                <rect width="93" height="88" x="1844" y="665" opacity="0%"/>
+                                <image href="Misc Pics/Location.png" height="50px" x="1848" y="668"/>
+                                <text class="ctrytxt" font-size="50px" x="1794" y="750">Bahrain</text>
+                            </g>
+                        </a>
+                        <a href="aj.html#sel4" id="luciab" class="ctry"
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel4']))">
+                            <image class="cog" href="MAP/Countries/LUCIA.png" x="957" y="803"/>
+                            <image class="chv" href="MAP/Countries/LUCIA-h.png" x="957" y="803"/>
+                            <g>
+                                <rect width="157" height="34" x="883" y="725" rx="10" ry="10" opacity="70%"/>
+                                <rect width="157" height="90" x="883" y="725" opacity="0%"/>
+                                <image href="Misc Pics/Location.png" height="50px" x="947" y="763"/>
+                                <text class="ctrytxt" font-size="27px" x="886" y="750">St. Lucia</text>
+                            </g>
+                        </a>
+                        <a href="Personal.html#sel3" id="safricab" class="ctry">
+                            <image class="cog" href="MAP/Countries/SOUTH AFRICA.png" x="1583" y="1103"/>
+                            <image class="chv" href="MAP/Countries/SOUTH AFRICA-h.png" x="1583" y="1103"/>
+                            <g>
+                                <rect width="212" height="34" x="1583" y="1103" rx="10" ry="10" opacity="70%"/>
+                                <image href="Misc Pics/Location.png" height="50px" x="1630" y="1130"/>
+                                <text class="ctrytxt" font-size="37px" x="1583" y="1103">South Africa</text>
+                            </g>
+                            <path
+                            d="M1675 654
+                            L1732 656
+                            L1732 691
+                            L1797 796
+                            L1907 766
+                            L1907 756
+                            L1787 756
+                            L1787 718
+                            L1842 718
+                            L1842 654
+                            L1895 654
+                            L1895 613
+                            L1677 613
+                            L1675 654"/>
+                        </a>
+                        <a href="Personal.html" id="spainb" class="ctry"
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel1']))">
+                            <image class="cog" href="MAP/Countries/SPAIN.png" x="1377" y="544"/>
+                            <image class="chv" href="MAP/Countries/SPAIN-h.png" x="1377" y="544"/>
+                            <image class="cog" href="MAP/Countries/SPAIN-I.png" x="1304" y="678"/>
+                            <image class="chv" href="MAP/Countries/SPAIN-I-h.png" x="1304" y="678"/>
+                            <g>
+                                <rect width="108" height="34" x="1372" y="498" rx="10" ry="10" opacity="70%"/>
+                                <image href="Misc Pics/Location.png" height="50px" x="1413" y="538"/>
+                                <text class="ctrytxt" font-size="30px" x="1373" y="530">SPAIN</text>
+                            </g>
+                            <path fill="transparent"
+                            d="M1365 495
+                            L1365 534
+                            L1375 534
+                            L1375 567
+                            L1397 567
+                            L1390 605
+                            L1408 623
+                            L1452 610
+                            L1460 590
+                            L1483 590
+                            L1483 580
+                            L1483 495
+                            L1365 495"/>
+                            <path fill="transparent"
+                            d="M1315 684
+                            L1315 695
+                            L1328 698
+                            L1345 690
+                            L1345 684
+                            L1315 684"/>
+                        </a>
                         <a id="usab" class="ctry">
                             <g id="usa48"><image class="cog" href="MAP/Countries/USA-48.png" x="443" y="489"/></g>
                             <image class="chv" href="MAP/Countries/USA-48-h.png" x="443" y="489"/>
@@ -118,95 +224,13 @@
                             L700 490
                             L440 490"/>
                         </a>
-                        <a href="Personal.html#sel1" id="spainb" class="ctry"
-                        onclick="localStorage.setItem('selected', 'sel1')">
-                            <image class="cog" href="MAP/Countries/SPAIN.png" x="1377" y="544"/>
-                            <image class="chv" href="MAP/Countries/SPAIN-h.png" x="1377" y="544"/>
-                            <image class="cog" href="MAP/Countries/SPAIN-I.png" x="1304" y="678"/>
-                            <image class="chv" href="MAP/Countries/SPAIN-I-h.png" x="1304" y="678"/>
-                            <g>
-                                <rect width="108" height="34" x="1372" y="498" rx="10" ry="10" opacity="70%"/>
-                                <image href="Misc Pics/Location.png" height="50px" x="1413" y="538"/>
-                                <text class="ctrytxt" font-size="30px" x="1373" y="530">SPAIN</text>
-                            </g>
-                            <path fill="transparent"
-                            d="M1365 495
-                            L1365 534
-                            L1375 534
-                            L1375 567
-                            L1397 567
-                            L1390 605
-                            L1408 623
-                            L1452 610
-                            L1460 590
-                            L1483 590
-                            L1483 580
-                            L1483 495
-                            L1365 495"/>
-                            <path fill="transparent"
-                            d="M1315 684
-                            L1315 695
-                            L1328 698
-                            L1345 690
-                            L1345 684
-                            L1315 684"/>
-                        </a>
-                        <a href="Personal.html#sel3" id="saudib" class="ctry"
-                        onclick="localStorage.setItem('selected', 'sel3')">
-                            <image class="cog" href="MAP/Countries/SAUDI.png" x="986" y="1564"
-                            style="transform: rotate(-36deg)"/>
-                            <image class="chv" href="MAP/Countries/SAUDI-h.png" x="986" y="1564"
-                            style="transform: rotate(-36deg)"/>
-                            <g>
-                                <rect width="212" height="34" x="1680" y="616" rx="10" ry="10" opacity="70%"/>
-                                <image href="Misc Pics/Location.png" height="50px" x="1777" y="654"/>
-                                <text class="ctrytxt" font-size="50px" x="1683" y="646">SAUDI ARABIA</text>
-                            </g>
-                            <path fill="transparent"
-                            d="M1675 654
-                            L1732 656
-                            L1732 691
-                            L1797 796
-                            L1907 766
-                            L1907 756
-                            L1787 756
-                            L1787 718
-                            L1842 718
-                            L1842 654
-                            L1895 654
-                            L1895 613
-                            L1677 613
-                            L1675 654"/>
-                        </a>
-                        <a href="Personal.html#sel4" id="bahrainb" class="ctry"
-                        onclick="localStorage.setItem('selected', 'sel4')">
-                            <image class="cog" href="MAP/Countries/BAHRAIN.png" x="1858" y="703"/>
-                            <image class="chv" href="MAP/Countries/BAHRAIN-h.png" x="1858" y="703"/>
-                            <g>
-                                <rect width="146" height="34" x="1790" y="720" rx="10" ry="10" opacity="70%"/>
-                                <rect width="93" height="88" x="1844" y="665" opacity="0%"/>
-                                <image href="Misc Pics/Location.png" height="50px" x="1848" y="668"/>
-                                <text class="ctrytxt" font-size="50px" x="1794" y="750">Bahrain</text>
-                            </g>
-                        </a>
-                        <a href="aj.html#sel4" id="luciab" class="ctry"
-                        onclick="localStorage.setItem('selected', 'sel4')">
-                            <image class="cog" href="MAP/Countries/LUCIA.png" x="957" y="803"/>
-                            <image class="chv" href="MAP/Countries/LUCIA-h.png" x="957" y="803"/>
-                            <g>
-                                <rect width="157" height="34" x="883" y="725" rx="10" ry="10" opacity="70%"/>
-                                <rect width="157" height="90" x="883" y="725" opacity="0%"/>
-                                <image href="Misc Pics/Location.png" height="50px" x="947" y="763"/>
-                                <text class="ctrytxt" font-size="27px" x="886" y="750">St. Lucia</text>
-                            </g>
-                        </a>
                     </svg>
                 <!-- USA MAP -->
                     <svg id="usa" width="2160" height="1440" viewBox="0 0 2160 1440">
                         <image href="MAP/Map.png" x="0" y="0"/>
                         <!-- AL -->
                         <a href="Personal.html#sel5" class="hvs"
-                        onclick="localStorage.setItem('selected', 'sel5')">
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel5']))">
                             <image class="state og" href="MAP/States/AL.png"
                                 height="235px" x="1388" y="820"/>
                             <image class="state hv" href="MAP/States/AL - H.png"
@@ -223,7 +247,7 @@
                         </a>
                         <!-- AK -->
                         <a href="Personal.html#sel13" class="hvs"
-                        onclick="localStorage.setItem('selected', 'sel13')">
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel13']))">
                             <image class="state og" href="MAP/States/AK.png"
                                 height="355px" x="46" y="1012"/>
                             <image class="state hv" href="MAP/States/AK - H.png"
@@ -253,7 +277,7 @@
                         </a>
                         <!-- AR -->
                         <a href="Work.html#sel5" class="hvs"
-                        onclick="localStorage.setItem('selected', 'sel5')">
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel5']))">
                             <image class="state og" href="MAP/States/AR.png"
                                 height="180px" x="1138" y="755"/>
                             <image class="state hv" href="MAP/States/AR - H.png"
@@ -307,7 +331,7 @@
                         </a>
                         <!-- CO -->
                         <a href="Personal.html#sel7" class="hvs"
-                        onclick="localStorage.setItem('selected', 'sel7')">
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel7']))">
                             <image style="transform: rotate(4.1deg);" class="state og" href="MAP/States/CO.png"
                                 height="185px" x="647" y="491"/>
                             <image style="transform: rotate(4.1deg);" class="state hv" href="MAP/States/CO - H.png"
@@ -321,7 +345,7 @@
                         </a>
                         <!-- DC -->
                         <a href="Personal.html#sel16" class="hvs"
-                        onclick="localStorage.setItem('selected', 'sel16')">
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel16']))">
                             <image class="state og" href="MAP/States/DC.png"
                                 height="50px" x="1705" y="570"/>
                             <image class="state hv" href="MAP/States/DC - H.png"
@@ -338,7 +362,7 @@
                         </a>
                         <!-- HI -->
                         <a href="Work.html#sel7" class="hvs"
-                        onclick="localStorage.setItem('selected', 'sel7')">
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel7']))">
                             <image style="transform: rotate(32.5deg);" class="state og" href="MAP/States/HI.png"
                                 height="125px" x="1178" y="595"/>
                             <image style="transform: rotate(32.5deg);" class="state hv" href="MAP/States/HI - H.png"
@@ -356,7 +380,7 @@
                         </a>
                         <!-- NV -->
                         <a href="Work.html#sel8" class="hvs"
-                        onclick="localStorage.setItem('selected', 'sel8')">
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel8']))">
                             <image style="transform: rotate(11.2deg);" class="state og" href="MAP/States/NV.png"
                                 height="315px" x="325" y="355"/>
                             <image style="transform: rotate(11.2deg);" class="state hv" href="MAP/States/NV - H.png"
@@ -399,7 +423,7 @@
                         </a>
                         <!-- UT -->
                         <a href="Football.html#sel6" class="hvs"
-                        onclick="localStorage.setItem('selected', 'sel6')">
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel6']))">
                             <image style="transform: rotate(9.2deg);" class="state og" href="MAP/States/UT.png"
                                 height="235px" x="519" y="378"/>
                             <image style="transform: rotate(9.2deg);" class="state hv" href="MAP/States/UT - H.png" 
@@ -415,7 +439,7 @@
                         </a>
                         <!-- WA -->
                         <a href="Work.html#sel6" class="hvs"
-                        onclick="localStorage.setItem('selected', 'sel6')">
+                        onclick="localStorage.setItem('selected', JSON.stringify(['sel6']))">
                             <image style="transform: rotate(10.4deg);" class="state og" href="MAP/States/WA.png"
                                 height="160px" x="202" y="21"/>
                             <image style="transform: rotate(10.4deg);" class="state hv" href="MAP/States/WA - H.png"
@@ -473,7 +497,7 @@
                     <rect width="100" height="95" y="-35" fill="transparent"/>
                 </a>
                 <a href="Personal.html#sel9" transform="translate(1402,825)"
-                onclick="localStorage.setItem('selected', 'sel9')">
+                onclick="localStorage.setItem('selected', JSON.stringify(['sel9']))">
                     <image href="Misc Pics/Location.png" height="50px" x="110" y="8"/>
                     <text font-size="42px">GLEN ROSE</text>
                     <rect width="255" height="95" y="-35" fill="transparent"/>
@@ -484,13 +508,13 @@
                     <rect width="215" height="95" y="-35" fill="transparent"/>
                 </a>
                 <a href="Personal.html#sel11" transform="translate(1905,1370)"
-                onclick="localStorage.setItem('selected', 'sel11')">
+                onclick="localStorage.setItem('selected', JSON.stringify(['sel11']))">
                     <image href="Misc Pics/Location.png" height="50px" x="75" y="8"/>
                     <text font-size="42px">KEMAH</text>
                     <rect width="172" height="95" y="-35" fill="transparent"/>
                 </a>
                 <a href="Personal.html#sel6" transform="translate(1357,1730)"
-                onclick="localStorage.setItem('selected', 'sel6')">
+                onclick="localStorage.setItem('selected', JSON.stringify(['sel6']))">
                     <image href="Misc Pics/Location.png" height="50px" x="245" y="8"/>
                     <text font-size="42px">NORTH PADRE ISLAND</text>
                     <rect width="519" height="95" y="-35" fill="transparent"/>
@@ -501,7 +525,7 @@
                     <rect width="307" height="95" y="-35" fill="transparent"/>
                 </a>
                 <a href="Personal.html#sel2" transform="translate(1250,1388)"
-                onclick="localStorage.setItem('selected', 'sel2')">
+                onclick="localStorage.setItem('selected', JSON.stringify(['sel2']))">
                     <image href="Misc Pics/Location.png" height="50px" x="140" y="8"/>
                     <text font-size="42px">SAN ANTONIO</text>
                     <rect width="318" height="95" y="-35" fill="transparent"/>
@@ -526,7 +550,7 @@
                 <div class="cityvlogseven">
                     <span class="citytitle">Austin Vlogs</span>
                     <a href="Basketball.html#sel4" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel4')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel4']))">
                         <span class="cvlogt">BU vs UT Basketball</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Basketball/4 - Baylor at Texas.jpg"
@@ -534,7 +558,7 @@
                         </div>
                     </a>
                     <a href="Work.html#sel10" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel10')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel10']))">
                         <span class="cvlogt">Cedar Park Work Trip</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Work/10 - It's Alive!.jpg"
@@ -557,7 +581,7 @@
                 <div class="cityvlogseven">
                     <span class="citytitle">College Station Vlogs</span>
                     <a href="Personal.html#sel10" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel10')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel10']))">
                         <span class="cvlogt">The Aggieland Safari</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Personal/10 - The Aggieland Safari.jpg"
@@ -565,7 +589,7 @@
                         </div>
                     </a>
                     <a href="Personal.html#sel12" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel12')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel12']))">
                         <span class="cvlogt">Texas Beach Day</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Personal/12 - Central Texas Beach Day.jpg"
@@ -588,7 +612,7 @@
                 <div class="cityvlogseven">
                     <span class="citytitle">Dallas & Ft. Worth Vlogs</span>
                     <a href="Family & Friends.html#sel4" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel4')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel4']))">
                         <span class="cvlogt">Person Bachelor Party</span>
                         <div class="citnbox">
                             <img class="citn" src="tns/Family & Friends/4 - Person Bachelor Party.webp"
@@ -596,7 +620,7 @@
                         </div>
                     </a>
                     <a href="Football.html#sel8" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel8')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel8']))">
                         <span class="cvlogt">Big 12 Championship</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Football/8 - Bears vs Cowboys.jpg"
@@ -618,7 +642,8 @@
             <div id="houston" class="citybox">
                 <div class="cityvlogs">
                     <span class="citytitle">Houston Vlogs</span>
-                    <a href="kellys.html" class="cityvlog1">
+                    <a href="Family & Friends.html#sel2" class="cityvlog1"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel2','sel3','sel5','sel6','sel7']))">
                         <span class="cvlogt">Family & Friends</span>
                         <div class="citnbox slideshow">
                             <img src="TNS/Family & Friends/6 - Day in the Life of Quarantine.jpg"
@@ -733,26 +758,30 @@
                             </div>
                         </div>
                     </a>
-                    <a href="Football.html#sel1" class="cityvlog1" onclick="localStorage.setItem('selected', 'sel1')">
+                    <a href="Football.html#sel1" class="cityvlog1"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel1']))">
                         <span class="cvlogt">BU @ Rice Football</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Football/1 - Bears at Owls.jpg"
                             alt="BU @ Rice Football Thumbnail">
                         </div>
                     </a>
-                    <a href="aj.html#sel1" class="cityvlog2" onclick="localStorage.setItem('selected', 'sel1')">
+                    <a href="aj.html#sel1" class="cityvlog2"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel1']))">
                         <span class="cvlogt">Butterfly Center</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/A&J/1 - Butterfly Center.webp" alt="Butterfly Center Thumbnail">
                         </div>
                     </a>
-                    <a href="aj.html#sel3" class="cityvlog2" onclick="localStorage.setItem('selected', 'sel3')">
-                        <span class="cvlogt">The Proposal</span>
+                    <a href="aj.html#sel3" class="cityvlog2"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel3']))">
+                        <span class="cvlogt">Kelly Proposal</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/A&J/3 - A New Adventure.jpg" alt="The Proposal Thumbnail">
                         </div>
                     </a>
-                    <a  href="aj.html#sel4" class="cityvlog2" onclick="localStorage.setItem('selected', 'sel4')">
+                    <a  href="aj.html#sel4" class="cityvlog2"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel4']))">
                         <span class="cvlogt">Our Wedding</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/A&J/4 - Our Wedding.jpg" alt="Our Wedding Thumbnail">
@@ -773,20 +802,23 @@
             <div id="temple" class="citybox">
                 <div class="cityvlogs">
                     <span class="citytitle">Temple Vlogs</span>
-                    <a href="aj.html#sel5" class="cityvlog1" onclick="localStorage.setItem('selected', 'sel5')">
+                    <a href="aj.html#sel5" class="cityvlog1"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel5']))">
                         <span class="cvlogt">Pumpkin Patch</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/A&J/5 - Picking Perfect Pumpkins.webp"
                                 alt="Pumpkin Patch Thumbnail">
                         </div>
                     </a>
-                    <a href="aj.html#sel6" class="cityvlog1" onclick="localStorage.setItem('selected', 'sel6')">
+                    <a href="aj.html#sel6" class="cityvlog1"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel6']))">
                         <span class="cvlogt">Pizza Wars</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/A&J/6 - Pizza Wars.webp" alt="Pizza Wars Thumbnail">
                         </div>
                     </a>
-                    <a href="aj.html#sel7" class="cityvlog1" onclick="localStorage.setItem('selected', 'sel7')">
+                    <a href="aj.html#sel7" class="cityvlog1"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel7']))">
                         <span class="cvlogt">Dog Days</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/A&J/7 - Dog Days.webp" alt="Dog Days Thumbnail">
@@ -872,7 +904,8 @@
                             </div>
                         </div>
                     </a>
-                    <a href="Football.html" class="cityvlog1">
+                    <a href="Football.html#sel2" class="cityvlog1" onclick="localStorage.setItem('selected',
+                    JSON.stringify(['sel2','sel3','sel4','sel5','sel6','sel7']))">
                         <span class="cvlogt">Football Vlogs</span>
                         <div class="citnbox slideshow">
                             <img src="TNS/Football/7 - Bears vs Sooners.jpg"
@@ -933,7 +966,8 @@
                             </div>
                         </div>                        
                     </a>
-                    <a href="Basketball.html" class="cityvlog1">
+                    <a href="Basketball.html" class="cityvlog1" onclick="localStorage.setItem('selected',
+                    JSON.stringify(['sel1','sel2','sel3','sel5','sel6']))">
                         <span class="cvlogt">Basketball Vlogs</span>
                         <div class="citnbox slideshow">
                             <img src="TNS/Basketball/5 - Baylor vs Kansas.jpg" alt="Baylor vs Kansas Thumbnail">
@@ -979,28 +1013,36 @@
                             </div>
                         </div>
                     </a>
-                    <a href="Family & Friends.html#sel1" class="cityvlog2"
-                    onclick="localStorage.setItem('selected', 'sel1')">
+                    <a href="Family & Friends.html" class="cityvlog2"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel1']))">
                         <span class="cvlogt">Person Proposal</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Family & Friends/1 - Person Proposal.webp"
                             alt="Person Proposal Thumbnail">
                         </div>
                     </a>
-                    <a href="aj.html#sel2" class="cityvlog2"
-                    onclick="localStorage.setItem('selected', 'sel2')">
-                        <span class="cvlogt">The Ice Age Returns</span>
+                    <a href="Family & Friends.html#sel8" class="cityvlog2"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel8']))">
+                        <span class="cvlogt">Phillips Proposal</span>
                         <div class="citnbox">
-                            <img class="citn" src="TNS/A&J/2 - The Ice Age Returns.webp"
-                            alt="The Ice Age Returns Thumbnail">
+                            <img class="citn" src="TNS/Family & Friends/8 - Phillips Proposal.jpg"
+                            alt="Phillips Proposal Thumbnail">
                         </div>
                     </a>
                     <a href="aj.html#sel3" class="cityvlog2"
-                    onclick="localStorage.setItem('selected', 'sel3')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel3']))">
                         <span class="cvlogt">Kelly Proposal</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/A&J/3 - A New Adventure.jpg"
                             alt="Kelly Proposal Thumbnail">
+                        </div>
+                    </a>
+                    <a href="aj.html#sel2" class="cityvlog3 cityvlogmid"
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel2']))">
+                        <span class="cvlogt">The Ice Age Returns</span>
+                        <div class="citnbox">
+                            <img class="citn" src="TNS/A&J/2 - The Ice Age Returns.webp"
+                            alt="The Ice Age Returns Thumbnail">
                         </div>
                     </a>
                 <svg class="cityx"
@@ -1029,7 +1071,7 @@
                     <rect width="170" height="95" y="-35" fill="transparent"/>
                 </a>
                 <a href="Work.html#sel3" transform="translate(730,1210)"
-                onclick="localStorage.setItem('selected', 'sel3')">
+                onclick="localStorage.setItem('selected', JSON.stringify(['sel3']))">
                     <image href="Misc Pics/Location.png" height="50px" x="56" y="8"/>
                     <text class="citytext" font-size="50px">fresno</text>
                     <rect width="142" height="95" y="-35" fill="transparent"/>
@@ -1054,7 +1096,7 @@
                 <div class="cityvlogseven">
                     <span class="citytitle">Anaheim Vlogs</span>
                     <a href="Personal.html#sel14" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel14')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel14']))">
                         <span class="cvlogt">California Adventure</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Personal/14 - Our California Adventure.jpg"
@@ -1062,7 +1104,7 @@
                         </div>
                     </a>
                     <a href="Personal.html#sel15" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel15')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel15']))">
                         <span class="cvlogt">Disneyland</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Personal/15 - The Nerds Awaken.jpg"
@@ -1085,7 +1127,7 @@
                 <div class="cityvlogs">
                     <span class="citytitle">Los Angeles Vlogs</span>
                     <a href="Personal.html#sel8" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel8')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel8']))">
                         <span class="cvlogt">Paradise Falls</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Personal/8 - Finding Paradise Falls.jpg"
@@ -1093,7 +1135,7 @@
                         </div>
                     </a>
                     <a href="Work.html#sel1" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel1')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel1']))">
                         <span class="cvlogt">Hills of California</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Work/1 - Hills of California.jpg"
@@ -1101,7 +1143,7 @@
                         </div>
                     </a>
                     <a href="Work.html#sel4" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel4')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel4']))">
                         <span class="cvlogt">San Antonio Falls</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Work/4 - Falling on Mt. Baldy.jpg"
@@ -1124,7 +1166,7 @@
                 <div class="cityvlogseven">
                     <span class="citytitle">San Francisco Vlogs</span>
                     <a href="Work.html#sel2" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel2')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel2']))">
                         <span class="cvlogt">Really Cool Trip</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Work/2 - Really Cool Trip.jpg"
@@ -1132,7 +1174,7 @@
                         </div>
                     </a>
                     <a href="Work.html#sel9" class="cityvlog1"
-                    onclick="localStorage.setItem('selected', 'sel9')">
+                    onclick="localStorage.setItem('selected', JSON.stringify(['sel9']))">
                         <span class="cvlogt">Yoda Statues</span>
                         <div class="citnbox">
                             <img class="citn" src="TNS/Work/9 - Yoda Statue Pilgrimage.jpg"
@@ -1300,10 +1342,8 @@
                 </div>
             </div>
         </div>
-        <div class="random">
-        </div>
 <!-- MENU -->
-        <div class="menu" style="z-index: 5;">
+        <div class="menu" style="z-index: 10;">
             <div class="menugrid">
                 <div class="colorbox"></div>
                 <div class="menubox">
