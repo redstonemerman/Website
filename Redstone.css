@@ -15,78 +15,6 @@ body{
     src: url(Fonts/KellySlab-Regular.ttf);
 }
 
-@font-face {
-    font-family: 'Texas Tango';
-    src: url(Fonts/TEXAT\ BOLD\ PERSONAL\ USE___.otf);
-}
-
-@font-face {
-    font-family: 'California';
-    src: url(Fonts/California\ by\ Dirt2.otf);
-}
-
-@font-face {
-    font-family: 'Merica';
-    src: url(Fonts/Merica.ttf);
-}
-
-@font-face {
-    font-family: 'Spanish';
-    src: url(Fonts/Spanish\ Round\ Bookhand\,\ 16th\ c.TTF);
-}
-
-@font-face {
-    font-family: 'ArabN';
-    src: url(Fonts/ArabianNight-CommercialUsed.otf);
-}
-
-@font-face {
-    font-family: 'ArabM';
-    src: url(Fonts/Arabic\ Magic.ttf);
-}
-
-@font-face {
-    font-family: 'Island';
-    src: url(Fonts/CARIB___.otf);
-}
-
-@font-face{
-    font-family: 'Digital';
-    src: url(Fonts/digital-7.ttf);
-}
-
-@font-face{
-    font-family: 'Place';
-    src: url(Fonts/Chantal\ Medium\ Italic.ttf);
-}
-
-@font-face{
-    font-family: 'Kellysub';
-    src: url(Fonts/Caudex-Regular.ttf);
-}
-
-@font-face{
-    font-family: 'Africa';
-    src: url(Fonts/Africa.ttf);
-}
-
-@keyframes globespin{
-    to{
-        transform: translateX(152.245px);
-    }
-}
-
-@keyframes blinker{
-    0%, 66.66%{
-        background-color: rgb(0, 0, 0, 0);
-        color: rgba(0, 255, 255);
-    }
-    33.33%, 100%{
-        background-color: rgba(0, 255, 255, 0.2);
-        color: white;
-    }
-}
-
 /* INTROBOX */
 
 h1{
@@ -244,6 +172,11 @@ h1{
     cursor: pointer;
 }
 
+@font-face {
+    font-family: 'Merica';
+    src: url(Fonts/Merica.ttf);
+}
+
 #usab{
     font-family: 'Merica';
 }
@@ -260,11 +193,21 @@ h1{
     transform: scale(1);
 }
 
+@font-face {
+    font-family: 'Spanish';
+    src: url(Fonts/Spanish\ Round\ Bookhand\,\ 16th\ c.TTF);
+}
+
 #spainb{
     font-family: 'Spanish';
 }
 
-#saudib, #bahrainb{
+@font-face {
+    font-family: 'ArabN';
+    src: url(Fonts/ArabianNight-CommercialUsed.otf);
+}
+
+#arabiab, #saudib, #bahrainb{
     font-family: 'ArabN';
 }
 
@@ -272,12 +215,31 @@ h1{
     letter-spacing: 3px;
 }
 
+@font-face {
+    font-family: 'Island';
+    src: url(Fonts/CARIB___.otf);
+}
+
 #luciab{
     font-family: 'Island';
 }
 
+@font-face{
+    font-family: 'Africa';
+    src: url(Fonts/African\ Style.ttf);
+}
+
 #safricab{
     font-family: 'Africa';
+}
+
+@font-face {
+    font-family: 'Hungary';
+    src: url(Fonts/Black\ Goth\ -\ Reguler.otf);
+}
+
+#hungaryb{
+    font-family: 'Hungary';
 }
 
 .chv{
@@ -325,6 +287,12 @@ h1{
 
 #worldb image{
     pointer-events: none;
+}
+
+@keyframes globespin{
+    to{
+        transform: translateX(152.245px);
+    }
 }
 
 #worldb:hover image{
@@ -651,12 +619,22 @@ h1{
     transition: 200ms;
 }
 
+@font-face {
+    font-family: 'Texas Tango';
+    src: url(Fonts/TEXAT\ BOLD\ PERSONAL\ USE___.otf);
+}
+
 .texas a{
     font-family: 'Texas Tango', serif;
 }
 
 .texas a:hover{
     fill: red;
+}
+
+@font-face {
+    font-family: 'California';
+    src: url(Fonts/California\ by\ Dirt2.otf);
 }
 
 .cali a{
@@ -803,6 +781,22 @@ h1{
     align-items: center;
 }
 
+@keyframes monOn {
+    0%{
+        border-color: white;;
+    }
+    33.33%, 100%{
+        border-color: rgb(200, 0, 0);
+    }
+    66.66%{
+        border-color: rgb(0, 200, 200);
+    }
+}
+
+.monon{
+    animation: monOn 1200ms 250ms forwards;
+}
+
 .filmtn{
     display: flex;
     flex-direction: column;
@@ -865,11 +859,11 @@ h1{
     pointer-events: none;
 }
 
-.montbox:hover .btncircleblur, .vvlogbox:hover .btncircleblur{
+.montbox.monon .btncircleblur, .montbox:hover .btncircleblur, .vvlogbox:hover .btncircleblur{
     backdrop-filter: blur(5px);
 }
 
-.montbox:hover .playbtn>svg, .vvlogbox:hover .playbtn>svg{
+.montbox.monon .playbtn>svg, .montbox:hover .playbtn>svg, .vvlogbox:hover .playbtn>svg{
     opacity: 1;
 }
 
@@ -1339,6 +1333,11 @@ h2{
     top: 0;
 }
 
+@font-face{
+    font-family: 'Kellysub';
+    src: url(Fonts/Caudex-Regular.ttf);
+}
+
 .vsubtitle{
     margin-left: min(0.5vw, 5px);
     font-size: min(1.9vw, 18px);
@@ -1360,6 +1359,11 @@ h2{
     margin-top: min(6.3vw, 60px);
     width: min(80%, 750px);
     height: 100%;
+}
+
+@font-face{
+    font-family: 'Digital';
+    src: url(Fonts/digital-7.ttf);
 }
 
 .vdate{
@@ -1386,6 +1390,11 @@ h2{
     border: solid black min(0.7vw, 5px);
     border-right: 0px;
     align-items: center;
+}
+
+@font-face{
+    font-family: 'Place';
+    src: url(Fonts/Chantal\ Medium\ Italic.ttf);
 }
 
 .vplacetxt{
@@ -1488,7 +1497,17 @@ h2{
     transform: translateX(max(-37.3vw, -360px));
 }
 
+@keyframes blinker{
+    0%, 66.66%{
+        background-color: rgb(0, 0, 0, 0);
+        color: rgba(0, 255, 255);
+    }
+    33.33%, 100%{
+        background-color: rgba(0, 255, 255, 0.2);
+        color: white;
+    }
+}
+
 .blink{
-    animation: blinker 1.5s;
-    background-color: rgba(0, 255, 255, 0.2);
+    animation: blinker 1200ms 300ms forwards;
 }

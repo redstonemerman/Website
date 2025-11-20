@@ -1,65 +1,22 @@
-// VIDEO 0.5
-window.addEventListener('load',() =>{
+// ON PAGE LOAD
+window.addEventListener('load',() => {
+
+  // LOADING SCREEN
+  const loading = document.querySelector('.loading');
+  loading.classList.add('fadeaway');
+  setTimeout(() => {
+    loading.style.display = 'none';
+  }, 500);
+
+  // VIDEO 0.5
   const video = [document.querySelector('.bgvid'),document.querySelector('.bgfvid')];
   video.forEach(video => {
     video.play();
     video.playbackRate = 0.5;
   })
-})
 
-
-// YT VIDEO
-function videoOn(video) {
-  const player = video.querySelector('.btncircle');
-  const playBtn = video.querySelector('.playbtn');
-  const ytVid = video.querySelector('.ytvid');
-  if (!playBtn || !ytVid) return;
-  player.addEventListener('click', () => {
-    videos.forEach(video => videoOff(video));
-    video.style.zIndex = 3;
-    ytVid.classList.add('ytvidon');
-    playBtn.style.opacity = 0;
-    playBtn.style.pointerEvents = 'none';
-    if(ytVid.classList.contains('tl'))ytVid.classList.add('tlon')
-    if(ytVid.classList.contains('tr'))ytVid.classList.add('tron')
-    if(ytVid.classList.contains('bl'))ytVid.classList.add('blon')
-    if(ytVid.classList.contains('br'))ytVid.classList.add('bron')
-  })
-}
-function videoOff(video) {
-  const playBtn = video.querySelector('.playbtn');
-  const ytVid = video.querySelector('.ytvid');
-  if (!playBtn || !ytVid) return;
-  if(ytVid.classList.contains('ytvidon')){
-    ytVid.classList.add('ytvidoff');
-    if(ytVid.classList.contains('tl'))ytVid.classList.add('tloff')
-    if(ytVid.classList.contains('tr'))ytVid.classList.add('troff')
-    if(ytVid.classList.contains('bl'))ytVid.classList.add('bloff')
-    if(ytVid.classList.contains('br'))ytVid.classList.add('broff')
-    video.style.zIndex = 2;
-    setTimeout(() => {
-      video.style.zIndex = 1;
-      ytVid.classList.remove('ytvidon');
-      ytVid.classList.remove('ytvidoff');
-      playBtn.style.opacity = 1;
-      playBtn.style.pointerEvents = 'all';
-      if(ytVid.classList.contains('tl'))ytVid.classList.remove('tlon')
-      if(ytVid.classList.contains('tr'))ytVid.classList.remove('tron')
-      if(ytVid.classList.contains('bl'))ytVid.classList.remove('blon')
-      if(ytVid.classList.contains('br'))ytVid.classList.remove('bron')
-      if(ytVid.classList.contains('tl'))ytVid.classList.remove('tloff')
-      if(ytVid.classList.contains('tr'))ytVid.classList.remove('troff')
-      if(ytVid.classList.contains('bl'))ytVid.classList.remove('bloff')
-      if(ytVid.classList.contains('br'))ytVid.classList.remove('broff')
-    }, 300);
-  }
-}
-const videos = Array.from(document.querySelectorAll('.montbox'));
-videos.forEach(video => videoOn(video));
-
-document.addEventListener('click', (e) =>{
-  if(e.target.classList.contains('btncircle')) return;
-  else videos.forEach(video => videoOff(video));
+  // INITIAL PARALLAX SCROLL UPDATE
+  updateScroll();
 })
 
 
@@ -76,16 +33,16 @@ function bgChange() {
 bgChange();
 document.addEventListener('scroll', () => {
   window.requestAnimationFrame(bgChange());
-  bgChange();
 });
 
 
-// CALCULATE SCROLLING DISTANCE
+// MONTAGE BANNER PARALLAX
 const banner = document.querySelector('.banner');
 const bannerBox = document.querySelector('.bannerbox');
 function updateScroll() {
-  const mapHeight = bannerBox.getBoundingClientRect().top + window.scrollY;
-  const bannerHeight = bannerBox.getBoundingClientRect().height;
+  const bannerBoxRect = bannerBox.getBoundingClientRect();
+  const mapHeight = bannerBoxRect.top + window.scrollY;
+  const bannerHeight = bannerBoxRect.height;
   const X1 = mapHeight + bannerHeight - window.innerHeight;
   const X2 = mapHeight - 10;
   const M = 30 / (X2 - X1);
@@ -94,7 +51,6 @@ function updateScroll() {
   const translator = M*X + B - 15;
   banner.style.transform = `translateY(calc(${translator}%))`;
 }
-window.addEventListener('load', updateScroll);
 window.addEventListener('resize', () => {
   requestAnimationFrame(updateScroll);
 });
@@ -103,87 +59,56 @@ window.addEventListener('scroll', () => {
 });
 
 
-// LOADING SCREEN
-window.addEventListener('load', () => {
-  const loading = document.querySelector('.loading');
-  loading.classList.add('fadeaway');
-  setTimeout(() => {
-    loading.style.display = 'none';
-  }, 500);
-})
-
-
-// MENU
-let menuOn = false;
-let subOpen = false;
-const menuKey = document.querySelectorAll('#menukey');
-const mmenu = document.querySelector('#m')
-const story = document.querySelector('#s')
-const directsMap = {
-  m: mmenu,
-  o: story
-}
-// menu items
-const hvlogs = document.querySelector('.hmenu');
-const cvlogs = document.querySelector('.cmenu');
-const tvlogs = document.querySelector('.tmenu');
-const menuMap = {
-  h: hvlogs,
-  c: cvlogs,
-  t: tvlogs
-};
-const menuItems = Object.values(menuMap);
-// home items
-const avlogs = document.querySelector('#a')
-const fvlogs = document.querySelector('#ff')
-const fhvlogs = document.querySelector('#fh')
-const homeMap = {
-  a: avlogs,
-  f: fvlogs,
-  s: fhvlogs
-}
-// college items
-const b1vlogs = document.querySelector('#b1')
-const fcvlogs = document.querySelector('#fc')
-const b2vlogs = document.querySelector('#b2')
-const collegeMap = {
-  b: b1vlogs,
-  f: fcvlogs,
-  a: b2vlogs
-}
-// travel items
-const wvlogs = document.querySelector('#w')
-const pvlogs = document.querySelector('#p')
-const travelMap = {
-  w: wvlogs,
-  p: pvlogs
-}
-// close submenus
-function closeSubmenu(menu) {
-  menu.classList.remove('menuactive')
-  subMenu = false;
-}
-document.addEventListener('click', (e) =>{
-  if(e.target.classList.contains('menubutton')) {
-    return
-  }
-  else menuItems.forEach(item => closeSubmenu(item))
-})
-// open submenu
-function openSubmenu(menu) {
-  if(menuOn === true) {
-    menuItems.forEach(item => {
-      closeSubmenu(item);
-    })
-    menu.classList.add('menuactive')
-    subMenu = true;
-  }
-}
-menuItems.forEach(item => {
-  item.addEventListener('click', () => {
-    menuOn = true;
-    openSubmenu(item);
+// MONTAGE FULLSCREEN VIDEO
+const positions = ['tl','tr','bl','br'];
+function positionToggle(ytVid, toggle, onoff) {
+  positions.forEach(position => {
+    if(ytVid.classList.contains(position)) {
+      ytVid.classList[toggle](`${position}${onoff}`);
+    }
   })
+}
+function videoOn(video) {
+  const player = video.querySelector('.btncircle');
+  const playBtn = video.querySelector('.playbtn');
+  const ytVid = video.querySelector('.ytvid');
+  if (!playBtn || !ytVid) return;
+  player.addEventListener('click', () => {
+    videos.forEach(video => {
+      videoOff(video);
+      video.classList.remove('monon');
+    });
+    video.style.zIndex = 3;
+    ytVid.classList.add('ytvidon');
+    playBtn.style.opacity = 0;
+    playBtn.style.pointerEvents = 'none';
+    positionToggle(ytVid,'add','on');
+  })
+}
+function videoOff(video) {
+  const playBtn = video.querySelector('.playbtn');
+  const ytVid = video.querySelector('.ytvid');
+  if (!playBtn || !ytVid) return;
+  if(ytVid.classList.contains('ytvidon')){
+    ytVid.classList.add('ytvidoff');
+    positionToggle(ytVid,'add','off');
+    video.style.zIndex = 2;
+    setTimeout(() => {
+      video.style.zIndex = 1;
+      ytVid.classList.remove('ytvidon');
+      ytVid.classList.remove('ytvidoff');
+      playBtn.style.opacity = 1;
+      playBtn.style.pointerEvents = 'all';
+      positionToggle(ytVid,'remove','on');
+      positionToggle(ytVid,'remove','off');
+    }, 300);
+  }
+}
+const videos = Array.from(document.querySelectorAll('.montbox'));
+videos.forEach(video => videoOn(video));
+document.addEventListener('click', (e) =>{
+  if(e.target.classList.contains('btncircle')) return;
+  else videos.forEach(video => videoOff(video));
 })
 
 
@@ -193,12 +118,6 @@ const usa = document.querySelector('#usa');
 const usab = document.querySelector('#usab');
 const worldb = document.querySelector('#worldb');
 
-const texas = document.querySelector('#texasbox');
-const cali = document.querySelector('#calibox');
-const stateKey = {
-  t: texas,
-  c: cali
-}
 // toggle World/USA
 const openMap = (mapon, mapoff) => {
   mapon.classList.add('active')
@@ -208,7 +127,45 @@ usab.addEventListener('click', () => openMap(usa, world));
 worldb.addEventListener('click', () => openMap(world, usa));
 
 
+// CLICKED COUNTRY
+const sAfrica = document.querySelector('#safricab');
+const countries = Array.from(document.querySelectorAll('.ctry'));
+const countryMap = [
+  {country: 'safricab', target:'mon2'},
+  {country: 'hungaryb', target:'mon2'}
+]
+function scroll2Montage(target) {
+  const viewBottom = window.innerHeight + window.scrollY;
+  const bannerRect = bannerBox.getBoundingClientRect();
+  const montageMid = bannerRect.bottom + window.scrollY - (bannerRect.height / 2);
+  const scrollDistance = montageMid - viewBottom + (window.innerHeight / 2);
+  window.scrollBy({
+    top: scrollDistance,
+    behavior: 'smooth'
+  });
+  videos.forEach(video => {
+    video.classList.remove('monon');
+    void video.offsetWidth;
+    if(video.classList.contains(target)) {
+      requestAnimationFrame(video.classList.add('monon'));
+    }
+  })
+}
+countryMap.forEach(({country, target}) => {
+  const countryB = document.getElementById(country);
+  countryB.addEventListener('click', () => {
+    scroll2Montage(target);
+  })
+})
+
+
 // STATES
+const texas = document.querySelector('#texasbox');
+const cali = document.querySelector('#calibox');
+const stateKey = {
+  t: texas,
+  c: cali
+}
 const states = [texas, cali];
 const sx = document.querySelectorAll('.sx');
 
@@ -395,6 +352,80 @@ function slideOff(city) {
     });
   });
 }
+
+
+// MENU
+let menuOn = false;
+let subOpen = false;
+const menuKey = document.querySelectorAll('#menukey');
+const mmenu = document.querySelector('#m')
+const story = document.querySelector('#s')
+const directsMap = {
+  m: mmenu,
+  o: story
+}
+// menu items
+const hvlogs = document.querySelector('.hmenu');
+const cvlogs = document.querySelector('.cmenu');
+const tvlogs = document.querySelector('.tmenu');
+const menuMap = {
+  h: hvlogs,
+  c: cvlogs,
+  t: tvlogs
+};
+const menuItems = Object.values(menuMap);
+// home items
+const avlogs = document.querySelector('#a')
+const fvlogs = document.querySelector('#ff')
+const fhvlogs = document.querySelector('#fh')
+const homeMap = {
+  a: avlogs,
+  f: fvlogs,
+  s: fhvlogs
+}
+// college items
+const b1vlogs = document.querySelector('#b1')
+const fcvlogs = document.querySelector('#fc')
+const b2vlogs = document.querySelector('#b2')
+const collegeMap = {
+  b: b1vlogs,
+  f: fcvlogs,
+  a: b2vlogs
+}
+// travel items
+const wvlogs = document.querySelector('#w')
+const pvlogs = document.querySelector('#p')
+const travelMap = {
+  w: wvlogs,
+  p: pvlogs
+}
+// close submenus
+function closeSubmenu(menu) {
+  menu.classList.remove('menuactive')
+  subMenu = false;
+}
+document.addEventListener('click', (e) =>{
+  if(e.target.classList.contains('menubutton')) {
+    return
+  }
+  else menuItems.forEach(item => closeSubmenu(item))
+})
+// open submenu
+function openSubmenu(menu) {
+  if(menuOn === true) {
+    menuItems.forEach(item => {
+      closeSubmenu(item);
+    })
+    menu.classList.add('menuactive')
+    subMenu = true;
+  }
+}
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    menuOn = true;
+    openSubmenu(item);
+  })
+})
 
 
 // KEY SHORTCUTS

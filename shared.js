@@ -60,10 +60,8 @@ const isSelected = (blink, vlog, index) => {
         if(vlogB2pageB < 572) window.scrollBy(0, -vlogB2pageB + 77);
         else window.scrollBy(0, -572);
       }
-      setTimeout(() => {
-        vlog.classList.add('blink');
-        localStorage.removeItem('selected')
-      }, 300);
+      vlog.classList.add('blink');
+      localStorage.removeItem('selected')
     });
   }
 }
