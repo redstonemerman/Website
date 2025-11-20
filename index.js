@@ -112,19 +112,52 @@ document.addEventListener('click', (e) =>{
 })
 
 
-// WORLD/USA
+// COUNTRIES
+// world
 const world = document.querySelector('#world');
+const worldBs = Array.from(document.querySelectorAll('.worldb'));
+// country maps
 const usa = document.querySelector('#usa');
-const usab = document.querySelector('#usab');
-const worldb = document.querySelector('#worldb');
-
+const arabia = document.querySelector('#arabia');
+// animated countries
+const usA = document.querySelector('#usa48');
+const arabA = document.querySelector('#araba');
+const nothing = document.querySelector('title');
+const allMaps = [
+  {map: world, animate: nothing},
+  {map: usa, animate: usA},
+  {map: arabia, animate: arabA}
+];
+// country buttons
+const usaB = document.querySelector('#usab');
+const araB = document.querySelector('#arab');
+const ctryB = [
+  {button: usaB, map: usa, animate: usA},
+  {button: araB, map: arabia, animate: arabA}
+]
 // toggle World/USA
-const openMap = (mapon, mapoff) => {
-  mapon.classList.add('active')
-  mapoff.classList.remove('active')
+function openMap(mapOn) {
+  allMaps.forEach(({map, animate}) => {
+    if(map.classList.contains('active')){
+      map.classList.remove('active');
+      animate.classList.remove('active');
+    };
+  })
+  mapOn.classList.add('active');
 }
-usab.addEventListener('click', () => openMap(usa, world));
-worldb.addEventListener('click', () => openMap(world, usa));
+// country button listener
+ctryB.forEach(({button, map, animate}) => {
+  button.addEventListener('click', () => {
+    animate.classList.add('active');
+    openMap(map);
+  })
+})
+// globe button listener
+worldBs.forEach(button => {
+  button.addEventListener('click', () => {
+    openMap(world);
+  })
+});
 
 
 // CLICKED COUNTRY
@@ -471,9 +504,19 @@ document.addEventListener('keydown', (e) => {
   // toggle world/USA
   else if(usa.classList.contains('active')) {
     if(stateKey[e.key]) return openState(stateKey[e.key]);
-    if(e.key === 'w') return openMap(world, usa);
+    if(e.key === 'w') return openMap(world);
+  }
+  else if(arabia.classList.contains('active')) {
+    if(e.key === 'w') return openMap(world);
   }
   else if(world.classList.contains('active')) {
-    if(e.key === 'u') return openMap(usa, world);
+    if(e.key === 'u') {
+      openMap(usa);
+      usA.classList.add('active');
+    }
+    if(e.key === 'a') {
+      openMap(arabia);
+      arabA.classList.add('active');
+    }
   }
 });

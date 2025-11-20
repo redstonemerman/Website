@@ -115,18 +115,29 @@ h1{
     max-width: 100vw;
     max-height: 670px;
     margin: 0px 10px min(5vw,70px);
+    justify-content: center;
+    align-items: center;
 }
 
-#usa{
+#usa, #arabia{
     justify-self: center;
     grid-area: 1/1;
     opacity: 0;
     pointer-events: none;
     transition: transform 300ms, opacity 300ms;
-    transform: translate(-28%, max(-5%, -1.5vw)) scale(0.2);
     z-index: 0;
+}
+
+#usa{
+    transform: translate(-28%, max(-5%, -1.5vw)) scale(0.2);
     width: 100%;
     height: 100%;
+}
+
+#arabia{
+    transform: translate(12%, 2%) scale(0.1);
+    width: 90%;
+    height: 90%;
 }
 
 #world{
@@ -162,13 +173,26 @@ h1{
     border-style: solid;
 }
 
-#world.active, #usa.active{
+#world.active, #arabia.active{
+    pointer-events: all;
+    transform: scale(1);
+}
+
+#world.active, #arabia.active>image{
+    opacity: 0.75;
+}
+
+#arabia.active{
+    opacity: 1;
+}
+
+#usa.active{
     opacity: 1;
     pointer-events: all;
     transform: scale(1);
 }
 
-#usab, #worldb, .hvs, .ctry{
+#usab, .worldb, .hvs, .ctry{
     cursor: pointer;
 }
 
@@ -181,16 +205,20 @@ h1{
     font-family: 'Merica';
 }
 
-#usa48{
-    transform: translate(167%, 37%) scaleX(4.25) scaleY(5);
-    transition: transform 300ms;
+#usa48, #araba{
+    transform: scale(1);
     will-change: transform;
     transform-origin: center center;
     transform-box: fill-box;
+    transition: transform 300ms;
 }
 
-#world.active #usa48{
-    transform: scale(1);
+#usa48.active{
+    transform: translate(167%, 37%) scaleX(4.25) scaleY(5);
+}
+
+#araba.active{
+    transform: translate(-235%, -120%) scale(8);
 }
 
 @font-face {
@@ -207,7 +235,7 @@ h1{
     src: url(Fonts/ArabianNight-CommercialUsed.otf);
 }
 
-#arabiab, #saudib, #bahrainb{
+#arab, #saudib, #bahrainb{
     font-family: 'ArabN';
 }
 
@@ -256,7 +284,7 @@ h1{
     opacity: 1;
 }
 
-.state, .cog, .chv{
+.cog, .chv, .og, .hv{
     pointer-events: none;
 }
 
@@ -276,26 +304,26 @@ h1{
 
 #globestroke{
     stroke: black;
-    stroke-width: 5px;
     transition: stroke 500ms;
 }
 
-#worldb:hover #globestroke{
+.worldb:hover #globestroke{
     stroke: white;
-    stroke-width: 5px;
 }
 
-#worldb image{
+.worldb image{
     pointer-events: none;
+    transform-box: fill-box;
+    transform-origin: 0 0;
 }
 
 @keyframes globespin{
     to{
-        transform: translateX(152.245px);
+        transform: translateX(100%);
     }
 }
 
-#worldb:hover image{
+.worldb:hover image{
     animation: globespin 1500ms linear;
     animation-iteration-count: infinite;
 }
@@ -303,7 +331,6 @@ h1{
 #globetxt{
     font-family: Verdana, Geneva, sans-serif;
     fill: white;
-    font-size: 20px;
     text-align: center;
     opacity: 0%;
     transform: translateY(2%);
@@ -311,7 +338,7 @@ h1{
     pointer-events: none;
 }
 
-#worldb:hover #globetxt{
+.worldb:hover #globetxt{
     opacity: 100%;
     transform: translateY(0%);
     transition: opacity 500ms, transform 500ms;
