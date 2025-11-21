@@ -165,7 +165,9 @@ const sAfrica = document.querySelector('#safricab');
 const countries = Array.from(document.querySelectorAll('.ctry'));
 const countryMap = [
   {country: 'safricab', target:'mon2'},
-  {country: 'hungaryb', target:'mon2'}
+  {country: 'hungaryb', target:'mon2'},
+  {country: 'qatarb', target:'mon2'},
+  {country: 'uaeb', target:'mon2'}
 ]
 function scroll2Montage(target) {
   const viewBottom = window.innerHeight + window.scrollY;
