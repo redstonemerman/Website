@@ -152,20 +152,20 @@ h1{
     margin-top: min(1.5vw, 20px);
 }
 
-.ctry{
+.ctry, .hvs{
     fill: black;
     transition: 100ms;
 }
-.ctry:hover{
+.ctry:hover, .hvs:hover{
     fill: white;
 }
 
-.ctry rect{
+.ctry rect, .hvs rect{
     fill: white;
     transition: 100ms;
 }
 
-.ctry:hover rect{
+.ctry:hover rect, .hvs:hover rect{
     fill: black;
 }
 
@@ -235,7 +235,7 @@ h1{
     src: url(Fonts/ArabianNight-CommercialUsed.otf);
 }
 
-#arab, #saudib, #bahrainb{
+#arab, #arabia{
     font-family: 'ArabN';
 }
 
