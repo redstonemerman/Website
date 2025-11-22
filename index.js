@@ -153,18 +153,18 @@ function positionToggle(ytVid, toggle, onoff) {
     }
   })
 }
-function videoOn(video, parent) {
+function videoOn(video, vidtype) {
   const player = video.querySelector('.btncircle');
   const playBtn = video.querySelector('.playbtn');
   const ytVid = video.querySelector('.ytvid');
   if (!playBtn || !ytVid) return;
   let ytvidClass = "mytvidon";
-  if(parent === filmVideos) {
+  if(vidtype === filmVideos) {
     ytvidClass = "fytvidon";
   }
   player.addEventListener('click', () => {
-    parent.forEach(video => {
-      videoOff(video, parent);
+    vidtype.forEach(video => {
+      videoOff(video, vidtype);
       video.classList.remove('monon');
     });
     video.style.zIndex = 3;
@@ -174,12 +174,12 @@ function videoOn(video, parent) {
     positionToggle(ytVid,'add','on');
   })
 }
-function videoOff(video, parent) {
+function videoOff(video, vidtype) {
   const playBtn = video.querySelector('.playbtn');
   const ytVid = video.querySelector('.ytvid');
   if (!playBtn || !ytVid) return;
   let ytvidClass = "mytvidon";
-  if(parent === filmVideos) {
+  if(vidtype === filmVideos) {
     ytvidClass = "fytvidon";
   }
   if(ytVid.classList.contains(ytvidClass)){
