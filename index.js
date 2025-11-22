@@ -59,59 +59,6 @@ window.addEventListener('scroll', () => {
 });
 
 
-// MONTAGE FULLSCREEN VIDEO
-const positions = ['tl','tr','bl','br'];
-function positionToggle(ytVid, toggle, onoff) {
-  positions.forEach(position => {
-    if(ytVid.classList.contains(position)) {
-      ytVid.classList[toggle](`${position}${onoff}`);
-    }
-  })
-}
-function videoOn(video) {
-  const player = video.querySelector('.btncircle');
-  const playBtn = video.querySelector('.playbtn');
-  const ytVid = video.querySelector('.ytvid');
-  if (!playBtn || !ytVid) return;
-  player.addEventListener('click', () => {
-    videos.forEach(video => {
-      videoOff(video);
-      video.classList.remove('monon');
-    });
-    video.style.zIndex = 3;
-    ytVid.classList.add('ytvidon');
-    playBtn.style.opacity = 0;
-    playBtn.style.pointerEvents = 'none';
-    positionToggle(ytVid,'add','on');
-  })
-}
-function videoOff(video) {
-  const playBtn = video.querySelector('.playbtn');
-  const ytVid = video.querySelector('.ytvid');
-  if (!playBtn || !ytVid) return;
-  if(ytVid.classList.contains('ytvidon')){
-    ytVid.classList.add('ytvidoff');
-    positionToggle(ytVid,'add','off');
-    video.style.zIndex = 2;
-    setTimeout(() => {
-      video.style.zIndex = 1;
-      ytVid.classList.remove('ytvidon');
-      ytVid.classList.remove('ytvidoff');
-      playBtn.style.opacity = 1;
-      playBtn.style.pointerEvents = 'all';
-      positionToggle(ytVid,'remove','on');
-      positionToggle(ytVid,'remove','off');
-    }, 300);
-  }
-}
-const videos = Array.from(document.querySelectorAll('.montbox'));
-videos.forEach(video => videoOn(video));
-document.addEventListener('click', (e) =>{
-  if(e.target.classList.contains('btncircle')) return;
-  else videos.forEach(video => videoOff(video));
-})
-
-
 // COUNTRIES
 // world
 const world = document.querySelector('#world');
@@ -160,13 +107,16 @@ worldBs.forEach(button => {
 });
 
 
-// CLICKED COUNTRY
-const sAfrica = document.querySelector('#safricab');
+// CLICKED COUNTRY 2 MONTAGE
 const countries = Array.from(document.querySelectorAll('.ctry'));
 const countryMap = [
   {country: 'safricab', target:'mon2'},
   {country: 'hungaryb', target:'mon2'},
+  {country: 'thaib', target:'mon2'},
+  {country: 'nepalb', target:'mon2'},
   {country: 'qatarb', target:'mon2'},
+  {country: 'lankab', target:'mon2'},
+  {country: 'japanb', target:'mon2'},
   {country: 'uaeb', target:'mon2'}
 ]
 function scroll2Montage(target) {
@@ -178,7 +128,7 @@ function scroll2Montage(target) {
     top: scrollDistance,
     behavior: 'smooth'
   });
-  videos.forEach(video => {
+  montVideos.forEach(video => {
     video.classList.remove('monon');
     void video.offsetWidth;
     if(video.classList.contains(target)) {
@@ -191,6 +141,70 @@ countryMap.forEach(({country, target}) => {
   countryB.addEventListener('click', () => {
     scroll2Montage(target);
   })
+})
+
+
+// MONTAGE FULLSCREEN VIDEO
+const positions = ['tl','tr','bl','br','l','r'];
+function positionToggle(ytVid, toggle, onoff) {
+  positions.forEach(position => {
+    if(ytVid.classList.contains(position)) {
+      ytVid.classList[toggle](`${position}${onoff}`);
+    }
+  })
+}
+function videoOn(video, parent) {
+  const player = video.querySelector('.btncircle');
+  const playBtn = video.querySelector('.playbtn');
+  const ytVid = video.querySelector('.ytvid');
+  if (!playBtn || !ytVid) return;
+  let ytvidClass = "mytvidon";
+  if(parent === filmVideos) {
+    ytvidClass = "fytvidon";
+  }
+  player.addEventListener('click', () => {
+    parent.forEach(video => {
+      videoOff(video, parent);
+      video.classList.remove('monon');
+    });
+    video.style.zIndex = 3;
+    ytVid.classList.add(ytvidClass);
+    playBtn.style.opacity = 0;
+    playBtn.style.pointerEvents = 'none';
+    positionToggle(ytVid,'add','on');
+  })
+}
+function videoOff(video, parent) {
+  const playBtn = video.querySelector('.playbtn');
+  const ytVid = video.querySelector('.ytvid');
+  if (!playBtn || !ytVid) return;
+  let ytvidClass = "mytvidon";
+  if(parent === filmVideos) {
+    ytvidClass = "fytvidon";
+  }
+  if(ytVid.classList.contains(ytvidClass)){
+    positionToggle(ytVid,'add','off');
+    video.style.zIndex = 2;
+    setTimeout(() => {
+      video.style.zIndex = 1;
+      ytVid.classList.remove(ytvidClass);
+      playBtn.style.opacity = 1;
+      playBtn.style.pointerEvents = 'all';
+      positionToggle(ytVid,'remove','on');
+      positionToggle(ytVid,'remove','off');
+    }, 300);
+  }
+}
+const montVideos = Array.from(document.querySelectorAll('.montbox'));
+const filmVideos = Array.from(document.querySelectorAll('.shortbox'));
+montVideos.forEach(video => videoOn(video, montVideos));
+filmVideos.forEach(video => videoOn(video, filmVideos));
+document.addEventListener('click', (e) =>{
+  if(e.target.classList.contains('btncircle')) return;
+  else {
+    montVideos.forEach(video => videoOff(video, montVideos));
+    filmVideos.forEach(video => videoOff(video, filmVideos));
+  }
 })
 
 
@@ -287,8 +301,8 @@ const caliKey = {
 function openCity (city, state) {
   state.style.backdropFilter = 'none';
   state.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-  const stateImgage = state.querySelector('svg')
-  stateImgage.classList.add('disappear')
+  const stateImage = state.querySelector('svg')
+  stateImage.classList.add('disappear')
   const title = city.querySelector('.citytitle')
   title.classList.add('titleflip')
   city.classList.add('active')
@@ -324,7 +338,41 @@ function closeCity() {
   sx.forEach(x => x.classList.add('active'));
   cityOpen = false;
 };
-cx.forEach(ex => ex.addEventListener('click', closeCity));
+cx.forEach(ex => ex.addEventListener('click', () => {
+  closeCity();
+  closeFilm();
+}));
+
+
+// SHORT FILMS
+const milk = document.querySelector('#milk');
+const quest = document.querySelector('#quest');
+const milkB = document.querySelector('#milkb');
+const questB = document.querySelector('#questb');
+let filmOpen = false;
+const filmKey = [
+  {button: milkB, film: milk},
+  {button: questB, film: quest}
+]
+function openFilm(film) {
+  film.classList.add('active');
+  filmOpen = true;
+  const title = film.querySelector('.citytitle');
+  title.classList.add('titleflip');
+}
+function closeFilm() {
+  filmKey.forEach(({button, film}) => {
+    film.classList.remove('active');
+    filmOpen = false;
+    const title = film.querySelector('.citytitle');
+    title.classList.remove('titleflip');
+  })
+}
+filmKey.forEach(({button, film}) => {
+  button.addEventListener('click', () => {
+    openFilm(film);
+  })
+})
 
 
 // TN ANIMATION
@@ -465,10 +513,17 @@ menuItems.forEach(item => {
 
 // KEY SHORTCUTS
 document.addEventListener('keydown', (e) => {
-  if(e.key === 'Escape') videos.forEach(video => videoOff(video));
+  if(e.key === 'Escape') {
+    montVideos.forEach(video => videoOff(video, montVideos));
+    filmVideos.forEach(video => videoOff(video, filmVideos));
+  }
   // city open
   if(cityOpen === true) {
     if(e.key === 'Escape') return closeCity();
+  }
+  // film open
+  if(filmOpen === true) {
+    if(e.key === 'Escape') return closeFilm();
   }
   // TX open
   else if(texas.classList.contains('active')){

@@ -240,6 +240,16 @@ h1{
 }
 
 @font-face {
+    font-family: 'Japan';
+    src: url(Fonts/JAPAN\ RAMEN.otf);
+}
+
+#japanb{
+    font-family: 'Japan';
+    font-size: 32px;
+}
+
+@font-face {
     font-family: 'Island';
     src: url(Fonts/CARIB___.otf);
 }
@@ -264,6 +274,36 @@ h1{
 
 #hungaryb{
     font-family: 'Hungary';
+}
+
+@font-face {
+    font-family: 'Hindi';
+    src: url(Fonts/SAMAN___.TTF);
+}
+
+#nepalb{
+    font-family: 'Hindi';
+}
+
+@font-face {
+    font-family: 'Lanka';
+    src: url(Fonts/Lanka\ Curves.otf);
+}
+
+#lankab{
+    font-family: 'Lanka';
+    font-weight: bold;
+    font-size: 33px;
+}
+
+
+@font-face {
+    font-family: 'Thai';
+    src: url(Fonts/PADTHAI_.TTF);
+}
+
+#thaib{
+    font-family: 'Thai';
 }
 
 .chv{
@@ -342,19 +382,20 @@ h1{
 
 /* STATE POPUPS */
 
-.statebox, .citybox{
+.statebox, .citybox, .sfilmbox{
     display: flex;
     position: fixed;
     width: 100%;
     height: 100%;
     left: 0;
-    top: 0;    
+    top: 0;
     z-index: 10;
     justify-content: center;
     align-items: center;
     margin: 0;
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0ms 300ms;
 }
 
 .statebox{
@@ -384,13 +425,14 @@ h1{
     backdrop-filter: blur(5px);
 }
 
-.citybox.active{
+.citybox.active, .sfilmbox.active{
     opacity: 1;
     pointer-events: all;
     background-color: rgba(0, 0, 0, .4);
+    transition: opacity 0ms 0ms;
 }
 
-.cityvlogs, .cityvlogseven{
+.cityvlogs, .cityvlogseven, .filmvlogs, .filmvlogseven{
     display: grid;
     grid-column-gap: min(2vw, 20px);
     grid-row-gap: min(1.5vw, 15px);
@@ -402,22 +444,25 @@ h1{
     font-size: min(4.4vw, 50px);
     font-family: "Kelly", sans-serif;
     transform: translateY(100%);
-    transition: transform 300ms;
+    transition: transform 300ms, opacity 300ms;
     backdrop-filter: blur(8px);
+    opacity: 0;
 }
 
-.citybox.active .cityvlogs, .citybox.active .cityvlogseven{
+.citybox.active .cityvlogs, .citybox.active .cityvlogseven,
+.sfilmbox.active .filmvlogs, .sfilmbox.active .filmvlogseven{
     transform: translateY(0);
+    opacity: 1;
 }
 
-.cityvlogs{
+.cityvlogs, .filmvlogs{
     max-width: 1000px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: "title title title";
     margin: 3vw;
 }
 
-.cityvlogseven{
+.cityvlogseven, .filmvlogseven{
     max-width: 660px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "title title";
@@ -453,17 +498,20 @@ h1{
     will-change: transform;
 }
 
-.cityvlog1, .cityvlog2, .cityvlog3{
+.cityvlog1, .cityvlog2, .cityvlog3, .shortbox{
     display: grid;
     grid-template-rows: auto auto;
-    border: solid black min(0.45vw, 5px);
-    padding: min(1vw, 10px);
     z-index: 1;
     overflow: hidden;
     cursor: pointer;
     text-decoration: none;
     color: white;
     justify-items: center;
+}
+
+.cityvlog1, .cityvlog2, .cityvlog3{
+    border: solid black min(0.45vw, 5px);
+    padding: min(1vw, 10px);
 }
 
 .cityvlog1{
@@ -688,7 +736,6 @@ h1{
 .montages, .films{
     position: relative;
     height: fit-content;
-    
 }
 
 .montages{
@@ -789,12 +836,16 @@ h1{
     margin: min(1.5vw, 20px) 0 calc(min(1.5vw, 20px) + min(2.5vw, 35px)) 0;
 }
 
-.montbox, .filmtn{
+.montbox, .filmtn, .shortbox{
     border-style: solid;
     border-width: min(0.35vw, 5px);
-    width: 100%;
     z-index: 1;
     aspect-ratio: 16 / 9;
+    cursor: pointer;
+}
+
+.montbox, .filmtn{
+    width: 100%;
 }
 
 .montbox{
@@ -882,11 +933,13 @@ h1{
     pointer-events: none;
 }
 
-.montbox.monon .btncircleblur, .montbox:hover .btncircleblur, .vvlogbox:hover .btncircleblur{
+.montbox.monon .btncircleblur, .montbox:hover .btncircleblur, .vvlogbox:hover .btncircleblur,
+.shortbox:hover .btncircleblur{
     backdrop-filter: blur(5px);
 }
 
-.montbox.monon .playbtn>svg, .montbox:hover .playbtn>svg, .vvlogbox:hover .playbtn>svg{
+.montbox.monon .playbtn>svg, .montbox:hover .playbtn>svg, .vvlogbox:hover .playbtn>svg,
+.shortbox:hover .playbtn>svg{
     opacity: 1;
 }
 
@@ -1033,8 +1086,79 @@ h1{
     }
 }
 
-.ytvidon{
+@keyframes filmonl {
+    0%{
+        opacity: 0;
+        clip-path: inset(0 51.5% 51.5% 0);
+        border: solid black min(0.35vw, 5px);
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+}
+
+@keyframes filmoffl {
+    0%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        clip-path: inset(0 51.5% 51.5% 0);
+        border: solid black min(0.35vw, 5px);
+    }
+}
+
+@keyframes filmonr {
+    0%{
+        opacity: 0;
+        clip-path: inset(0 0 51.5% 51.5%);
+        border: solid black min(0.35vw, 5px);
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+}
+
+@keyframes filmoffr {
+    0%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        border: solid white min(0.35vw, 5px);
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        clip-path: inset(0 0 51.5% 51.5%);
+        border: solid black min(0.35vw, 5px);
+    }
+}
+
+.mytvidon{
     width: min(38%,600px);
+    aspect-ratio: 16/9.05;
+    pointer-events: all;
+    z-index: 2;
+}
+
+.fytvidon{
+    width: min(95%,1000px);
     aspect-ratio: 16/9.05;
     pointer-events: all;
     z-index: 2;
@@ -1046,7 +1170,6 @@ h1{
 }
 
 .tloff{
-    transform: translate(-25%,-45.5%);
     animation: ytofftl 300ms forwards;
 }
 
@@ -1056,7 +1179,6 @@ h1{
 }
 
 .troff{
-    transform: translate(-75%,-45.5%);
     animation: ytofftr 300ms forwards;
 }
 
@@ -1066,7 +1188,6 @@ h1{
 }
 
 .bloff{
-    transform: translate(-25%,-99.5%);
     animation: ytoffbl 300ms forwards;
 }
 
@@ -1076,9 +1197,28 @@ h1{
 }
 
 .broff{
-    transform: translate(-75%,-99.5%);
     animation: ytoffbr 300ms forwards;
 }
+
+.lon{
+    transform: translate(-24.2%,-48%);
+    animation: filmonl 300ms forwards;
+}
+
+.loff{
+    animation: filmoffl 300ms forwards;
+}
+
+.ron{
+    transform: translate(-75.8%,-48%);
+    animation: filmonr 300ms forwards;
+}
+
+.roff{
+    animation: filmoffr 300ms forwards;
+}
+
+/* SHORT FILMS (styling mixed with montages & cities) */
 
 .filmtn>span{
     position: absolute;
