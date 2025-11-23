@@ -110,14 +110,14 @@ worldBs.forEach(button => {
 // CLICKED COUNTRY 2 MONTAGE
 const countries = Array.from(document.querySelectorAll('.ctry'));
 const countryMap = [
-  {country: 'safricab', target:'mon2'},
-  {country: 'hungaryb', target:'mon2'},
-  {country: 'thaib', target:'mon2'},
-  {country: 'nepalb', target:'mon2'},
-  {country: 'qatarb', target:'mon2'},
-  {country: 'lankab', target:'mon2'},
-  {country: 'japanb', target:'mon2'},
-  {country: 'uaeb', target:'mon2'}
+  {country: 'safricab', target:'mon5'},
+  {country: 'hungaryb', target:'mon5'},
+  {country: 'thaib', target:'mon5'},
+  {country: 'nepalb', target:'mon5'},
+  {country: 'qatarb', target:'mon5'},
+  {country: 'lankab', target:'mon5'},
+  {country: 'japanb', target:'mon5'},
+  {country: 'uaeb', target:'mon5'}
 ]
 function scroll2Montage(target) {
   const viewBottom = window.innerHeight + window.scrollY;
