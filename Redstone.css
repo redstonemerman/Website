@@ -274,6 +274,7 @@ h1{
 
 #hungaryb{
     font-family: 'Hungary';
+    font-size: 40px;
 }
 
 @font-face {
@@ -296,6 +297,15 @@ h1{
     font-size: 33px;
 }
 
+@font-face {
+    font-family: 'Canada';
+    src: url(Fonts/MobalysRegular-BLrqB.ttf);
+}
+
+#canadab{
+    font-family: 'Canada';
+    font-size: 35px;
+}
 
 @font-face {
     font-family: 'Thai';
