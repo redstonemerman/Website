@@ -209,13 +209,23 @@ document.addEventListener('click', (e) =>{
 
 
 // STATES
+const tx = document.querySelector('#tx');
+const ca = document.querySelector('#ca');
+const ak = document.querySelector('#ak');
 const texas = document.querySelector('#texasbox');
 const cali = document.querySelector('#calibox');
+const alaska = document.querySelector('#alaskabox');
 const stateKey = {
   t: texas,
-  c: cali
+  c: cali,
+  a: alaska
 }
-const states = [texas, cali];
+const states = [texas, cali, alaska];
+const stateButtons = [
+  {button: tx, state: texas},
+  {button: ca, state: cali},
+  {button: ak, state: alaska}
+]
 const sx = document.querySelectorAll('.sx');
 
 // open states
@@ -223,8 +233,11 @@ function openState(state) {
   state.classList.add('active')
   sx.forEach(x => x.classList.add('active'));
 }
-tx.addEventListener('click', () => openState(texas));
-ca.addEventListener('click', () => openState(cali));
+stateButtons.forEach(({button, state}) => {
+  button.addEventListener('click', () => {
+    openState(state);
+  })
+});
 
 // close states
 function closeState() {
@@ -299,7 +312,6 @@ const caliKey = {
 
 // open cities
 function openCity (city, state) {
-  state.style.backdropFilter = 'none';
   state.style.backgroundColor = 'rgba(0, 0, 0, 0)';
   const stateImage = state.querySelector('svg')
   stateImage.classList.add('disappear')
@@ -534,6 +546,10 @@ document.addEventListener('keydown', (e) => {
   else if(cali.classList.contains('active')){
     if(e.key === 'Escape') return closeState();
     else if(caliKey[e.key]) return openCity(caliKey[e.key], cali);
+  }
+  // AK open
+  else if(alaska.classList.contains('active')){
+    if(e.key === 'Escape') return closeState();;
   }
   // menu shortcuts
   else if(e.key === 'Control' && menuOn === false) {

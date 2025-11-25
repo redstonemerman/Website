@@ -124,6 +124,7 @@ h1{
     grid-area: 1/1;
     opacity: 0;
     pointer-events: none;
+    will-change: transform, opacity;
     transition: transform 300ms, opacity 300ms;
     z-index: 0;
 }
@@ -256,6 +257,7 @@ h1{
 
 #luciab{
     font-family: 'Island';
+    font-size: 27px;
 }
 
 @font-face{
@@ -265,6 +267,7 @@ h1{
 
 #safricab{
     font-family: 'Africa';
+    font-size: 20px;
 }
 
 @font-face {
@@ -284,6 +287,7 @@ h1{
 
 #nepalb{
     font-family: 'Hindi';
+    font-size: 40px;
 }
 
 @font-face {
@@ -402,7 +406,6 @@ h1{
     z-index: 10;
     justify-content: center;
     align-items: center;
-    margin: 0;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0ms 300ms;
@@ -417,22 +420,78 @@ h1{
     transition: 250ms ease-out;
     transform: scale(0.3);
     will-change: transform;
+    position: absolute;
+    width: 90%;
+    max-height: 85%;
+    height: auto;
+    overflow: visible;
 }
 
 .statebox.active .statesvg{
-    transform: scale(1);
+    transform: scale(1) translateY(-5%);
 }
 
 .disappear{
     opacity: 0;
-    scale: 2.5;
-    transition: transform opacity 250ms ease-out;
 }
 
 .statebox.active{
     opacity: 1;
     pointer-events: all;
     backdrop-filter: blur(5px);
+}
+
+.statesvg a{
+    fill: white;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+@font-face {
+    font-family: 'Texas Tango';
+    src: url(Fonts/TEXAT\ BOLD\ PERSONAL\ USE___.otf);
+}
+
+.texas a{
+    font-family: 'Texas Tango', serif;
+}
+
+.texas a:hover, .cali a:hover, .alaska a:hover{
+    fill: red;
+}
+
+@font-face {
+    font-family: 'California';
+    src: url(Fonts/California\ by\ Dirt2.otf);
+}
+
+.cali a{
+    font-family: 'California', serif;
+    letter-spacing: 2px;
+}
+
+@font-face {
+    font-family: 'Alaska';
+    src: url(Fonts/FREEZER.ttf);
+}
+
+.alaska a{
+    font-family: 'Alaska';
+    font-size: 40px;
+}
+
+.sx.active, .cx.active{
+    stroke: white;
+    stroke-width: 10px;
+    stroke-linecap: round;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.sx:hover, .cx:hover{
+    stroke: red;
+    stroke-linecap: square;
+    stroke-width: 20px;    
 }
 
 .citybox.active, .sfilmbox.active{
@@ -455,7 +514,6 @@ h1{
     font-family: "Kelly", sans-serif;
     transform: translateY(100%);
     transition: transform 300ms, opacity 300ms;
-    backdrop-filter: blur(8px);
     opacity: 0;
 }
 
@@ -684,61 +742,6 @@ h1{
 
 .cityxeven{
     grid-column-start: 2;
-}
-
-.statesvg{
-    position: absolute;
-    max-width: 90%;
-    max-height: 90%;
-    height: auto;
-    overflow: visible;
-}
-
-.statesvg a{
-    fill: white;
-    cursor: pointer;
-    transition: 200ms;
-}
-
-@font-face {
-    font-family: 'Texas Tango';
-    src: url(Fonts/TEXAT\ BOLD\ PERSONAL\ USE___.otf);
-}
-
-.texas a{
-    font-family: 'Texas Tango', serif;
-}
-
-.texas a:hover{
-    fill: red;
-}
-
-@font-face {
-    font-family: 'California';
-    src: url(Fonts/California\ by\ Dirt2.otf);
-}
-
-.cali a{
-    font-family: 'California', serif;
-    letter-spacing: 2px;
-}
-
-.cali a:hover{
-    fill: red;
-}
-
-.sx.active, .cx.active{
-    stroke: white;
-    stroke-width: 10px;
-    stroke-linecap: round;
-    transition: 200ms;
-    cursor: pointer;
-}
-
-.sx:hover, .cx:hover{
-    stroke: red;
-    stroke-linecap: square;
-    stroke-width: 20px;    
 }
 
 /* MONTAGES & SHORT FILMS */
@@ -1662,8 +1665,7 @@ h2{
 
 .vvlogbox{
     display: grid;
-    width: 46%;
-    aspect-ratio: 16/9;
+    width: 47%;
     align-items: top;
     justify-items: left;
 }
@@ -1682,7 +1684,7 @@ h2{
 @keyframes vidon {
     0%{
         opacity: 0;
-        clip-path: inset(60.4% 8.8% 5.6% 57%);
+        clip-path: inset(61.4% 8.7% 5.8% 57.1%);
         border: solid black min(0.7vw, 5px);
     }
     70%{
@@ -1706,17 +1708,16 @@ h2{
     }
     100%{
         opacity: 0;
-        clip-path: inset(60.4% 8.8% 5.6% 57%);
+        clip-path: inset(61.4% 8.7% 5.8% 57.1%);
         border: solid black min(0.7vw, 5px);
     }
 }
 
 .vvidon{
-    width: 292%;
+    width: 281%;
     aspect-ratio: 16/9.05;
-    transform: translate(-57%,-60.4%);
+    transform: translate(-56.6%,-60.4%);
     pointer-events: all;
-    opacity: 1;
     animation: vidon 300ms forwards;
 }
 
