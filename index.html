@@ -36,7 +36,7 @@
         <!-- MAPS -->
                 <div class="svgbox">
                 <!-- WORLD MAP -->
-                    <svg id="world" class="active" width="3000" height="1440" viewBox="0 0 3000 1440">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="world" class="active" width="3000" height="1440" viewBox="0 0 3000 1440">
                         <image href="MAP/WorldBlank1.png" x="0" y="0"/>
                         <a id="arab" class="ctry">
                             <g id="araba"><image class="cog" href="MAP/Countries/ARABIA.png" x="1731" y="655"/></g>
@@ -131,7 +131,13 @@
                             L2295 770 L2295 760"/>
                         </a>
                         <a id="usab" class="ctry">
-                            <g id="usa48"><image class="cog" href="MAP/Countries/USA-48.png" x="444" y="490"/></g>
+                            <g>
+                                <foreignObject id="usa48" x="444" y="490" height="233px" width="473px">
+                                    <div id="usa48box">
+                                        <img xmlns="http://www.w3.org/1999/xhtml" src="MAP/Countries/USA-48.png"/>
+                                    </div>
+                                </foreignObject>
+                            </g>
                             <image class="chv" href="MAP/Countries/USA-48-h.png" x="444" y="490"/>
                             <image class="cog" href="MAP/Countries/USA-AK.png" x="12" y="217"/>
                             <image class="chv" href="MAP/Countries/USA-AK-h.png" x="12" y="217"/>

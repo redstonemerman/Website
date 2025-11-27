@@ -146,7 +146,7 @@ h1{
     grid-area: 1/1;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 300ms;
+    transition: opacity 500ms;
     will-change: transform, opacity;
     width: 100%;
     height: 98%;
@@ -206,16 +206,19 @@ h1{
     font-family: 'Merica';
 }
 
+#usa48box{
+    width: 100%;
+}
+
 #usa48, #araba{
-    transform: scale(1);
-    will-change: transform;
-    transform-origin: center center;
-    transform-box: fill-box;
-    transition: transform 300ms;
+    width: 50%;
+    height: 50%;
+    transform: translate(0) scale(1);
+    translate: transform 300ms;
 }
 
 #usa48.active{
-    transform: translate(167%, 37%) scaleX(4.25) scaleY(5);
+    transform: translate(167%, 37%) scale(4.25, 5) translateZ(0);
 }
 
 #araba.active{
@@ -801,6 +804,8 @@ h1{
 .marginer{
     grid-area: 1/1;
     padding: min(2.5vw, 35px);
+    display: flex;
+    justify-content: center;
 }
 
 .montagebox, .filmbox{
@@ -1665,6 +1670,7 @@ h2{
 
 .vvlogbox{
     display: grid;
+    height: 0;
     width: 47%;
     align-items: top;
     justify-items: left;
