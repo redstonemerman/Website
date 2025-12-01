@@ -521,6 +521,16 @@ h1{
     opacity: 1;
 }
 
+.sfilmbox{
+    backdrop-filter: blur(0px);
+    transition: 300ms;
+}
+
+.sfilmbox.active{
+    backdrop-filter: blur(5px);
+    transition: 300ms;
+}
+
 .cityvlogs, .filmvlogs{
     max-width: 1000px;
     grid-template-columns: repeat(3, 1fr);
