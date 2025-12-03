@@ -57,8 +57,8 @@ const isSelected = (blink, vlog, index) => {
         const vlogBottom = vlog.getBoundingClientRect().bottom + window.scrollY;
         const pageBottom = document.documentElement.scrollHeight;
         const vlogB2pageB = pageBottom - vlogBottom
-        if(vlogB2pageB < 572) window.scrollBy(0, -vlogB2pageB + 77);
-        else window.scrollBy(0, -572);
+        if(vlogB2pageB < 575) window.scrollBy(0, -vlogB2pageB + 77);
+        else window.scrollBy(0, -575);
       }
       vlog.classList.add('blink');
       localStorage.removeItem('selected')

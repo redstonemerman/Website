@@ -153,7 +153,9 @@ function positionToggle(ytVid, toggle, onoff) {
     }
   })
 }
+let vidOn = false;
 function videoOn(video, vidtype) {
+  vidOn = true;
   const player = video.querySelector('.btncircle');
   const playBtn = video.querySelector('.playbtn');
   const ytVid = video.querySelector('.ytvid');
@@ -175,6 +177,7 @@ function videoOn(video, vidtype) {
   })
 }
 function videoOff(video, vidtype) {
+  vidOn = false;
   const playBtn = video.querySelector('.playbtn');
   const ytVid = video.querySelector('.ytvid');
   if (!playBtn || !ytVid) return;
@@ -525,9 +528,10 @@ menuItems.forEach(item => {
 
 // KEY SHORTCUTS
 document.addEventListener('keydown', (e) => {
-  if(e.key === 'Escape') {
+  if(vidOn = false && e.key === 'Escape') {
     montVideos.forEach(video => videoOff(video, montVideos));
     filmVideos.forEach(video => videoOff(video, filmVideos));
+    return;
   }
   // city open
   if(cityOpen === true) {
@@ -554,33 +558,31 @@ document.addEventListener('keydown', (e) => {
   // menu shortcuts
   else if(e.key === 'Control' && menuOn === false) {
     menuOn = true;
-    return menuKey.forEach(key => key.classList.add('menukey'))
+    menuKey.forEach(key => key.classList.add('menukey'));
+    return;
   }
   else if((e.key === 'Control' || (e.key === 'Escape' && subMenu === false)) && menuOn === true) {
     menuOn = false;
-    return menuKey.forEach(key => key.classList.remove('menukey'))
+    menuKey.forEach(key => key.classList.remove('menukey'));
+    return;
   }
   // open menu items
   else if(menuOn === true){
-    if(directsMap[e.key]) return directsMap[e.key].click();
     // open submenus
-    else if(menuMap[e.key]){
+    if(menuMap[e.key]){
       Object.values(menuMap).forEach(closeSubmenu);
       return openSubmenu(menuMap[e.key]);
     }
     // open submenu items
-    else if(hvlogs.classList.contains('menuactive') && homeMap[e.key]) return homeMap[e.key].click();
-    else if(cvlogs.classList.contains('menuactive') && collegeMap[e.key]) return collegeMap[e.key].click();
-    else if(tvlogs.classList.contains('menuactive') && travelMap[e.key]) return travelMap[e.key].click();
     else if(e.key === 'Escape') return menuItems.forEach(item => closeSubmenu(item))
   }
   // toggle world/USA
   else if(usa.classList.contains('active')) {
     if(stateKey[e.key]) return openState(stateKey[e.key]);
-    if(e.key === 'w') return openMap(world);
+    if(e.key === 'Escape') return openMap(world);
   }
   else if(arabia.classList.contains('active')) {
-    if(e.key === 'w') return openMap(world);
+    if(e.key === 'Escape') return openMap(world);
   }
   else if(world.classList.contains('active')) {
     if(e.key === 'u') {
