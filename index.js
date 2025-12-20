@@ -288,7 +288,6 @@ const CAcityMap = [
   {button: an, city: ana},
   {button: la, city: los},
   {button: sf, city: saf}
-  
 ]
 const cityMaps = [
   {map: TXcityMap, state: texas},
