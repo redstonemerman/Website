@@ -206,7 +206,6 @@ function scroll2Montage(target) {
   montVideos.forEach(video => {
     videoOff(video, montVideos);
     if(video.classList.contains(target)) {
-      vidOn = true;
       const playBtn = video.querySelector('.playbtn');
       const ytVid = video.querySelector('.ytvid');
       let ytvidClass = "mytvidon";
