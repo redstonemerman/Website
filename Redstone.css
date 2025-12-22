@@ -269,6 +269,16 @@ h1{
 }
 
 @font-face {
+    font-family: 'Cyprus';
+    src: url(Fonts/Greek-Freak.ttf);
+}
+
+#cyprusb{
+    font-family: 'Cyprus';
+    font-size: 35px;
+}
+
+@font-face {
     font-family: 'Hungary';
     src: url(Fonts/Black\ Goth\ -\ Reguler.otf);
 }
@@ -875,22 +885,6 @@ h1{
     border-color: white;
     justify-items: center;
     align-items: center;
-}
-
-@keyframes monOn {
-    0%{
-        border-color: white;;
-    }
-    33.33%, 100%{
-        border-color: rgb(200, 0, 0);
-    }
-    66.66%{
-        border-color: rgb(0, 200, 200);
-    }
-}
-
-.monon{
-    animation: monOn 1200ms 250ms forwards;
 }
 
 .filmtn{

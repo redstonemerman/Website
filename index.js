@@ -107,43 +107,6 @@ worldBs.forEach(button => {
 });
 
 
-// CLICKED COUNTRY 2 MONTAGE
-const countries = Array.from(document.querySelectorAll('.ctry'));
-const countryMap = [
-  {country: 'safricab', target:'mon5'},
-  {country: 'hungaryb', target:'mon5'},
-  {country: 'thaib', target:'mon5'},
-  {country: 'nepalb', target:'mon5'},
-  {country: 'qatarb', target:'mon5'},
-  {country: 'lankab', target:'mon5'},
-  {country: 'japanb', target:'mon5'},
-  {country: 'uaeb', target:'mon5'}
-]
-function scroll2Montage(target) {
-  const viewBottom = window.innerHeight + window.scrollY;
-  const bannerRect = bannerBox.getBoundingClientRect();
-  const montageMid = bannerRect.bottom + window.scrollY - (bannerRect.height / 2);
-  const scrollDistance = montageMid - viewBottom + (window.innerHeight / 2);
-  window.scrollBy({
-    top: scrollDistance,
-    behavior: 'smooth'
-  });
-  montVideos.forEach(video => {
-    video.classList.remove('monon');
-    void video.offsetWidth;
-    if(video.classList.contains(target)) {
-      requestAnimationFrame(video.classList.add('monon'));
-    }
-  })
-}
-countryMap.forEach(({country, target}) => {
-  const countryB = document.getElementById(country);
-  countryB.addEventListener('click', () => {
-    scroll2Montage(target);
-  })
-})
-
-
 // MONTAGE FULLSCREEN VIDEO
 const positions = ['tl','tr','bl','br','l','r'];
 function positionToggle(ytVid, toggle, onoff) {
@@ -154,6 +117,16 @@ function positionToggle(ytVid, toggle, onoff) {
   })
 }
 let vidOn = false;
+function videoOnAnimation(video, vidtype, ytvid, ytvidclass, playbtn) {
+  vidtype.forEach(video => {
+    videoOff(video, vidtype);
+  });
+  video.style.zIndex = 3;
+  ytvid.classList.add(ytvidclass);
+  playbtn.style.opacity = 0;
+  playbtn.style.pointerEvents = 'none';
+  positionToggle(ytvid,'add','on');
+}
 function videoOn(video, vidtype) {
   vidOn = true;
   const player = video.querySelector('.btncircle');
@@ -165,15 +138,7 @@ function videoOn(video, vidtype) {
     ytvidClass = "fytvidon";
   }
   player.addEventListener('click', () => {
-    vidtype.forEach(video => {
-      videoOff(video, vidtype);
-      video.classList.remove('monon');
-    });
-    video.style.zIndex = 3;
-    ytVid.classList.add(ytvidClass);
-    playBtn.style.opacity = 0;
-    playBtn.style.pointerEvents = 'none';
-    positionToggle(ytVid,'add','on');
+    videoOnAnimation(video, vidtype, ytVid, ytvidClass, playBtn)
   })
 }
 function videoOff(video, vidtype) {
@@ -205,9 +170,55 @@ filmVideos.forEach(video => videoOn(video, filmVideos));
 document.addEventListener('click', (e) =>{
   if(e.target.classList.contains('btncircle')) return;
   else {
-    montVideos.forEach(video => videoOff(video, montVideos));
     filmVideos.forEach(video => videoOff(video, filmVideos));
+    if(e.target.parentElement.classList.contains('montb')) {
+      return;
+    }
+    else {
+      montVideos.forEach(video => videoOff(video, montVideos));
+    }
   }
+})
+
+
+// CLICKED COUNTRY 2 MONTAGE
+const countries = Array.from(document.querySelectorAll('.ctry'));
+const countryMap = [
+  {country: 'safricab', target:'mon5'},
+  {country: 'cyprusb', target:'mon4'},
+  {country: 'hungaryb', target:'mon5'},
+  {country: 'thaib', target:'mon5'},
+  {country: 'nepalb', target:'mon5'},
+  {country: 'qatarb', target:'mon5'},
+  {country: 'lankab', target:'mon5'},
+  {country: 'japanb', target:'mon5'},
+  {country: 'uaeb', target:'mon5'}
+]
+function scroll2Montage(target) {
+  const viewBottom = window.innerHeight + window.scrollY;
+  const bannerRect = bannerBox.getBoundingClientRect();
+  const montageMid = bannerRect.bottom + window.scrollY - (bannerRect.height / 2);
+  const scrollDistance = montageMid - viewBottom + (window.innerHeight / 2);
+  window.scrollBy({
+    top: scrollDistance,
+    behavior: 'smooth'
+  });
+  montVideos.forEach(video => {
+    videoOff(video, montVideos);
+    if(video.classList.contains(target)) {
+      vidOn = true;
+      const playBtn = video.querySelector('.playbtn');
+      const ytVid = video.querySelector('.ytvid');
+      let ytvidClass = "mytvidon";
+      videoOnAnimation(video, montVideos, ytVid, ytvidClass, playBtn);
+    }
+  })
+}
+countryMap.forEach(({country, target}) => {
+  const countryB = document.getElementById(country);
+  countryB.addEventListener('click', () => {
+    scroll2Montage(target);
+  })
 })
 
 
