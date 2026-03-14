@@ -577,12 +577,26 @@ document.addEventListener('keydown', (e) => {
   }
   // open menu items
   else if(menuOn === true){
+    // go to Main/Story
+    if(directsMap[e.key]){
+      return directsMap[e.key].click();
+    }
     // open submenus
     if(menuMap[e.key]){
       Object.values(menuMap).forEach(closeSubmenu);
       return openSubmenu(menuMap[e.key]);
     }
-    // open submenu items
+    // go to subpage
+    else if(hvlogs.classList.contains('menuactive') && homeMap[e.key]){
+      return homeMap[e.key].click();
+    }
+    else if(cvlogs.classList.contains('menuactive') && collegeMap[e.key]){
+      return collegeMap[e.key].click();
+    }
+    else if(tvlogs.classList.contains('menuactive') && travelMap[e.key]){
+      return travelMap[e.key].click();
+    }
+    // close submenu items
     else if(e.key === 'Escape') return menuItems.forEach(item => closeSubmenu(item))
   }
   // toggle world/USA

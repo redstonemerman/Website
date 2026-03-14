@@ -169,9 +169,7 @@ document.addEventListener('keydown', (e) => {
     else if(tvlogs.classList.contains('menuactive') && travelMap[e.key]){
       return travelMap[e.key].click();
     }
-    else if(e.key === 'Escape'){
-      return menuItems.forEach(item => closeSubmenu(item))
-    }
+    else if(e.key === 'Escape'){return menuItems.forEach(item => closeSubmenu(item))}
   }
   else if(e.key === 'Escape'){
       return videos.forEach(video => videoOff(video))
