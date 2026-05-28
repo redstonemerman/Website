@@ -267,6 +267,7 @@ const au = document.getElementById('au');
 const cs = document.getElementById('cs');
 const df = document.getElementById('df');
 const ho = document.getElementById('ho');
+const sa = document.getElementById('sa');
 const tp = document.getElementById('tp');
 const wa = document.getElementById('wa');
 // CA
@@ -279,6 +280,7 @@ const aus = document.getElementById('austin');
 const cst = document.getElementById('college');
 const dfw = document.getElementById('dfw');
 const hou = document.getElementById('houston');
+const ant = document.getElementById('antonio');
 const tem = document.getElementById('temple');
 const wac = document.getElementById('waco');
 // CA
@@ -291,6 +293,7 @@ const TXcityMap = [
   {button: cs, city: cst},
   {button: df, city: dfw},
   {button: ho, city: hou},
+  {button: sa, city: ant},
   {button: tp, city: tem},
   {button: wa, city: wac}
 ]
