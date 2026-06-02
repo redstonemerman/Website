@@ -316,6 +316,7 @@ const texasKey = {
   c: cst,
   d: dfw,
   h: hou,
+  s: ant,
   t: tem,
   w: wac
 }
